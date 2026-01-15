@@ -12,12 +12,21 @@ config_version=5
 
 config/name="Rated T for Trash"
 run/main_scene="uid://b53pfq04i66yx"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+FmodManager="*res://addons/fmod/FmodManager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
+"res://addons/": "yellow",
 "res://assets/": "green"
 }
 
