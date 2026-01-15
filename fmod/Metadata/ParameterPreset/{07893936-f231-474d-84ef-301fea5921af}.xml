@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{07893936-f231-474d-84ef-301fea5921af}">
+		<property name="name">
+			<value>crystals_spawn</value>
+		</property>
+		<relationship name="folder">
+			<destination>{485d4093-dfeb-4df5-9499-361517afd502}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{719a555f-a64b-42f2-a516-91804d318b6a}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{719a555f-a64b-42f2-a516-91804d318b6a}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

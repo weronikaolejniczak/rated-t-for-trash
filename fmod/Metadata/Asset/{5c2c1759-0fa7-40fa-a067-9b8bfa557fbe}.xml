@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{5c2c1759-0fa7-40fa-a067-9b8bfa557fbe}">
+		<property name="assetPath">
+			<value>underwater/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{525b0427-f18d-4eb4-828e-2ad3682f9cfd}</destination>
+		</relationship>
+	</object>
+</objects>
