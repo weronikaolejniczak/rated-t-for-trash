@@ -12,8 +12,12 @@ class_name Player
 
 @onready var bubble_particles: GPUParticles3D = $BubbleParticles
 
+func get_depth() -> int:
+	var depth = floor(self.global_position.y)
+	return depth
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	if (Input.is_action_pressed("boost")):
 		bubble_particles.emitting = true
 		apply_central_force(-basis.y * delta * thrust)
