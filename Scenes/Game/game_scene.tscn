@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://b53pfq04i66yx"]
+
+[ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
+[ext_resource type="PackedScene" uid="uid://bfpbl3k6wqqeq" path="res://Scenes/Camera/camera.tscn" id="2_7r8ec"]
+[ext_resource type="PackedScene" uid="uid://cuv7hwr6hsmuy" path="res://Scenes/Water/water_scene.tscn" id="3_04h35"]
+[ext_resource type="PackedScene" uid="uid://c5bdt61nijh0t" path="res://Scenes/Material/material.tscn" id="4_83mwp"]
+[ext_resource type="PackedScene" uid="uid://gv78faxp2l67" path="res://Scenes/Spawner/spawner.tscn" id="4_kr7le"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2p8i2"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_l6yvh"]
+sky_material = SubResource("ProceduralSkyMaterial_2p8i2")
+
+[sub_resource type="Environment" id="Environment_04h35"]
+background_mode = 2
+sky = SubResource("Sky_l6yvh")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6yvh"]
+albedo_color = Color(0.0894857, 0.19623, 0.206882, 1)
+
+[node name="GameScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_04h35")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Background" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, -20)
+material_override = SubResource("StandardMaterial3D_l6yvh")
+size = Vector3(100, 2000, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_2p8i2")]
+thrust = 100.0
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
+target = NodePath("../Player")
+
+[node name="Spawner" parent="." instance=ExtResource("4_kr7le")]
+object_to_spawn = ExtResource("4_83mwp")
+
+[node name="WaterEffect" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h35")]
+player = NodePath("../Player")

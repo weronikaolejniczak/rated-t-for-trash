@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi47kxe10605f"]
+
+[ext_resource type="Script" uid="uid://dg7xmptw6jtvr" path="res://Scenes/Player/player.gd" id="1_01idm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v6n2j"]
+
+[node name="Player" type="RigidBody3D"]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+gravity_scale = 0.0
+linear_damp = 0.2
+angular_damp = 1.5
+script = ExtResource("1_01idm")
+max_speed = 50.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_v6n2j")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="SphereMesh" type="CSGSphere3D" parent="Visuals"]
+
+[node name="TorusMesh" type="CSGTorus3D" parent="Visuals"]
+transform = Transform3D(0.482691, 0, 0, 0, 0.292347, 0, 0, 0, 0.482691, 0, -0.0088675, 0)
+outer_radius = 1.26448
