@@ -69,8 +69,22 @@ size = Vector3(100, 200, 1)
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Player"]
+event_name = "event:/deep_sea"
+event_guid = "{cd14f5bd-f7f3-4507-abf0-625bc880851b}"
+autoplay = true
+fmod_parameters/bubbles_rate/id = 365163357558520268
+fmod_parameters/bubbles_rate = 0.0
+fmod_parameters/bubbles_rate/variant_type = 3
+fmod_parameters/crystals_spawn/id = -2126944326178185268
+fmod_parameters/crystals_spawn = 0
+fmod_parameters/crystals_spawn/variant_type = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
 target = NodePath("../Player")
+
+[node name="FmodListener3D" type="FmodListener3D" parent="Camera"]
 
 [node name="Spawner" parent="." instance=ExtResource("4_kr7le")]
 object_to_spawn = ExtResource("4_83mwp")
@@ -79,3 +93,6 @@ object_to_spawn = ExtResource("4_83mwp")
 player = NodePath("../Player")
 
 [node name="UI" parent="." instance=ExtResource("7_u63k7")]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://assets/fmod_banks/Desktop/SFX.bank", "res://assets/fmod_banks/Desktop/Master.bank"]
