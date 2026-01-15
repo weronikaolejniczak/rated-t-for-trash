@@ -27,7 +27,6 @@ offset_top = -39.0
 offset_right = 173.0
 offset_bottom = 39.0
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 16
 text = "1000"
 fit_content = true
 autowrap_mode = 0
