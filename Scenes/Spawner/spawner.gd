@@ -6,7 +6,7 @@ extends Node3D
 @export var spawn_x_offset: float = 2.0
 
 ## The y offset in meters where the object may spawn
-@export var spawn_y_offset: float = 2.0
+@export var spawn_y_offset: float = 5.0
 
 ## What is the minimum depth at which objects start spawning
 @export_range(-20.0, -10.0) var min_spawn_depth: float = -10.0
@@ -33,7 +33,8 @@ func get_spawn_x(wall: CSGBox3D, side: String) -> float:
 	return spawn_x
 
 func get_spawn_y() -> float:
-	var spawn_y: float = min(player.get_depth(), min_spawn_depth)
+	var random_offset: float = randf_range(-spawn_y_offset, spawn_y_offset)
+	var spawn_y: float = min(player.get_depth() + random_offset, min_spawn_depth)
 	return spawn_y
 
 func get_spawn_direction(side: String) -> Vector3:
