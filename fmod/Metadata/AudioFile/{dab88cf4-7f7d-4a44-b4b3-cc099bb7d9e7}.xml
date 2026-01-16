@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{dab88cf4-7f7d-4a44-b4b3-cc099bb7d9e7}">
 		<property name="assetPath">
-			<value>crystals_11.ogg</value>
+			<value>sfx/crystals/crystals_11.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

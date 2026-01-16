@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{e4e8ae88-8652-4568-a592-ff897073d5d7}">
+		<property name="assetPath">
+			<value>sfx/diver/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{525b0427-f18d-4eb4-828e-2ad3682f9cfd}</destination>
+		</relationship>
+	</object>
+</objects>

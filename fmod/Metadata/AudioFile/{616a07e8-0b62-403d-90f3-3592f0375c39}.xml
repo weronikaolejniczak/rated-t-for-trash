@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{616a07e8-0b62-403d-90f3-3592f0375c39}">
 		<property name="assetPath">
-			<value>deep-sea-kick-groove.wav</value>
+			<value>music/mood/deep-sea-kick-groove.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
