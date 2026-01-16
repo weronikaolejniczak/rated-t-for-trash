@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://b53pfq04i66yx"]
 
-[ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
-[ext_resource type="Script" uid="uid://608u0y5rwy1g" path="res://Scenes/Game/game.gd" id="1_m6pt0"]
-[ext_resource type="PackedScene" uid="uid://bfpbl3k6wqqeq" path="res://Scenes/Camera/camera.tscn" id="2_7r8ec"]
-[ext_resource type="Material" uid="uid://dl71wespr01d8" path="res://Assets/Materials/ocean_background.tres" id="2_jxx51"]
-[ext_resource type="Material" uid="uid://c4k1pfqnpmstg" path="res://Assets/Materials/transparent.tres" id="2_wsift"]
-[ext_resource type="PackedScene" uid="uid://cuv7hwr6hsmuy" path="res://Scenes/Water/water_scene.tscn" id="3_04h35"]
-[ext_resource type="PackedScene" uid="uid://c5bdt61nijh0t" path="res://Scenes/Material/material.tscn" id="4_83mwp"]
-[ext_resource type="PackedScene" uid="uid://gv78faxp2l67" path="res://Scenes/Spawner/spawner.tscn" id="4_kr7le"]
-[ext_resource type="PackedScene" uid="uid://08inwdgabqo" path="res://Scenes/UI/ui.tscn" id="7_u63k7"]
-[ext_resource type="Script" uid="uid://cr57vfclvpi16" path="res://Scenes/Game/cursor.gd" id="10_fxxt8"]
+[ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://scenes/player/player.tscn" id="1_2p8i2"]
+[ext_resource type="Script" uid="uid://608u0y5rwy1g" path="res://scenes/game/game.gd" id="1_m6pt0"]
+[ext_resource type="PackedScene" uid="uid://bfpbl3k6wqqeq" path="res://scenes/camera/camera.tscn" id="2_7r8ec"]
+[ext_resource type="Material" uid="uid://dl71wespr01d8" path="res://assets/materials/ocean_background.tres" id="2_jxx51"]
+[ext_resource type="Material" uid="uid://c4k1pfqnpmstg" path="res://assets/materials/transparent.tres" id="2_wsift"]
+[ext_resource type="PackedScene" uid="uid://cuv7hwr6hsmuy" path="res://scenes/water/water_scene.tscn" id="3_04h35"]
+[ext_resource type="PackedScene" uid="uid://c5bdt61nijh0t" path="res://scenes/material/material.tscn" id="4_83mwp"]
+[ext_resource type="PackedScene" uid="uid://gv78faxp2l67" path="res://scenes/spawner/spawner.tscn" id="4_kr7le"]
+[ext_resource type="PackedScene" uid="uid://08inwdgabqo" path="res://scenes/ui/ui.tscn" id="7_u63k7"]
+[ext_resource type="Script" uid="uid://cr57vfclvpi16" path="res://scenes/game/cursor.gd" id="10_fxxt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2p8i2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -73,18 +73,21 @@ size = Vector3(100, 200, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Player"]
-event_name = "event:/sfx/deep_sea"
-event_guid = "{cd14f5bd-f7f3-4507-abf0-625bc880851b}"
+event_name = "event:/music/main_bgm"
+event_guid = "{499bbe83-512a-4aef-961c-fe165c09bcf1}"
 autoplay = true
+fmod_parameters/animals_spawn/id = -7895641263147797248
+fmod_parameters/animals_spawn = 0
+fmod_parameters/animals_spawn/variant_type = 2
+fmod_parameters/nature_spawn/id = -6385907991386912787
+fmod_parameters/nature_spawn = 0
+fmod_parameters/nature_spawn/variant_type = 2
 fmod_parameters/is_swimming/id = 8868624640572628040
 fmod_parameters/is_swimming = 0
 fmod_parameters/is_swimming/variant_type = 2
-fmod_parameters/bubbles_rate/id = 365163357558520268
-fmod_parameters/bubbles_rate = 1.0
-fmod_parameters/bubbles_rate/variant_type = 3
-fmod_parameters/crystals_spawn/id = -2126944326178185268
-fmod_parameters/crystals_spawn = 1
-fmod_parameters/crystals_spawn/variant_type = 2
+fmod_parameters/menu_open/id = -6974141798154971579
+fmod_parameters/menu_open = 0
+fmod_parameters/menu_open/variant_type = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
@@ -101,7 +104,7 @@ player = NodePath("../Player")
 [node name="UI" parent="." instance=ExtResource("7_u63k7")]
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://assets/fmod_banks/Desktop/SFX.bank", "res://assets/fmod_banks/Desktop/Master.bank"]
+bank_paths = ["res://assets/fmod_banks/Desktop/Master.bank", "res://assets/fmod_banks/Desktop/BGM.bank", "res://assets/fmod_banks/Desktop/SFX.bank", "res://assets/fmod_banks/Desktop/Master.strings.bank"]
 
 [node name="Cursor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
