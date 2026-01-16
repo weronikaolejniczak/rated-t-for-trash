@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{74d4c380-e583-4c7f-a1b9-e41a5a4b1507}">
 		<property name="assetPath">
-			<value>diver/diver-bubbles.wav</value>
+			<value>sfx/sfx/diver/diver-bubbles.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{bd01d5b8-a42e-4ebd-b2af-0cda26392ec1}">
+	<object class="AudioFile" id="{38a27e28-3096-4187-9847-a1c10cbf5cd4}">
 		<property name="assetPath">
-			<value>sfx/sfx/underwater/sea-up.wav</value>
+			<value>deep-sea-kick-one.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>96</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>10.566083333333333</value>
+			<value>7.659583333333333</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{525b0427-f18d-4eb4-828e-2ad3682f9cfd}</destination>

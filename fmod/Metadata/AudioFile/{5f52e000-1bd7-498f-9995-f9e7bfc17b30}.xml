@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{5f52e000-1bd7-498f-9995-f9e7bfc17b30}">
 		<property name="assetPath">
-			<value>deep-sea-v1.wav</value>
+			<value>music/deep-sea-v1.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

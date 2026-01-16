@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{ee570c31-9bd4-4381-95d4-15d3f00de920}">
 		<property name="assetPath">
-			<value>diver/diver_emerge.wav</value>
+			<value>sfx/sfx/diver/diver_emerge.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>
