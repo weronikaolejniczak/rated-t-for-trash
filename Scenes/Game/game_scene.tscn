@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b53pfq04i66yx"]
+[gd_scene load_steps=14 format=3 uid="uid://b53pfq04i66yx"]
 
 [ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://scenes/player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Script" uid="uid://608u0y5rwy1g" path="res://scenes/game/game.gd" id="1_m6pt0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c5bdt61nijh0t" path="res://scenes/material/material.tscn" id="4_83mwp"]
 [ext_resource type="PackedScene" uid="uid://gv78faxp2l67" path="res://scenes/spawner/spawner.tscn" id="4_kr7le"]
 [ext_resource type="PackedScene" uid="uid://08inwdgabqo" path="res://scenes/ui/ui.tscn" id="7_u63k7"]
+[ext_resource type="Script" uid="uid://cr57vfclvpi16" path="res://scenes/game/cursor.gd" id="10_fxxt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2p8i2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -23,8 +24,10 @@ background_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
 background_energy_multiplier = 3.0
 sky = SubResource("Sky_l6yvh")
 tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 1.0
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.03
+volumetric_fog_density = 0.01
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_m6pt0")
@@ -74,7 +77,7 @@ event_name = "event:/deep_sea"
 event_guid = "{cd14f5bd-f7f3-4507-abf0-625bc880851b}"
 autoplay = true
 fmod_parameters/bubbles_rate/id = 365163357558520268
-fmod_parameters/bubbles_rate = 0.0
+fmod_parameters/bubbles_rate = 1.0
 fmod_parameters/bubbles_rate/variant_type = 3
 fmod_parameters/crystals_spawn/id = -2126944326178185268
 fmod_parameters/crystals_spawn = 0
@@ -96,3 +99,10 @@ player = NodePath("../Player")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://assets/fmod_banks/Desktop/SFX.bank", "res://assets/fmod_banks/Desktop/Master.bank"]
+
+[node name="Cursor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+script = ExtResource("10_fxxt8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cursor"]
+omni_range = 0.5
