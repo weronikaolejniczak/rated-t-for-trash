@@ -4,6 +4,8 @@
 size = Vector3(0.52, 0.416, 0.477)
 
 [node name="Material" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 4
 gravity_scale = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

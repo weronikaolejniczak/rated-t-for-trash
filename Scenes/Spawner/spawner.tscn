@@ -8,7 +8,6 @@ script = ExtResource("1_q65ip")
 object_to_spawn = ExtResource("2_wtxcb")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
