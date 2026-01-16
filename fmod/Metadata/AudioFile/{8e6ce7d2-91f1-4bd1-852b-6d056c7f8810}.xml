@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{134ac347-80df-4328-bd8d-9bbff8812b95}">
+	<object class="AudioFile" id="{8e6ce7d2-91f1-4bd1-852b-6d056c7f8810}">
 		<property name="assetPath">
-			<value>robot-motor.ogg</value>
-		</property>
-		<property name="isStreaming">
-			<value>true</value>
+			<value>music/mood/deep-sea-hihat.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.0010416666666666</value>
+			<value>2.5532083333333335</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{525b0427-f18d-4eb4-828e-2ad3682f9cfd}</destination>
