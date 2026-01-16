@@ -6,6 +6,7 @@
 [node name="Spawner" type="Node3D"]
 script = ExtResource("1_q65ip")
 object_to_spawn = ExtResource("2_wtxcb")
+spawn_y_offset = 20.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
