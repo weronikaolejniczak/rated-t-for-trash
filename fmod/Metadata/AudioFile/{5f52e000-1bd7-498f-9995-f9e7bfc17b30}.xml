@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{5f52e000-1bd7-498f-9995-f9e7bfc17b30}">
+		<property name="assetPath">
+			<value>deep-sea-v1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>107.23406249999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{525b0427-f18d-4eb4-828e-2ad3682f9cfd}</destination>
+		</relationship>
+	</object>
+</objects>

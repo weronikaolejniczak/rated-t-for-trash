@@ -48,7 +48,7 @@
 			<value>qualityA</value>
 		</property>
 		<property name="value">
-			<value>0.707000017</value>
+			<value>0.5</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{2aff5509-9af8-4a1d-9f08-2758407e27c4}</destination>
