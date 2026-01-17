@@ -37,6 +37,7 @@ fog_depth_scale = 4292.0
 environment = SubResource("Environment_04h35")
 
 [node name="WorldBoundaries" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 
 [node name="Background" type="CSGBox3D" parent="WorldBoundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, -20)
@@ -77,7 +78,6 @@ collision_mask = 9
 size = Vector3(100, 200, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -10)
 
 [node name="BgMusicEmitter3D" type="FmodEventEmitter3D" parent="Player"]
 event_name = "event:/music/main_bgm"
@@ -98,7 +98,6 @@ fmod_parameters/menu_open/variant_type = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 target = NodePath("../Player")
 
 [node name="FmodListener3D" type="FmodListener3D" parent="Camera"]
@@ -106,6 +105,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="MaterialSpawner" parent="." instance=ExtResource("4_kr7le")]
 objects_to_spawn = Array[PackedScene]([ExtResource("7_fxxt8")])
+spawn_x_offset = 5.0
+spawn_y_offset = 10.0
 
 [node name="WaterEffect" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h35")]
 player = NodePath("../Player")

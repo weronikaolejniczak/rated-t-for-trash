@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://l3w1wicibd3y" path="res://scenes/material/metal.tscn" id="3_17ekf"]
 [ext_resource type="PackedScene" uid="uid://dg7lyawio6nbk" path="res://scenes/material/wood.tscn" id="4_w0mjd"]
 
-[node name="Material" type="RigidBody3D"]
-gravity_scale = 0.0
+[node name="Material" type="Node3D"]
 script = ExtResource("1_6lttb")
 variants = Array[PackedScene]([ExtResource("3_17ekf"), ExtResource("2_cmx4f"), ExtResource("4_w0mjd")])
