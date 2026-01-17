@@ -439,6 +439,9 @@
 		<relationship name="automators">
 			<destination>{62f09fbb-be01-471b-8756-aa98232a00db}</destination>
 		</relationship>
+		<relationship name="triggerConditions">
+			<destination>{70d1d94d-b048-4585-9acc-275c128c8890}</destination>
+		</relationship>
 		<relationship name="sound">
 			<destination>{e71e1412-1262-4556-9a1b-7741d36f6dd2}</destination>
 		</relationship>
@@ -726,6 +729,17 @@
 		</property>
 		<relationship name="automationCurves">
 			<destination>{5119083d-db70-4008-aa98-ddb491a7d21f}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterCondition" id="{70d1d94d-b048-4585-9acc-275c128c8890}">
+		<property name="minimum">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{719a555f-a64b-42f2-a516-91804d318b6a}</destination>
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{e71e1412-1262-4556-9a1b-7741d36f6dd2}">
