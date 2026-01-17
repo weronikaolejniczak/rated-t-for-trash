@@ -2,10 +2,10 @@ extends Node3D
 
 @export var objects_to_spawn: Array[PackedScene]
 
-## The x offset in meters where the object may spawn
+## The x offset in meters from the wall that the object spawned at
 @export var spawn_x_offset: float = 2.0
 
-## The y offset in meters where the object may spawn
+## The y offset in meters from the player where the object may spawn in both directions
 @export var spawn_y_offset: float = 5.0
 
 ## Whether the objects rotate as they spawn
@@ -18,13 +18,20 @@ extends Node3D
 @export_range(-20.0, -10.0) var min_spawn_depth: float = -10.0
 
 ## How fast is the spawned object moving
-@export var spawn_speed: float = 10.0
+@export var object_speed: float = 10.0
+
+## How fast objects spawn
+@export var timer_value: float = 1.0
 
 @onready var player: Player = $"../Player"
 @onready var right_wall: CSGBox3D = $"../WorldBoundaries/Right wall"
 @onready var left_wall: CSGBox3D = $"../WorldBoundaries/Left wall"
+@onready var timer: Timer = $Timer
 
 var sides: Array[String] = ["left", "right"]
+
+func _ready() -> void:
+	if (timer): timer.wait_time = timer_value
 
 func get_wall(side: String) -> CSGBox3D:
 	var wall: CSGBox3D
@@ -65,7 +72,7 @@ func spawn_object():
 	var object = objects_to_spawn.pick_random().instantiate()
 	var spawn_position = Vector3(spawn_x, spawn_y, player.global_position.z)
 	var spawn_direction = get_spawn_direction(side)
-	var spawn_velocity = spawn_direction * spawn_speed
+	var spawn_velocity = spawn_direction * object_speed
 	var spawn_rotation = get_spawn_rotation()
 	
 	object.position = spawn_position
