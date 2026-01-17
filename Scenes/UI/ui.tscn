@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://08inwdgabqo"]
+[gd_scene load_steps=3 format=3 uid="uid://08inwdgabqo"]
+
+[ext_resource type="FontFile" uid="uid://x8lmdo6aui2q" path="res://assets/fonts/Kenney Future.ttf" id="1_aac20"]
+[ext_resource type="Texture2D" uid="uid://ciblxbpkhltrt" path="res://assets/textures/ui/Grey/Default/button_square_header_small_rectangle.png" id="1_f5cxw"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -8,26 +11,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DepthMeter" type="Panel" parent="."]
+[node name="BottomLeftUI" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -78.0
-offset_right = 205.0
+offset_top = -92.0
+offset_right = 225.0
 grow_vertical = 0
 
-[node name="Label" type="RichTextLabel" parent="DepthMeter"]
+[node name="DepthMeter" type="Control" parent="BottomLeftUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ButtonSquareHeaderSmallRectangle" type="Sprite2D" parent="BottomLeftUI/DepthMeter"]
+texture = ExtResource("1_f5cxw")
+
+[node name="Label" type="RichTextLabel" parent="BottomLeftUI/DepthMeter"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -39.0
-offset_right = 173.0
-offset_bottom = 39.0
-grow_vertical = 2
-text = "1000"
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = -16.0
+offset_right = 96.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("1_aac20")
+theme_override_font_sizes/normal_font_size = 24
+text = "-1000"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
