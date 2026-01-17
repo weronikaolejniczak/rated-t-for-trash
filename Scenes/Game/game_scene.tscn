@@ -6,8 +6,8 @@
 [ext_resource type="Material" uid="uid://dl71wespr01d8" path="res://assets/materials/ocean_background.tres" id="2_jxx51"]
 [ext_resource type="Material" uid="uid://c4k1pfqnpmstg" path="res://assets/materials/transparent.tres" id="2_wsift"]
 [ext_resource type="PackedScene" uid="uid://cuv7hwr6hsmuy" path="res://scenes/water/water_scene.tscn" id="3_04h35"]
-[ext_resource type="PackedScene" uid="uid://c5bdt61nijh0t" path="res://scenes/material/material.tscn" id="4_83mwp"]
 [ext_resource type="PackedScene" uid="uid://gv78faxp2l67" path="res://scenes/spawner/spawner.tscn" id="4_kr7le"]
+[ext_resource type="PackedScene" uid="uid://cfri23ks35txw" path="res://scenes/material/material.tscn" id="7_fxxt8"]
 [ext_resource type="PackedScene" uid="uid://08inwdgabqo" path="res://scenes/ui/ui.tscn" id="7_u63k7"]
 [ext_resource type="Script" uid="uid://cr57vfclvpi16" path="res://scenes/game/cursor.gd" id="10_fxxt8"]
 
@@ -42,37 +42,44 @@ environment = SubResource("Environment_04h35")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, -20)
 material_override = ExtResource("2_jxx51")
 use_collision = true
+collision_layer = 2
+collision_mask = 9
 size = Vector3(200, 2000, 1)
 
 [node name="Right wall" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 49.5, -1000, 5.5)
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 30, -1000, 5.5)
 material_override = ExtResource("2_wsift")
 use_collision = true
+collision_layer = 2
 size = Vector3(100, 2000, 1)
 
 [node name="Left wall" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, -49.5, -1000, 5.5)
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, -30, -1000, 5.5)
 material_override = ExtResource("2_wsift")
 use_collision = true
+collision_layer = 2
 size = Vector3(100, 2000, 1)
 
 [node name="Ceiling" type="CSGBox3D" parent="WorldBoundaries"]
 transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, 0.25, 5.5)
 material_override = ExtResource("2_wsift")
 use_collision = true
+collision_layer = 4
+collision_mask = 9
 size = Vector3(100, 100, 1)
 
 [node name="Floor" type="CSGBox3D" parent="WorldBoundaries"]
 transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -2000.25, 5.5)
 material_override = ExtResource("2_jxx51")
 use_collision = true
+collision_layer = 4
 collision_mask = 9
 size = Vector3(100, 200, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -10)
 
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Player"]
+[node name="BgMusicEmitter3D" type="FmodEventEmitter3D" parent="Player"]
 event_name = "event:/music/main_bgm"
 event_guid = "{499bbe83-512a-4aef-961c-fe165c09bcf1}"
 autoplay = true
@@ -88,15 +95,17 @@ fmod_parameters/is_swimming/variant_type = 2
 fmod_parameters/menu_open/id = -6974141798154971579
 fmod_parameters/menu_open = 0
 fmod_parameters/menu_open/variant_type = 2
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 target = NodePath("../Player")
 
 [node name="FmodListener3D" type="FmodListener3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="Spawner" parent="." instance=ExtResource("4_kr7le")]
-object_to_spawn = ExtResource("4_83mwp")
+[node name="MaterialSpawner" parent="." instance=ExtResource("4_kr7le")]
+objects_to_spawn = Array[PackedScene]([ExtResource("7_fxxt8")])
 
 [node name="WaterEffect" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h35")]
 player = NodePath("../Player")
@@ -108,7 +117,9 @@ bank_paths = ["res://assets/fmod_banks/Desktop/Master.bank", "res://assets/fmod_
 
 [node name="Cursor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+visible = false
 script = ExtResource("10_fxxt8")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Cursor"]
+visible = false
 omni_range = 0.5

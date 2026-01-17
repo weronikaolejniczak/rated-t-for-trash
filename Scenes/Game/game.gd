@@ -5,7 +5,7 @@ extends Node3D
 
 @onready var player: Player = $Player
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
-@onready var depth_ui_label: Control = $UI/DepthMeter/Label
+@onready var depth_ui_label: RichTextLabel = $UI/BottomLeftUI/DepthMeter/Label
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

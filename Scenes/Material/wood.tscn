@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg7lyawio6nbk"]
+
+[ext_resource type="Script" uid="uid://bb1a78xr8am7q" path="res://scenes/material/wood.gd" id="1_03543"]
+[ext_resource type="PackedScene" uid="uid://c84643kwy7mja" path="res://assets/models/wood/Barrel.fbx" id="2_s3xle"]
+[ext_resource type="PackedScene" uid="uid://dmdiqfxpq5q4v" path="res://assets/models/wood/Chest.fbx" id="3_lk4yn"]
+[ext_resource type="PackedScene" uid="uid://0c5e8xeekutu" path="res://assets/models/wood/Chest_Special.fbx" id="4_0q40o"]
+[ext_resource type="PackedScene" uid="uid://5pmpq7clpt5s" path="res://assets/models/wood/Crate.fbx" id="5_0ga2y"]
+
+[node name="WoodMaterial" type="Node3D"]
+script = ExtResource("1_03543")
+variants = Array[PackedScene]([ExtResource("2_s3xle"), ExtResource("3_lk4yn"), ExtResource("4_0q40o"), ExtResource("5_0ga2y")])

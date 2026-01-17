@@ -1,13 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5bdt61nijh0t"]
+[gd_scene load_steps=5 format=3 uid="uid://cfri23ks35txw"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_n1nhp"]
-size = Vector3(0.52, 0.416, 0.477)
+[ext_resource type="Script" uid="uid://c130yjreb0f21" path="res://scenes/material/material.gd" id="1_6lttb"]
+[ext_resource type="PackedScene" uid="uid://dsdo2hsay7515" path="res://scenes/material/plastic.tscn" id="2_cmx4f"]
+[ext_resource type="PackedScene" uid="uid://l3w1wicibd3y" path="res://scenes/material/metal.tscn" id="3_17ekf"]
+[ext_resource type="PackedScene" uid="uid://dg7lyawio6nbk" path="res://scenes/material/wood.tscn" id="4_w0mjd"]
 
 [node name="Material" type="RigidBody3D"]
 gravity_scale = 0.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_n1nhp")
-
-[node name="BoxMesh" type="CSGBox3D" parent="."]
-transform = Transform3D(0.520127, 0, 0, 0, 0.416283, 0, 0, 0, 0.476588, 0, 0, 0)
+script = ExtResource("1_6lttb")
+variants = Array[PackedScene]([ExtResource("3_17ekf"), ExtResource("2_cmx4f"), ExtResource("4_w0mjd")])
