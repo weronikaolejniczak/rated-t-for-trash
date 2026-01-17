@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b53pfq04i66yx"]
+[gd_scene load_steps=15 format=3 uid="uid://b53pfq04i66yx"]
 
 [ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://scenes/player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Script" uid="uid://608u0y5rwy1g" path="res://scenes/game/game.gd" id="1_m6pt0"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cfri23ks35txw" path="res://scenes/material/material.tscn" id="7_fxxt8"]
 [ext_resource type="PackedScene" uid="uid://08inwdgabqo" path="res://scenes/ui/ui.tscn" id="7_u63k7"]
 [ext_resource type="PackedScene" uid="uid://bh7lu47252k1j" path="res://scenes/fish/fish.tscn" id="8_fxxt8"]
+[ext_resource type="Script" uid="uid://b4biqdbnslydu" path="res://scenes/game/music_player.gd" id="11_ecdjj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2p8i2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -31,7 +32,7 @@ volumetric_fog_density = 0.01
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_m6pt0")
-fog_depth_scale = 2000.0
+fog_depth_scale = 1500.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_04h35")
@@ -40,26 +41,26 @@ environment = SubResource("Environment_04h35")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 
 [node name="Background" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1000, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -250, -20)
 material_override = ExtResource("2_jxx51")
 use_collision = true
 collision_layer = 2
 collision_mask = 9
-size = Vector3(200, 2000, 1)
+size = Vector3(200, 500, 1)
 
 [node name="Right wall" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 30, -1000, 5.5)
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 30, -250, 5.5)
 material_override = ExtResource("2_wsift")
 use_collision = true
 collision_layer = 2
-size = Vector3(100, 2000, 1)
+size = Vector3(100, 500, 1)
 
 [node name="Left wall" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, -30, -1000, 5.5)
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, -30, -250, 5.5)
 material_override = ExtResource("2_wsift")
 use_collision = true
 collision_layer = 2
-size = Vector3(100, 2000, 1)
+size = Vector3(100, 500, 1)
 
 [node name="Ceiling" type="CSGBox3D" parent="WorldBoundaries"]
 transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, 0.25, 5.5)
@@ -70,7 +71,7 @@ collision_mask = 9
 size = Vector3(100, 100, 1)
 
 [node name="Floor" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -2000.25, 5.5)
+transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -500.25, 5.5)
 material_override = ExtResource("2_jxx51")
 use_collision = true
 collision_layer = 4
@@ -79,23 +80,17 @@ size = Vector3(100, 200, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
 
-[node name="BgMusicEmitter3D" type="FmodEventEmitter3D" parent="Player"]
-event_name = "event:/music/main_bgm"
-event_guid = "{499bbe83-512a-4aef-961c-fe165c09bcf1}"
+[node name="RobotSFX" type="FmodEventEmitter2D" parent="Player"]
+event_name = "event:/sfx/robot"
+event_guid = "{2ca9b1e0-ada2-46f8-a2d2-d07fa28f1d3e}"
 autoplay = true
-fmod_parameters/animals_spawn/id = -7895641263147797248
-fmod_parameters/animals_spawn = 0
-fmod_parameters/animals_spawn/variant_type = 2
-fmod_parameters/nature_spawn/id = -6385907991386912787
-fmod_parameters/nature_spawn = 0
-fmod_parameters/nature_spawn/variant_type = 2
-fmod_parameters/is_swimming/id = 8868624640572628040
-fmod_parameters/is_swimming = 0
-fmod_parameters/is_swimming/variant_type = 2
-fmod_parameters/menu_open/id = -6974141798154971579
-fmod_parameters/menu_open = 0
-fmod_parameters/menu_open/variant_type = 2
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
+fmod_parameters/states/id = -7971225627550033380
+fmod_parameters/states = "idle"
+fmod_parameters/states/labels = PackedStringArray("idle", "emerge", "dive", "swimming")
+fmod_parameters/states/variant_type = 4
+fmod_parameters/speed/id = -3509562896973562136
+fmod_parameters/speed = 0.0
+fmod_parameters/speed/variant_type = 3
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
 target = NodePath("../Player")
@@ -108,6 +103,7 @@ objects_to_spawn = Array[PackedScene]([ExtResource("7_fxxt8")])
 timer_value = 1.0
 spawn_y_offset = 10.0
 spawn_z_offset = -0.5
+min_spawn_depth = -20.0
 is_continuously_rotating = true
 
 [node name="FishSpawner" parent="." instance=ExtResource("4_kr7le")]
@@ -116,12 +112,33 @@ object_speed = 8.0
 timer_value = 2.0
 spawn_y_offset = 10.0
 spawn_z_offset = -2.0
-min_spawn_depth = -20.0
+min_spawn_depth = -50.0
 
 [node name="WaterEffect" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h35")]
 player = NodePath("../Player")
 
 [node name="UI" parent="." instance=ExtResource("7_u63k7")]
+
+[node name="MusicPlayer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
+script = ExtResource("11_ecdjj")
+
+[node name="BackgroundMusic" type="FmodEventEmitter2D" parent="MusicPlayer"]
+event_name = "event:/music/main_bgm"
+event_guid = "{499bbe83-512a-4aef-961c-fe165c09bcf1}"
+autoplay = true
+fmod_parameters/animals_spawn/id = -7895641263147797248
+fmod_parameters/animals_spawn = 0.0
+fmod_parameters/animals_spawn/variant_type = 3
+fmod_parameters/nature_spawn/id = -6385907991386912787
+fmod_parameters/nature_spawn = 0.0
+fmod_parameters/nature_spawn/variant_type = 3
+fmod_parameters/is_swimming/id = 8868624640572628040
+fmod_parameters/is_swimming = 0
+fmod_parameters/is_swimming/variant_type = 2
+fmod_parameters/menu_open/id = -6974141798154971579
+fmod_parameters/menu_open = 0.0
+fmod_parameters/menu_open/variant_type = 3
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://assets/fmod_banks/Desktop/Master.bank", "res://assets/fmod_banks/Desktop/BGM.bank", "res://assets/fmod_banks/Desktop/SFX.bank", "res://assets/fmod_banks/Desktop/Master.strings.bank"]

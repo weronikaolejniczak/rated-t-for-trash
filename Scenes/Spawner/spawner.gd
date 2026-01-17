@@ -16,7 +16,7 @@ extends Node3D
 ## The z offset in meters from the player where the object may spawn
 @export_range(-2.0, 2.0) var spawn_z_offset: float = -1.0
 ## What is the minimum depth at which objects start spawning
-@export_range(-20.0, -10.0) var min_spawn_depth: float = -10.0
+@export var min_spawn_depth: float = -10.0
 
 @export_category("Rotation")
 ## Whether the object is rotating continuously

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpf6g4dkfcgo8" path="res://scenes/water/water_effect.gd" id="1_sf01j"]
 [ext_resource type="Shader" uid="uid://bkl03hml176rh" path="res://shaders/water/water_shader.gdshader" id="2_wvtuu"]
-[ext_resource type="Texture2D" uid="uid://t31mhcry1ytw" path="res://icon.svg" id="3_xtg8m"]
+[ext_resource type="Texture2D" uid="uid://cpdi23xehenhk" path="res://assets/textures/ui/glassPanel.png" id="3_juvsr"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_sf01j"]
 noise_type = 2
@@ -15,9 +15,9 @@ fractal_weighted_strength = 0.7
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wvtuu"]
 width = 524
 height = 524
+noise = SubResource("FastNoiseLite_sf01j")
 seamless = true
 seamless_blend_skirt = 0.64
-noise = SubResource("FastNoiseLite_sf01j")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_elpgg"]
 shader = ExtResource("2_wvtuu")
@@ -32,6 +32,6 @@ script = ExtResource("1_sf01j")
 
 [node name="Texture" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_elpgg")
-position = Vector2(577.249, 322.786)
-scale = Vector2(8.9961, 5.05021)
-texture = ExtResource("3_xtg8m")
+position = Vector2(575.99994, 323.99997)
+scale = Vector2(11.52, 6.48)
+texture = ExtResource("3_juvsr")
