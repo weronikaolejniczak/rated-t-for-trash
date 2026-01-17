@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://gv78faxp2l67" path="res://scenes/spawner/spawner.tscn" id="4_kr7le"]
 [ext_resource type="PackedScene" uid="uid://cfri23ks35txw" path="res://scenes/material/material.tscn" id="7_fxxt8"]
 [ext_resource type="PackedScene" uid="uid://08inwdgabqo" path="res://scenes/ui/ui.tscn" id="7_u63k7"]
-[ext_resource type="Script" uid="uid://cr57vfclvpi16" path="res://scenes/game/cursor.gd" id="10_fxxt8"]
+[ext_resource type="PackedScene" uid="uid://bh7lu47252k1j" path="res://scenes/fish/fish.tscn" id="8_fxxt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2p8i2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -105,8 +105,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="MaterialSpawner" parent="." instance=ExtResource("4_kr7le")]
 objects_to_spawn = Array[PackedScene]([ExtResource("7_fxxt8")])
-spawn_x_offset = 5.0
+timer_value = 1.0
 spawn_y_offset = 10.0
+spawn_z_offset = -0.5
+is_continuously_rotating = true
+
+[node name="FishSpawner" parent="." instance=ExtResource("4_kr7le")]
+objects_to_spawn = Array[PackedScene]([ExtResource("8_fxxt8")])
+object_speed = 8.0
+timer_value = 2.0
+spawn_y_offset = 10.0
+spawn_z_offset = -2.0
+min_spawn_depth = -20.0
 
 [node name="WaterEffect" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h35")]
 player = NodePath("../Player")
@@ -115,12 +125,3 @@ player = NodePath("../Player")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://assets/fmod_banks/Desktop/Master.bank", "res://assets/fmod_banks/Desktop/BGM.bank", "res://assets/fmod_banks/Desktop/SFX.bank", "res://assets/fmod_banks/Desktop/Master.strings.bank"]
-
-[node name="Cursor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-visible = false
-script = ExtResource("10_fxxt8")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Cursor"]
-visible = false
-omni_range = 0.5

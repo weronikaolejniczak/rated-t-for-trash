@@ -6,21 +6,21 @@ extends Node3D
 ## How fast is the spawned object moving
 @export_range(1.0, 8.0) var object_speed: float = 5.0
 ## How fast objects spawn
-@export var timer_value: float = 0.5
+@export_range(0.1, 5.0) var timer_value: float = 0.5
 
 @export_category("Position")
 ## The x offset in meters from the wall that the object spawned at
-@export var spawn_x_offset: float = 2.0
+@export_range(5.0, 10.0) var spawn_x_offset: float = 5.0
 ## The y offset in meters from the player where the object may spawn
-@export var spawn_y_offset: float = 5.0
+@export_range(2.0, 15.0) var spawn_y_offset: float = 10.0
 ## The z offset in meters from the player where the object may spawn
-@export var spawn_z_offset: float = -1.0
+@export_range(-2.0, 2.0) var spawn_z_offset: float = -1.0
 ## What is the minimum depth at which objects start spawning
 @export_range(-20.0, -10.0) var min_spawn_depth: float = -10.0
 
 @export_category("Rotation")
-## Whether the objects rotate as they spawn
-@export var should_rotate: bool = true
+## Whether the object is rotating continuously
+@export var is_continuously_rotating: bool = false
 ## The object's rotation angle in radians
 @export var rotation_angle: float = 1.0
 
@@ -57,11 +57,17 @@ func get_spawn_direction(side: String) -> Vector3:
 	else: x = -1.0
 	return Vector3(x, 0.0, 0.0).normalized()
 
-func get_spawn_rotation() -> Vector3:
+func get_spawn_angular_velocity() -> Vector3:
 	var x = randf_range(-1.0, 1.0)
 	var y = randf_range(-1.0, 1.0)
 	var z = randf_range(-1.0, 1.0)
-	var spawn_rotation: Vector3 = Vector3(x, y, z).normalized()
+	var spawn_angular_velocity: Vector3 = Vector3(x, y, z).normalized()
+	return spawn_angular_velocity
+
+func get_spawn_rotation(side: String) -> Vector3:
+	var spawn_rotation: Vector3 = Vector3.ZERO
+	if (side == "left"): spawn_rotation.y = PI / 2
+	else: spawn_rotation.y = -(PI / 2)
 	return spawn_rotation
 
 func spawn_object():
@@ -75,13 +81,17 @@ func spawn_object():
 	var spawn_position = Vector3(spawn_x, spawn_y, spawn_z)
 	var spawn_direction = get_spawn_direction(side)
 	var spawn_velocity = spawn_direction * object_speed
-	var spawn_rotation = get_spawn_rotation()
 	
 	add_child(object)
 	
 	object.position = spawn_position
 	object.velocity = spawn_velocity
-	object.angular_velocity = spawn_rotation * rotation_angle
+	
+	if (is_continuously_rotating):
+		var spawn_angular_velocity = get_spawn_angular_velocity()
+		object.angular_velocity = spawn_angular_velocity * rotation_angle
+	else:
+		object.rotation = get_spawn_rotation(side)
 
 func _on_timer_timeout() -> void:
 	if (is_enabled): spawn_object()

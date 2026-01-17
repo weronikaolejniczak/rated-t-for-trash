@@ -41,7 +41,7 @@ turbulence_noise_speed_random = 0.25
 [sub_resource type="QuadMesh" id="QuadMesh_mtuoh"]
 
 [node name="Player" type="RigidBody3D"]
-collision_mask = 2
+collision_mask = 6
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
