@@ -274,7 +274,7 @@
 			<value>10.566083333333333</value>
 		</property>
 		<property name="volume">
-			<value>4</value>
+			<value>10</value>
 		</property>
 		<property name="looping">
 			<value>true</value>
@@ -343,6 +343,9 @@
 		</property>
 		<property name="volume">
 			<value>-8</value>
+		</property>
+		<property name="polyphony">
+			<value>32</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
 			<value>5000</value>
@@ -427,8 +430,8 @@
 		<property name="name">
 			<value>crystals</value>
 		</property>
-		<property name="volume">
-			<value>4</value>
+		<property name="maximumTimeBetweenSounds">
+			<value>5000</value>
 		</property>
 		<property name="spawnRate">
 			<value>50</value>
@@ -634,7 +637,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>12.5</value>
+			<value>25</value>
 		</property>
 	</object>
 	<object class="TransitionSourceFadeOutCurve" id="{7a606604-6462-4e3b-ac9a-983c324be270}">
@@ -1079,7 +1082,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>13.9999981</value>
 		</property>
 	</object>
 </objects>
