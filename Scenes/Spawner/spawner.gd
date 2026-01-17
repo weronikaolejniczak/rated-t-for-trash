@@ -8,6 +8,12 @@ extends Node3D
 ## The y offset in meters where the object may spawn
 @export var spawn_y_offset: float = 5.0
 
+## Whether the objects rotate as they spawn
+@export var should_rotate: bool = true
+
+## The object's rotation angle in radians
+@export var rotation_angle: float = 1.0
+
 ## What is the minimum depth at which objects start spawning
 @export_range(-20.0, -10.0) var min_spawn_depth: float = -10.0
 
@@ -43,6 +49,13 @@ func get_spawn_direction(side: String) -> Vector3:
 	else: x = -1.0
 	return Vector3(x, 0.0, 0.0).normalized()
 
+func get_spawn_rotation() -> Vector3:
+	var x = randf_range(-1.0, 1.0)
+	var y = randf_range(-1.0, 1.0)
+	var z = randf_range(-1.0, 1.0)
+	var spawn_rotation: Vector3 = Vector3(x, y, z).normalized()
+	return spawn_rotation
+
 func spawn_object():
 	var side = sides.pick_random()
 	var wall: CSGBox3D = get_wall(side)
@@ -53,11 +66,11 @@ func spawn_object():
 	var spawn_position = Vector3(spawn_x, spawn_y, player.global_position.z)
 	var spawn_direction = get_spawn_direction(side)
 	var spawn_velocity = spawn_direction * spawn_speed
-	
-	print("Object spawned at ", spawn_position, " with velocity ", spawn_velocity)
+	var spawn_rotation = get_spawn_rotation()
 	
 	object.position = spawn_position
 	object.linear_velocity = spawn_velocity
+	object.angular_velocity = spawn_rotation * rotation_angle
 	add_child(object)
 
 func _on_timer_timeout() -> void:
