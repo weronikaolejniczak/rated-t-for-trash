@@ -105,6 +105,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="MaterialSpawner" parent="." instance=ExtResource("4_kr7le")]
 objects_to_spawn = Array[PackedScene]([ExtResource("7_fxxt8")])
+spawn_x_offset = 5.0
+spawn_y_offset = 10.0
 
 [node name="WaterEffect" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h35")]
 player = NodePath("../Player")
