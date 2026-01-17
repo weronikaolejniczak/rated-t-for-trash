@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{499bbe83-512a-4aef-961c-fe165c09bcf1}">
+		<property name="color">
+			<value>Purple Light 1</value>
+		</property>
 		<property name="name">
 			<value>main_bgm</value>
 		</property>
@@ -58,6 +61,9 @@
 		</relationship>
 	</object>
 	<object class="MixerInput" id="{0dd63730-68eb-42c9-8d4f-e056bf2908d6}">
+		<property name="color">
+			<value>Purple</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{22563c89-7d97-48d8-9e83-8dec8583a60a}</destination>
 		</relationship>

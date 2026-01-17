@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Snapshot" id="{417ca88c-31f4-44f6-a5bb-f81011faed46}">
+		<property name="color">
+			<value>Blue Light 2</value>
+		</property>
 		<property name="name">
 			<value>normal</value>
 		</property>
