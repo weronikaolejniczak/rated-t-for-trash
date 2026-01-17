@@ -86,6 +86,10 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{2b98daf5-a1a2-4769-a628-076da4e3b275}">
+		<relationship name="modulators">
+			<destination>{a0231d81-958b-4f65-9eb5-20abe4ce59fd}</destination>
+			<destination>{e8b4777e-5e83-4368-9af7-6c1fc62ef00f}</destination>
+		</relationship>
 		<relationship name="sounds">
 			<destination>{3ac2b711-55d0-4b3a-9051-f40a4da7953d}</destination>
 			<destination>{f503e184-df24-44f6-859f-38c411096286}</destination>
@@ -105,22 +109,50 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{83077039-7c79-458a-b99e-5941de735a0c}" />
+	<object class="RandomizerModulator" id="{a0231d81-958b-4f65-9eb5-20abe4ce59fd}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="amount">
+			<value>6</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{e8b4777e-5e83-4368-9af7-6c1fc62ef00f}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>8.33333397</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{3ac2b711-55d0-4b3a-9051-f40a4da7953d}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{86f7140e-983c-481c-be9e-8ad71668035a}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{f503e184-df24-44f6-859f-38c411096286}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{1f9666e2-3098-4040-b2f1-144c85232347}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{68f302b3-56c3-4e18-9133-a8b0838536ad}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{3d2761f3-a63f-4dbc-90c5-bf8c8785a73f}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{e7632ecc-b943-430d-b146-6cfcfa31026d}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{c7fabeec-dca1-4bba-966f-227db64bea68}</destination>
 		</relationship>
