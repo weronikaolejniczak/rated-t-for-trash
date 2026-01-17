@@ -1,0 +1,16 @@
+[gd_scene load_steps=11 format=3 uid="uid://dsdo2hsay7515"]
+
+[ext_resource type="Script" uid="uid://tulub7ep7kpp" path="res://scenes/material/plastic.gd" id="1_jb5ku"]
+[ext_resource type="PackedScene" uid="uid://b1pnk1wyrnlsu" path="res://assets/models/plastic/WaterBottle_3.fbx" id="2_d4nju"]
+[ext_resource type="PackedScene" uid="uid://cw7co237m2nqu" path="res://assets/models/plastic/Bathroom_Toilet.fbx" id="2_efskv"]
+[ext_resource type="PackedScene" uid="uid://dmmf76y4hcusv" path="res://assets/models/plastic/TrafficCone_1.fbx" id="3_ulvda"]
+[ext_resource type="PackedScene" uid="uid://dsrfvgiql3cti" path="res://assets/models/plastic/DwarfBottle.fbx" id="4_h8qcy"]
+[ext_resource type="PackedScene" uid="uid://nkeuisi3lgwf" path="res://assets/models/plastic/CrushedBottle.fbx" id="4_s2hvs"]
+[ext_resource type="PackedScene" uid="uid://bo3rktt8hwwk8" path="res://assets/models/plastic/FlatBottle.fbx" id="5_lsxxk"]
+[ext_resource type="PackedScene" uid="uid://coqss41ktvpn5" path="res://assets/models/plastic/Guitar.fbx" id="6_nlm3v"]
+[ext_resource type="PackedScene" uid="uid://c23uuj7j8u3u8" path="res://assets/models/plastic/PlasticBarrier.fbx" id="7_3clyv"]
+[ext_resource type="PackedScene" uid="uid://c1h2cb0se0ei1" path="res://assets/models/plastic/TwistedBottle.fbx" id="9_eshon"]
+
+[node name="PlasticMaterial" type="Node3D"]
+script = ExtResource("1_jb5ku")
+variants = Array[PackedScene]([ExtResource("2_efskv"), ExtResource("4_s2hvs"), ExtResource("4_h8qcy"), ExtResource("5_lsxxk"), ExtResource("6_nlm3v"), ExtResource("7_3clyv"), ExtResource("3_ulvda"), ExtResource("9_eshon"), ExtResource("2_d4nju")])

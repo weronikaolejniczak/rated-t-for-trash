@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b53pfq04i66yx"]
+[gd_scene load_steps=14 format=3 uid="uid://b53pfq04i66yx"]
 
 [ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://scenes/player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Script" uid="uid://608u0y5rwy1g" path="res://scenes/game/game.gd" id="1_m6pt0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://c4k1pfqnpmstg" path="res://assets/materials/transparent.tres" id="2_wsift"]
 [ext_resource type="PackedScene" uid="uid://cuv7hwr6hsmuy" path="res://scenes/water/water_scene.tscn" id="3_04h35"]
 [ext_resource type="PackedScene" uid="uid://gv78faxp2l67" path="res://scenes/spawner/spawner.tscn" id="4_kr7le"]
+[ext_resource type="PackedScene" uid="uid://cfri23ks35txw" path="res://scenes/material/material.tscn" id="7_fxxt8"]
 [ext_resource type="PackedScene" uid="uid://08inwdgabqo" path="res://scenes/ui/ui.tscn" id="7_u63k7"]
 [ext_resource type="Script" uid="uid://cr57vfclvpi16" path="res://scenes/game/cursor.gd" id="10_fxxt8"]
 
@@ -104,7 +105,8 @@ target = NodePath("../Player")
 [node name="FmodListener3D" type="FmodListener3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="Spawner" parent="." instance=ExtResource("4_kr7le")]
+[node name="MaterialSpawner" parent="." instance=ExtResource("4_kr7le")]
+objects_to_spawn = Array[PackedScene]([ExtResource("7_fxxt8")])
 
 [node name="WaterEffect" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_04h35")]
 player = NodePath("../Player")

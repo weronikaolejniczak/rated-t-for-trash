@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://gv78faxp2l67"]
+[gd_scene load_steps=2 format=3 uid="uid://gv78faxp2l67"]
 
 [ext_resource type="Script" uid="uid://w36sqkuqf7sj" path="res://scenes/spawner/spawner.gd" id="1_q65ip"]
-[ext_resource type="PackedScene" uid="uid://c5bdt61nijh0t" path="res://scenes/material/material.tscn" id="2_wtxcb"]
 
 [node name="Spawner" type="Node3D"]
 script = ExtResource("1_q65ip")
-object_to_spawn = ExtResource("2_wtxcb")
 spawn_y_offset = 20.0
 
 [node name="Timer" type="Timer" parent="."]

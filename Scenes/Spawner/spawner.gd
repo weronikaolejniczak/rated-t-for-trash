@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var object_to_spawn: PackedScene
+@export var objects_to_spawn: Array[PackedScene]
 
 ## The x offset in meters where the object may spawn
 @export var spawn_x_offset: float = 2.0
@@ -49,7 +49,7 @@ func spawn_object():
 	var spawn_x: float = get_spawn_x(wall, side)
 	var spawn_y: float = get_spawn_y()
 	
-	var object = object_to_spawn.instantiate()
+	var object = objects_to_spawn.pick_random().instantiate()
 	var spawn_position = Vector3(spawn_x, spawn_y, player.global_position.z)
 	var spawn_direction = get_spawn_direction(side)
 	var spawn_velocity = spawn_direction * spawn_speed
