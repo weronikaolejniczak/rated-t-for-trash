@@ -1,0 +1,17 @@
+[gd_scene load_steps=12 format=3 uid="uid://l3w1wicibd3y"]
+
+[ext_resource type="Script" uid="uid://wcnad8qtahqw" path="res://scenes/material/metal.gd" id="1_scdu2"]
+[ext_resource type="PackedScene" uid="uid://dajc1bhk53jwc" path="res://assets/models/metal/Bathroom_WashingMachine.fbx" id="2_21g0x"]
+[ext_resource type="PackedScene" uid="uid://by02w4ww6o3hw" path="res://assets/models/metal/BearTrap_Open.fbx" id="3_oyiwn"]
+[ext_resource type="PackedScene" uid="uid://cyyenmo14tkrx" path="res://assets/models/metal/Can_Broken.fbx" id="4_66cn5"]
+[ext_resource type="PackedScene" uid="uid://dlnygm8armoew" path="res://assets/models/metal/Can_Closed.fbx" id="5_wjrji"]
+[ext_resource type="PackedScene" uid="uid://c8gfyelganlw6" path="res://assets/models/metal/Can_Red.fbx" id="6_7oabi"]
+[ext_resource type="PackedScene" uid="uid://crlvdk35b8rdb" path="res://assets/models/metal/GasTank.fbx" id="7_t4o86"]
+[ext_resource type="PackedScene" uid="uid://bq7o2e6l31jis" path="res://assets/models/metal/Kitchen_Oven_Large.fbx" id="8_0jlai"]
+[ext_resource type="PackedScene" uid="uid://cicqropiid4gk" path="res://assets/models/metal/Phone.fbx" id="9_luygo"]
+[ext_resource type="PackedScene" uid="uid://d2frqcpdmv3vp" path="res://assets/models/metal/Radio.fbx" id="10_qguhd"]
+[ext_resource type="PackedScene" uid="uid://c37j5wm7qgk5v" path="res://assets/models/metal/Shovel.fbx" id="11_n5sjf"]
+
+[node name="MetalMaterial" type="Node3D"]
+script = ExtResource("1_scdu2")
+variants = Array[PackedScene]([ExtResource("2_21g0x"), ExtResource("3_oyiwn"), ExtResource("4_66cn5"), ExtResource("5_wjrji"), ExtResource("6_7oabi"), ExtResource("7_t4o86"), ExtResource("8_0jlai"), ExtResource("9_luygo"), ExtResource("10_qguhd"), ExtResource("11_n5sjf")])
