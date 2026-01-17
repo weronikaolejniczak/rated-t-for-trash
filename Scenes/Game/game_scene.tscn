@@ -31,7 +31,7 @@ volumetric_fog_density = 0.01
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_m6pt0")
-fog_depth_scale = 4292.0
+fog_depth_scale = 2000.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_04h35")
