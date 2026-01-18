@@ -36,6 +36,9 @@ func add_wood(amount: int) -> void: player_inventory.wood += amount
 
 func remove_wood(amount: int) -> void: player_inventory.wood -= amount
 
+func get_inventory() -> Dictionary:
+	return player_inventory
+
 func get_depth() -> int:
 	var depth = floor(self.global_position.y)
 	return depth
