@@ -1,5 +1,6 @@
 extends Node3D
 
+
 enum MaterialTypes { METAL, PLASTIC, WOOD }
 enum MaterialSizes { SMALL, BIG }
 
@@ -11,19 +12,28 @@ enum MaterialSizes { SMALL, BIG }
 @export var small_wood_variants: Array[PackedScene]
 @export var big_wood_variants: Array[PackedScene]
 
+@export_category("Resource amounts")
+## How many resources does a small material give
+@export var small_material_gain: int = 1
+## How many resources does a big material give
+@export var big_material_gain: int = 3
+## By how much does the hit increment when clicking
+@export var incrementer: int = 1
+
 @onready var player: Player = $"../../Player"
-@onready var recycling_sfx: FmodEventEmitter3D = $RecyclingSFX
+# @onready var recycle_sfx: FmodEventEmitter3D = $RecycleSFX
 
 var velocity: Vector3 = Vector3.ZERO
 var angular_velocity: Vector3 = Vector3.ZERO
 var random_material: MaterialTypes
 var random_size: MaterialSizes
+var click_counter: int = 0
 
 const RAY_LENGTH = 1000.0
 
-var counter: int = 0
 
-# Called when the node enters the scene tree for the first time.
+# INTERNAL METHODS AND SIGNALS
+
 func _ready() -> void:
 	var materials = {
 		MaterialTypes.METAL: {
@@ -43,7 +53,7 @@ func _ready() -> void:
 	random_material = MaterialTypes.values().pick_random()
 	random_size = MaterialSizes.values().pick_random()
 	
-	recycling_sfx.set_parameter("recycle", MaterialTypes.find_key(random_material).to_lower())
+	# recycling_sfx.set_parameter("recycle", MaterialTypes.find_key(random_material).to_lower())
 	
 	var variants: Array[PackedScene] = materials[random_material][random_size]
 	if (variants.is_empty()): return push_error("Exported array is empty!")
@@ -51,10 +61,6 @@ func _ready() -> void:
 	var scene: PackedScene = variants.pick_random()
 	var instance: Node3D = scene.instantiate()
 	add_child.call_deferred(instance)
-
-func destroy() -> void:
-	for node in get_children():
-		node.queue_free()
 
 func _process(delta: float) -> void:
 	global_translate(velocity * delta)
@@ -64,46 +70,54 @@ func _process(delta: float) -> void:
 	rotate_z(angular_velocity.z * delta)
 
 func _input(event):
-	if (event is InputEventMouseButton and event.pressed):
-		var camera = get_viewport().get_camera_3d()
-		if (not camera): return
-		
-		var ray_from = camera.project_ray_origin(event.position)
-		var ray_to = ray_from + camera.project_ray_normal(event.position) * RAY_LENGTH
+	if not (event is InputEventMouseButton and event.pressed): return
+	if not (_is_clicked(event.position)): return
+	
+	# recycling_sfx.play(true)
+	
+	var amount = small_material_gain if random_size == MaterialSizes.SMALL else big_material_gain
+	
+	if (random_size == MaterialSizes.BIG and click_counter < 5):
+		click_counter += incrementer
+		return
+	
+	_process_collection(random_material, amount)
 
-		var query_params = PhysicsRayQueryParameters3D.new()
-		query_params.from = ray_from
-		query_params.to = ray_to
-		query_params.collide_with_bodies = true
-		
-		var result = get_world_3d().direct_space_state.intersect_ray(query_params)
-		
-		if (result and result.collider == self or is_ancestor_of(result.collider)):
-			recycling_sfx.play(true)
-			if (random_material == MaterialTypes.METAL):
-				if (random_size == MaterialSizes.SMALL):
-					player.add_metal(1)
-					destroy()
-				elif (random_size == MaterialSizes.BIG): 
-					if (counter < 5): counter += 1
-					else:
-						player.add_metal(5)
-						destroy()
-			if (random_material == MaterialTypes.PLASTIC):
-				if (random_size == MaterialSizes.SMALL): 
-					player.add_plastic(1)
-					destroy()
-				elif (random_size == MaterialSizes.BIG):
-					if (counter < 5): counter += 1
-					else:
-						player.add_plastic(5)
-						destroy()
-			if (random_material == MaterialTypes.WOOD):
-				if (random_size == MaterialSizes.SMALL):
-					player.add_wood(1)
-					destroy()
-				elif (random_size == MaterialSizes.BIG):
-					if (counter < 5): counter += 1
-					else:
-						player.add_wood(5)
-						destroy()
+
+# UTILITY FUNCTIONS
+
+func _destroy() -> void:
+	for node in get_children():
+		node.queue_free()
+
+func _is_clicked(screen_pos: Vector2) -> bool:
+	var camera = get_viewport().get_camera_3d()
+	if (not camera): return false
+	
+	var ray_from = camera.project_ray_origin(screen_pos)
+	var ray_to = ray_from + camera.project_ray_normal(screen_pos) * RAY_LENGTH
+
+	var query = PhysicsRayQueryParameters3D.create(ray_from, ray_to)
+	query.collide_with_bodies = true
+	
+	var result = get_world_3d().direct_space_state.intersect_ray(query)
+	
+	return result and result.collider == self or is_ancestor_of(result.collider)
+
+func _process_collection(type: MaterialTypes, amount: int):
+	var inventory = Player.get_inventory()
+	var inventory_limit = Player.get_inventory_limit()
+	
+	match type:
+		MaterialTypes.METAL:
+			if (inventory.metal < inventory_limit):
+				Player.adjust_resource("metal", amount)
+				_destroy()
+		MaterialTypes.PLASTIC:
+			if (inventory.plastic < inventory_limit):
+				Player.adjust_resource("plastic", amount)
+				_destroy()
+		MaterialTypes.WOOD:
+			if (inventory.wood < inventory_limit):
+				Player.adjust_resource("wood", amount)
+				_destroy()
