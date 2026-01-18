@@ -61,6 +61,10 @@ func _ready() -> void:
 	var scene: PackedScene = variants.pick_random()
 	var instance: Node3D = scene.instantiate()
 	add_child.call_deferred(instance)
+	
+	for child in instance.get_children():
+		if (child is CollisionShape3D):
+			child.reparent.call_deferred(self)
 
 func _process(delta: float) -> void:
 	global_translate(velocity * delta)
@@ -102,7 +106,7 @@ func _is_clicked(screen_pos: Vector2) -> bool:
 	
 	var result = get_world_3d().direct_space_state.intersect_ray(query)
 	
-	return result and result.collider == self or is_ancestor_of(result.collider)
+	return result and result.collider == self
 
 func _process_collection(type: MaterialTypes, amount: int):
 	var inventory = Player.get_inventory()

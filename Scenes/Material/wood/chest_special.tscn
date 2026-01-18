@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dl8snk3kwxa34"]
+[gd_scene load_steps=3 format=3 uid="uid://dl8snk3kwxa34"]
 
 [ext_resource type="PackedScene" uid="uid://0c5e8xeekutu" path="res://assets/models/wood/Chest_Special.fbx" id="1_e2er6"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e2er6"]
+points = PackedVector3Array(-0.049808063, 0.24975273, -0.2285, -0.40596306, 0.016269963, -0.22710495, 0.41379267, 0.00572154, -0.21128231, -0.4105033, 0.0073148278, 0.21367224, -0.414686, 0.40701592, -0.21174285, 0.414686, 0.40701592, -0.21174285, 0.40119624, 0.018499574, 0.2285, -0.4117201, 0.4055793, 0.21429953, 0.4117201, 0.4055793, 0.21429953, -0.40119624, 0.3938052, 0.2285, 0.40596306, 0.016269963, -0.22710495, 0.4105033, 0.0073148278, 0.21367224, -0.41379267, 0.00572154, -0.21128231, 0.406733, 0.39639494, -0.22753954, -0.40119624, 0.018499574, 0.2285, 0.40119624, 0.3938052, 0.2285, -0.406733, 0.39639494, -0.22753954, 0.049808063, 0.24975273, -0.2285)
+
 [node name="Chest_Special" instance=ExtResource("1_e2er6")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.371139e-08, 0, 4.371139e-08, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_e2er6")
