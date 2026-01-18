@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://08inwdgabqo"]
+[gd_scene load_steps=14 format=3 uid="uid://08inwdgabqo"]
 
 [ext_resource type="FontFile" uid="uid://x8lmdo6aui2q" path="res://assets/fonts/Kenney Future.ttf" id="1_aac20"]
 [ext_resource type="Texture2D" uid="uid://ciblxbpkhltrt" path="res://assets/textures/ui/Grey/Default/button_square_header_small_rectangle.png" id="1_f5cxw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://djildks78cukk" path="res://assets/textures/ui/metalPanel_red.png" id="6_q6mn5"]
 [ext_resource type="Texture2D" uid="uid://bvflqd18ar5tl" path="res://assets/icons/keyboard/keyboard_d_outline.png" id="6_y220t"]
 [ext_resource type="Texture2D" uid="uid://dxd2ni66emiqn" path="res://assets/icons/keyboard/keyboard_a_outline.png" id="7_4kltc"]
+[ext_resource type="Texture2D" uid="uid://bfaaqx5ib1fth" path="res://assets/icons/game_icons/White/1x/wrench.png" id="8_558d4"]
 [ext_resource type="Texture2D" uid="uid://dypwxtmku3ire" path="res://assets/icons/mouse/mouse_left_outline.png" id="12_8nkf1"]
 
 [node name="HUD" type="Control"]
@@ -209,6 +210,10 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SkillTreeButton" type="Button" parent="BottomLeftHUD/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("8_558d4")
+
 [node name="BottomRightHUD" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -309,3 +314,6 @@ theme_override_font_sizes/normal_font_size = 16
 text = "CLICK"
 fit_content = true
 vertical_alignment = 1
+
+[connection signal="pressed" from="BottomLeftHUD/HBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
+[connection signal="toggled" from="BottomLeftHUD/HBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_toggled"]

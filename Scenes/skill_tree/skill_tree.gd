@@ -14,8 +14,14 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("open_skill_tree"): # Make sure "Tab" is mapped to this in Input Map
+	if (event.is_action_pressed("open_skill_tree")):
 		toggle_skill_tree()
+	if (event.is_action_pressed("exit")):
+		is_open = false
+		close_menu()
+
+func _on_exit_button_pressed() -> void:
+	toggle_skill_tree()
 
 
 # UTILITY FUNCTIONS
