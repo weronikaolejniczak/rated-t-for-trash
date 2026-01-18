@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://45bbslmdco5a"]
+
+[ext_resource type="PackedScene" uid="uid://c80us3pruga2a" path="res://assets/models/robot/robot.glb" id="1_8dbh5"]
+
+[node name="robot" instance=ExtResource("1_8dbh5")]
+
+[node name="AnimationPlayer" parent="." index="4"]
+speed_scale = 0.001
