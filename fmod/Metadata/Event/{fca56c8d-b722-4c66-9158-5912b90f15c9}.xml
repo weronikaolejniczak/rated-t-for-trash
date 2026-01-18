@@ -93,6 +93,9 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{db0502b9-c4e1-4e94-ac70-31cbe2c0ba51}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>1</value>
 		</property>
@@ -111,6 +114,12 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{d78e2efe-d397-4d27-8469-cf0a848880ba}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
+		<property name="volume">
+			<value>-6</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{2b837769-3d18-4b8a-9aed-bf66fa2fec5e}</destination>
 			<destination>{7988f68a-1d66-4d62-a1ba-628e56db7964}</destination>
@@ -123,6 +132,9 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{95a2857d-946e-44c2-bf49-40cbe4f9a3e0}">
+		<property name="isCutoff">
+			<value>true</value>
+		</property>
 		<property name="start">
 			<value>2</value>
 		</property>
