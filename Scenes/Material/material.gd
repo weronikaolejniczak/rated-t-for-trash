@@ -77,7 +77,7 @@ func _input(event):
 	if not (event is InputEventMouseButton and event.pressed): return
 	if not (_is_clicked(event.position)): return
 	
-	recycling_sfx.play(true)
+	recycling_sfx.play()
 	
 	var amount = small_material_gain if random_size == MaterialSizes.SMALL else big_material_gain
 	
@@ -89,10 +89,6 @@ func _input(event):
 
 
 # UTILITY FUNCTIONS
-
-func _destroy() -> void:
-	for node in get_children():
-		node.queue_free()
 
 func _is_clicked(screen_pos: Vector2) -> bool:
 	var camera = get_viewport().get_camera_3d()
@@ -116,12 +112,22 @@ func _process_collection(type: MaterialTypes, amount: int):
 		MaterialTypes.METAL:
 			if (inventory.metal < inventory_limit):
 				Player.adjust_resource("metal", amount)
-				_destroy()
 		MaterialTypes.PLASTIC:
 			if (inventory.plastic < inventory_limit):
 				Player.adjust_resource("plastic", amount)
-				_destroy()
 		MaterialTypes.WOOD:
 			if (inventory.wood < inventory_limit):
 				Player.adjust_resource("wood", amount)
-				_destroy()
+	
+	set_process(false)
+	set_physics_process(false)
+	collision_layer = 0
+	
+	for child in get_children():
+		if (child is Node3D and not child is FmodEventEmitter3D):
+			child.hide()
+	
+	recycling_sfx.play()
+	
+	await get_tree().create_timer(2.0).timeout
+	queue_free()

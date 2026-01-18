@@ -84,13 +84,14 @@ size = Vector3(100, 200, 1)
 [node name="RobotSFX" type="FmodEventEmitter2D" parent="Player"]
 event_name = "event:/sfx/robot"
 event_guid = "{2ca9b1e0-ada2-46f8-a2d2-d07fa28f1d3e}"
-fmod_parameters/states/id = -7971225627550033380
-fmod_parameters/states = "idle"
-fmod_parameters/states/labels = PackedStringArray("idle", "emerge", "dive", "swimming")
-fmod_parameters/states/variant_type = 4
+volume = 1.45
 fmod_parameters/speed/id = -3509562896973562136
 fmod_parameters/speed = 0.0
 fmod_parameters/speed/variant_type = 3
+fmod_parameters/state/id = -7971225627550033380
+fmod_parameters/state = "idle"
+fmod_parameters/state/labels = PackedStringArray("idle", "emerge", "dive", "pain", "swimming")
+fmod_parameters/state/variant_type = 4
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
 target = NodePath("../Player")
@@ -142,6 +143,5 @@ fmod_parameters/menu_open = 0.0
 fmod_parameters/menu_open/variant_type = 3
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://assets/fmod_banks/Desktop/Master.strings.bank", "res://assets/fmod_banks/Desktop/Master.bank", "res://assets/fmod_banks/Desktop/BGM.bank", "res://assets/fmod_banks/Desktop/SFX.bank"]
 
 [editable path="Camera"]

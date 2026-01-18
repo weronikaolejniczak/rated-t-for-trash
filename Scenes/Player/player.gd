@@ -76,10 +76,10 @@ func _physics_process(delta: float) -> void:
 	if move_input != Vector3.ZERO:
 		apply_central_force(move_input.normalized() * thrust * delta)
 		bubble_particles.emitting = true
-		robot_sfx.set_parameter("states", "swimming")
+		robot_sfx.set_parameter("state", "swimming")
 	else:
 		bubble_particles.emitting = false
-		robot_sfx.set_parameter("states", "idle")
+		robot_sfx.set_parameter("state", "idle")
 	
 	robot_mesh.rotation.x = lerp(robot_mesh.rotation.x, target_tilt.x, delta * tilt_speed)
 	robot_mesh.rotation.y = lerp(robot_mesh.rotation.y, target_tilt.y, delta * tilt_speed)
