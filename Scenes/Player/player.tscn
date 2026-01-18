@@ -62,12 +62,14 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(-1, -6.181724e-08, 6.181723e-08, -4.3711378e-08, 0.96592593, 0.25881913, -7.571033e-08, 0.25881898, -0.96592575, 0, 1.1999999, 1.3)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Robot/Flashlight"]
-light_energy = 6.95
+transform = Transform3D(1.0000001, -1.1623591e-08, -1.4391617e-08, 1.4391636e-08, 0.97761106, 0.21042049, 1.162357e-08, -0.2104206, 0.9776112, 2.5663383e-09, -0.33838236, -0.29686677)
+light_energy = 5.0
 light_indirect_energy = 2.81
 light_volumetric_fog_energy = 1.68
 light_size = 0.081
 light_specular = 0.0
-spot_angle = 38.1414
+spot_angle = 50.0
+spot_angle_attenuation = 0.2
 
 [node name="BubbleParticles" type="GPUParticles3D" parent="Robot"]
 transform = Transform3D(0.45000005, 0, 0, 0, 0.40000007, 0, 0, 0, 1, 0, 1.0000001, -1.8)

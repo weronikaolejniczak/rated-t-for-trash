@@ -16,6 +16,8 @@ class_name Player
 @onready var robot_sfx: FmodEventEmitter2D = $RobotSFX
 @onready var robot_mesh: Node3D = $Robot
 @onready var bubble_particles: GPUParticles3D = $Robot/BubbleParticles
+# Make range configurable up to 7m, energy to 14
+#@onready var spot_light_3d: SpotLight3D = $Robot/Flashlight/SpotLight3D
 
 var initial_rotation: Vector3 = Vector3.ZERO
 
