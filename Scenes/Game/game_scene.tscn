@@ -30,6 +30,7 @@ glow_enabled = true
 glow_bloom = 1.0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0, 0.59731716, 0.5975528, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hq7ie"]
 albedo_color = Color(0, 0, 0, 1)
@@ -91,7 +92,6 @@ thrust = 300.0
 [node name="RobotSFX" type="FmodEventEmitter2D" parent="Player"]
 event_name = "event:/sfx/robot"
 event_guid = "{2ca9b1e0-ada2-46f8-a2d2-d07fa28f1d3e}"
-volume = 1.45
 fmod_parameters/speed/id = -3509562896973562136
 fmod_parameters/speed = 0.0
 fmod_parameters/speed/variant_type = 3
