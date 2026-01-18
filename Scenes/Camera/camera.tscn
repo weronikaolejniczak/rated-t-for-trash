@@ -7,3 +7,7 @@ script = ExtResource("1_wmbm5")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+projection = 1
+fov = 80.0
+size = 12.065
+near = 0.005
