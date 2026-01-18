@@ -21,7 +21,7 @@ enum MaterialSizes { SMALL, BIG }
 @export var incrementer: int = 1
 
 @onready var player: Player = $"../../Player"
-@onready var recycling_sfx: FmodEventEmitter3D = $RecyclingSFX
+# @onready var recycle_sfx: FmodEventEmitter3D = $RecycleSFX
 
 var velocity: Vector3 = Vector3.ZERO
 var angular_velocity: Vector3 = Vector3.ZERO
@@ -53,7 +53,7 @@ func _ready() -> void:
 	random_material = MaterialTypes.values().pick_random()
 	random_size = MaterialSizes.values().pick_random()
 	
-	recycling_sfx.set_parameter("recycle", MaterialTypes.find_key(random_material).to_lower())
+	# recycling_sfx.set_parameter("recycle", MaterialTypes.find_key(random_material).to_lower())
 	
 	var variants: Array[PackedScene] = materials[random_material][random_size]
 	if (variants.is_empty()): return push_error("Exported array is empty!")
@@ -73,7 +73,7 @@ func _input(event):
 	if not (event is InputEventMouseButton and event.pressed): return
 	if not (_is_clicked(event.position)): return
 	
-	recycling_sfx.play(true)
+	# recycling_sfx.play(true)
 	
 	var amount = small_material_gain if random_size == MaterialSizes.SMALL else big_material_gain
 	

@@ -1,5 +1,6 @@
 extends Node3D
 
+
 @export_category("General")
 @export var is_enabled: bool = true
 @export var objects_to_spawn: Array[PackedScene]
@@ -31,8 +32,16 @@ extends Node3D
 
 var sides: Array[String] = ["left", "right"]
 
+
+# INTERNAL METHODS AND SIGNALS
+
 func _ready() -> void:
 	if (timer): timer.wait_time = timer_value
+
+func _on_timer_timeout() -> void:
+	if (is_enabled): spawn_object()
+
+# UTILITY FUNCTIONS
 
 func get_wall(side: String) -> CSGBox3D:
 	var wall: CSGBox3D
@@ -82,7 +91,7 @@ func spawn_object():
 	var spawn_direction = get_spawn_direction(side)
 	var spawn_velocity = spawn_direction * object_speed
 	
-	add_child(object)
+	add_child.call_deferred(object)
 	
 	object.position = spawn_position
 	object.velocity = spawn_velocity
@@ -92,6 +101,3 @@ func spawn_object():
 		object.angular_velocity = spawn_angular_velocity * rotation_angle
 	else:
 		object.rotation = get_spawn_rotation(side)
-
-func _on_timer_timeout() -> void:
-	if (is_enabled): spawn_object()
