@@ -1,37 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuv7hwr6hsmuy"]
+[gd_scene load_steps=6 format=3 uid="uid://cuv7hwr6hsmuy"]
 
 [ext_resource type="Script" uid="uid://bpf6g4dkfcgo8" path="res://scenes/water/water_effect.gd" id="1_sf01j"]
 [ext_resource type="Shader" uid="uid://bkl03hml176rh" path="res://shaders/water/water_shader.gdshader" id="2_wvtuu"]
 [ext_resource type="Texture2D" uid="uid://cpdi23xehenhk" path="res://assets/textures/ui/glassPanel.png" id="3_juvsr"]
+[ext_resource type="Texture2D" uid="uid://cnte8tmk1be3q" path="res://scenes/water/noise.tres" id="3_ojpoy"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_sf01j"]
-noise_type = 2
-frequency = 0.038
-fractal_type = 2
-fractal_lacunarity = 1.5
-fractal_gain = 1.0
-fractal_weighted_strength = 0.7
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wvtuu"]
-width = 524
-height = 524
-noise = SubResource("FastNoiseLite_sf01j")
-seamless = true
-seamless_blend_skirt = 0.64
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_elpgg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rg2b7"]
 shader = ExtResource("2_wvtuu")
-shader_parameter/color = Color(0.245469, 0.599425, 0.850487, 1)
-shader_parameter/fast_noise = SubResource("NoiseTexture2D_wvtuu")
+shader_parameter/color = Color(0.24705882, 0.6, 0.8509804, 1)
+shader_parameter/fast_noise = ExtResource("3_ojpoy")
 shader_parameter/world_offset = Vector2(0, 0)
 shader_parameter/speed = Vector2(0.01, 0)
 shader_parameter/wave_strength = 1.0
 
-[node name="WaterEffect" type="Node2D"]
+[node name="WaterEffect" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_sf01j")
 
-[node name="Texture" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_elpgg")
-position = Vector2(575.99994, 323.99997)
-scale = Vector2(11.52, 6.48)
+[node name="Texture" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rg2b7")
+layout_mode = 2
 texture = ExtResource("3_juvsr")

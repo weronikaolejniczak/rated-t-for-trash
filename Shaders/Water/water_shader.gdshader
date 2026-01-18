@@ -14,7 +14,8 @@ uniform float wave_strength = 2;
 void fragment() {
 	vec2 uv = UV + world_offset * 0.01 + speed * TIME;
 	vec2 noise = texture(fast_noise, uv).rg;
-	vec2 distortion = noise * (wave_strength / 100.0);
+	vec2 distortion = (noise - 0.5) * (wave_strength / 100.0);
+	vec2 fixed_uv = clamp(SCREEN_UV + distortion, vec2(0.001), vec2(0.999));
 
-	COLOR = texture(screen_content, SCREEN_UV + distortion) * color;
+	COLOR = texture(screen_content, fixed_uv) * color;
 }
