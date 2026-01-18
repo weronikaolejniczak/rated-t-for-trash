@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="ParameterPreset" id="{fe228dfb-dcfa-498b-b956-12c4f1afa78f}">
+	<object class="ParameterPreset" id="{2b9d1c31-3c59-4ded-b291-10f7c8b9e21c}">
 		<property name="name">
-			<value>state</value>
+			<value>animals</value>
 		</property>
 		<relationship name="folder">
 			<destination>{485d4093-dfeb-4df5-9499-361517afd502}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{97373fb3-5b23-41f9-85a6-615b0d95ec96}</destination>
+			<destination>{5ffa6545-88a0-4307-8daa-43f82612a611}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{97373fb3-5b23-41f9-85a6-615b0d95ec96}">
+	<object class="GameParameter" id="{5ffa6545-88a0-4307-8daa-43f82612a611}">
 		<property name="parameterType">
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>5</value>
+			<value>3</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>idle</value>
-			<value>emerge</value>
-			<value>dive</value>
-			<value>pain</value>
-			<value>swimming</value>
+			<value>Value A</value>
+			<value>Value B</value>
+			<value>Value C</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>
