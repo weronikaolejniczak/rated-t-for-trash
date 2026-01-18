@@ -144,6 +144,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		bubble_particles.emitting = false
 		robot_sfx.set_parameter("state", "idle")
+		robot_sfx.play_one_shot()
 	
 	robot_mesh.rotation.x = lerp(robot_mesh.rotation.x, target_tilt.x, delta * tilt_speed)
 	robot_mesh.rotation.y = lerp(robot_mesh.rotation.y, target_tilt.y, delta * tilt_speed)
