@@ -70,7 +70,7 @@ light_specular = 0.0
 spot_angle = 38.1414
 
 [node name="BubbleParticles" type="GPUParticles3D" parent="Robot"]
-transform = Transform3D(-1.7047443e-08, -0.75, 0, 0.39000005, -3.2783543e-08, 0, 0, 0, 0.39999998, -1.8000002, 0.9000001, 0)
+transform = Transform3D(0.45000005, 0, 0, 0, 0.40000007, 0, 0, 0, 1, 0, 1.0000001, -1.8)
 material_override = SubResource("StandardMaterial3D_a3d8c")
 amount = 50
 lifetime = 2.0

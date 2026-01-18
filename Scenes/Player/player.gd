@@ -11,12 +11,12 @@ class_name Player
 @export var tilt_angle: float = deg_to_rad(30.0)
 ## How fast should the robot tilt
 @export var tilt_speed: float = 6.0
-## What is the initial rotation of the mesh
-@export var initial_rotation: Vector3 = Vector3(0.0, deg_to_rad(-90.0), 0.0)
 
 @onready var robot_sfx: FmodEventEmitter2D = $RobotSFX
 @onready var robot_mesh: Node3D = $Robot
 @onready var bubble_particles: GPUParticles3D = $Robot/BubbleParticles
+
+var initial_rotation: Vector3 = Vector3.ZERO
 
 func get_depth() -> int:
 	var depth = floor(self.global_position.y)
@@ -28,10 +28,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("move_up"):
 		move_input.y += 1
-		target_tilt.z = tilt_angle
+		target_tilt.x = -tilt_angle
 	if Input.is_action_pressed("move_down"):
 		move_input.y -= 1
-		target_tilt.z = -tilt_angle
+		target_tilt.x = tilt_angle
 	if Input.is_action_pressed("move_left"):
 		move_input.x -= 1
 		target_tilt.y = initial_rotation.y - tilt_angle
