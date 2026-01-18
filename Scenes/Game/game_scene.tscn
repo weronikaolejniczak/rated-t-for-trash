@@ -101,7 +101,7 @@ collision_mask = 9
 size = Vector3(100, 200, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
-thrust = 75.0
+thrust = 300.0
 max_speed = 300.0
 
 [node name="RobotSFX" type="FmodEventEmitter2D" parent="Player"]

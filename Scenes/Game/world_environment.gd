@@ -1,9 +1,7 @@
 extends WorldEnvironment
 
 
-## How deep the game level is (in Y axis)
-@export_range(300.0, 2000.0) var target_depth: float = 500.0
-
+@onready var game: Node3D = $".."
 @onready var player: Player = $"../Player"
 
 ## particle thickness: 0.0001 is crystal clear
@@ -27,7 +25,7 @@ var deep_color = Color("001c2bff")
 
 func _process(_delta: float) -> void:
 	var depth = player.get_depth()
-	var depth_ratio = clamp(depth / -target_depth, 0.0, 1.0)
+	var depth_ratio = clamp(depth / -game.target_depth, 0.0, 1.0)
 	
 	var fog_density = lerp(
 		MIN_VOLUMETRIC_FOG,
