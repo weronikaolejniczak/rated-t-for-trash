@@ -18,9 +18,31 @@ class_name Player
 
 var initial_rotation: Vector3 = Vector3.ZERO
 
+var player_inventory = {
+	metal = 0,
+	plastic = 0,
+	wood = 0
+}
+
+func add_metal(amount: int) -> void: player_inventory.metal += amount
+
+func remove_metal(amount: int) -> void: player_inventory.metal -= amount
+
+func add_plastic(amount: int) -> void: player_inventory.plastic += amount
+
+func remove_plastic(amount: int) -> void: player_inventory.plastic -= amount
+
+func add_wood(amount: int) -> void: player_inventory.wood += amount
+
+func remove_wood(amount: int) -> void: player_inventory.wood -= amount
+
 func get_depth() -> int:
 	var depth = floor(self.global_position.y)
 	return depth
+
+func _process(_delta: float) -> void:
+	# print(player_inventory)
+	pass
 
 func _physics_process(delta: float) -> void:
 	var move_input = Vector3.ZERO

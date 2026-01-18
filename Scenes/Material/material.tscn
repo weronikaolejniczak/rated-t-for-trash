@@ -38,3 +38,11 @@ big_wood_variants = Array[PackedScene]([ExtResource("21_ft8tq"), ExtResource("22
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_m7ivh")
+
+[node name="RecyclingSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/sfx/recycle"
+event_guid = "{e9baaf03-6b94-478b-96e1-e0edfe4b29cb}"
+fmod_parameters/recycle/id = 3396525677691848593
+fmod_parameters/recycle = "plastic"
+fmod_parameters/recycle/labels = PackedStringArray("plastic", "metal", "wood")
+fmod_parameters/recycle/variant_type = 4
