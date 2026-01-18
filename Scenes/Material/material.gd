@@ -21,6 +21,8 @@ var random_size: MaterialSizes
 
 const RAY_LENGTH = 1000.0
 
+var counter: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var materials = {
@@ -48,7 +50,11 @@ func _ready() -> void:
 	
 	var scene: PackedScene = variants.pick_random()
 	var instance: Node3D = scene.instantiate()
-	add_child(instance)
+	add_child.call_deferred(instance)
+
+func destroy() -> void:
+	for node in get_children():
+		node.queue_free()
 
 func _process(delta: float) -> void:
 	global_translate(velocity * delta)
@@ -75,11 +81,29 @@ func _input(event):
 		if (result and result.collider == self or is_ancestor_of(result.collider)):
 			recycling_sfx.play(true)
 			if (random_material == MaterialTypes.METAL):
-				if (random_size == MaterialSizes.SMALL): player.add_metal(1)
-				elif (random_size == MaterialSizes.BIG): player.add_metal(5)
+				if (random_size == MaterialSizes.SMALL):
+					player.add_metal(1)
+					destroy()
+				elif (random_size == MaterialSizes.BIG): 
+					if (counter < 5): counter += 1
+					else:
+						player.add_metal(5)
+						destroy()
 			if (random_material == MaterialTypes.PLASTIC):
-				if (random_size == MaterialSizes.SMALL): player.add_plastic(1)
-				elif (random_size == MaterialSizes.BIG): player.add_plastic(5)
+				if (random_size == MaterialSizes.SMALL): 
+					player.add_plastic(1)
+					destroy()
+				elif (random_size == MaterialSizes.BIG):
+					if (counter < 5): counter += 1
+					else:
+						player.add_plastic(5)
+						destroy()
 			if (random_material == MaterialTypes.WOOD):
-				if (random_size == MaterialSizes.SMALL): player.add_wood(1)
-				elif (random_size == MaterialSizes.BIG): player.add_wood(5)
+				if (random_size == MaterialSizes.SMALL):
+					player.add_wood(1)
+					destroy()
+				elif (random_size == MaterialSizes.BIG):
+					if (counter < 5): counter += 1
+					else:
+						player.add_wood(5)
+						destroy()

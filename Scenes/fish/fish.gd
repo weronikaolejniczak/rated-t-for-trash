@@ -9,7 +9,7 @@ var angular_velocity: Vector3 = Vector3.ZERO
 func _ready() -> void:
 	var scene: PackedScene = variants.pick_random()
 	var instance: Node3D = scene.instantiate()
-	add_child(instance)
+	add_child.call_deferred(instance)
 
 func _process(delta: float) -> void:
 	global_translate(velocity * delta)
