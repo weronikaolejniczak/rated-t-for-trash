@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfri23ks35txw"]
+[gd_scene load_steps=22 format=3 uid="uid://cfri23ks35txw"]
 
 [ext_resource type="Script" uid="uid://c130yjreb0f21" path="res://scenes/material/material.gd" id="1_6lttb"]
 [ext_resource type="PackedScene" uid="uid://csrcjkuj5fycm" path="res://scenes/material/metal/bear_trap_open.tscn" id="2_m7ivh"]
@@ -21,9 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://dl8snk3kwxa34" path="res://scenes/material/wood/chest_special.tscn" id="19_gc5gv"]
 [ext_resource type="PackedScene" uid="uid://bcifwm7f5lfw4" path="res://scenes/material/wood/barrel.tscn" id="20_gaefk"]
 [ext_resource type="PackedScene" uid="uid://cdv10t03jeac4" path="res://scenes/material/wood/crate.tscn" id="21_ft8tq"]
-[ext_resource type="PackedScene" uid="uid://bptbqa1nbl5bn" path="res://scenes/material/wood/chest.tscn" id="22_jf3ch"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_m7ivh"]
 
 [node name="Material" type="StaticBody3D"]
 collision_layer = 8
@@ -34,7 +31,4 @@ big_metal_variants = Array[PackedScene]([ExtResource("8_pfl8i"), ExtResource("9_
 small_plastic_variants = Array[PackedScene]([ExtResource("10_40s6k"), ExtResource("11_8p6ok"), ExtResource("12_k1fmu"), ExtResource("13_wi6s8"), ExtResource("14_w8va7"), ExtResource("15_3c3r2")])
 big_plastic_variants = Array[PackedScene]([ExtResource("16_pki2i"), ExtResource("17_n7nho"), ExtResource("18_4sf6h")])
 small_wood_variants = Array[PackedScene]([ExtResource("19_gc5gv"), ExtResource("20_gaefk")])
-big_wood_variants = Array[PackedScene]([ExtResource("21_ft8tq"), ExtResource("22_jf3ch")])
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_m7ivh")
+big_wood_variants = Array[PackedScene]([ExtResource("21_ft8tq")])
