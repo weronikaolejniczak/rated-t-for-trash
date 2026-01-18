@@ -1,6 +1,7 @@
 extends RigidBody3D
 class_name Player
 
+
 ## How much thrust force to apply when moving
 @export var thrust: float = 100.0
 ## How much torque strength to apply when rotating
@@ -18,34 +19,42 @@ class_name Player
 
 var initial_rotation: Vector3 = Vector3.ZERO
 
-var player_inventory = {
+static var inventory_limit: int = 10
+
+static var inventory = {
 	metal = 0,
 	plastic = 0,
 	wood = 0
 }
 
-func add_metal(amount: int) -> void: player_inventory.metal += amount
 
-func remove_metal(amount: int) -> void: player_inventory.metal -= amount
+static func adjust_resource(type: String, amount: int) -> void:
+	if (not inventory.has(type)): return
+	
+	inventory[type] = clamp(inventory[type] + amount, 0, inventory_limit)
 
-func add_plastic(amount: int) -> void: player_inventory.plastic += amount
+static func try_removing_resource(type: String, amount: int) -> bool:
+	if (inventory.has(type) and inventory[type] >= amount):
+		inventory[type] -= amount
+		return true
+	
+	return false
 
-func remove_plastic(amount: int) -> void: player_inventory.plastic -= amount
+static func get_inventory() -> Dictionary:
+	return inventory
 
-func add_wood(amount: int) -> void: player_inventory.wood += amount
+static func get_inventory_limit() -> int:
+	return inventory_limit
 
-func remove_wood(amount: int) -> void: player_inventory.wood -= amount
-
-func get_inventory() -> Dictionary:
-	return player_inventory
+static func set_inventory_limit(amount: int) -> void:
+	inventory_limit = amount
 
 func get_depth() -> int:
 	var depth = floor(self.global_position.y)
 	return depth
 
-func _process(_delta: float) -> void:
-	# print(player_inventory)
-	pass
+
+# INTERNAL METHODS AND SIGNALS
 
 func _physics_process(delta: float) -> void:
 	var move_input = Vector3.ZERO
