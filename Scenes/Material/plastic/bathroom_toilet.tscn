@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbpgsnc5hhem0"]
+
+[ext_resource type="PackedScene" uid="uid://cw7co237m2nqu" path="res://assets/models/plastic/Bathroom_Toilet.fbx" id="1_yhrrg"]
+
+[node name="Bathroom_Toilet" instance=ExtResource("1_yhrrg")]

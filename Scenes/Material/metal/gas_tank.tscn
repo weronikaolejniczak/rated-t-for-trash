@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsx8javto3b64"]
+
+[ext_resource type="PackedScene" uid="uid://crlvdk35b8rdb" path="res://assets/models/metal/GasTank.fbx" id="1_343dg"]
+
+[node name="GasTank" instance=ExtResource("1_343dg")]

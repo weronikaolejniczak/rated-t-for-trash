@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dftvghcy6arhr"]
+
+[ext_resource type="PackedScene" uid="uid://dmmf76y4hcusv" path="res://assets/models/plastic/TrafficCone_1.fbx" id="1_7gklv"]
+
+[node name="TrafficCone_1" instance=ExtResource("1_7gklv")]

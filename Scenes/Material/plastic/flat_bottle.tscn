@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bco3hba72o1d8"]
+
+[ext_resource type="PackedScene" uid="uid://bo3rktt8hwwk8" path="res://assets/models/plastic/FlatBottle.fbx" id="1_5vbui"]
+
+[node name="FlatBottle" instance=ExtResource("1_5vbui")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcvep0i67mfjc"]
+
+[ext_resource type="PackedScene" uid="uid://cyyenmo14tkrx" path="res://assets/models/metal/Can_Broken.fbx" id="1_smkts"]
+
+[node name="Can_Broken" instance=ExtResource("1_smkts")]

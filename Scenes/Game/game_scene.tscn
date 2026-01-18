@@ -142,3 +142,5 @@ fmod_parameters/menu_open/variant_type = 3
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://assets/fmod_banks/Desktop/Master.bank", "res://assets/fmod_banks/Desktop/BGM.bank", "res://assets/fmod_banks/Desktop/SFX.bank", "res://assets/fmod_banks/Desktop/Master.strings.bank"]
+
+[editable path="Camera"]

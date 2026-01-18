@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6tq661dd6oa8"]
+
+[ext_resource type="PackedScene" uid="uid://c1h2cb0se0ei1" path="res://assets/models/plastic/TwistedBottle.fbx" id="1_j5etv"]
+
+[node name="TwistedBottle" instance=ExtResource("1_j5etv")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl8snk3kwxa34"]
+
+[ext_resource type="PackedScene" uid="uid://0c5e8xeekutu" path="res://assets/models/wood/Chest_Special.fbx" id="1_e2er6"]
+
+[node name="Chest_Special" instance=ExtResource("1_e2er6")]

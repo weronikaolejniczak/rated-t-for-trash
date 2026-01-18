@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://pnu1wwd6tpue"]
+
+[ext_resource type="PackedScene" uid="uid://c8gfyelganlw6" path="res://assets/models/metal/Can_Red.fbx" id="1_4touc"]
+
+[node name="Can_Red" instance=ExtResource("1_4touc")]

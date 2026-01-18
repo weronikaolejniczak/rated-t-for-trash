@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bguvhqbc8i2nu"]
+
+[ext_resource type="PackedScene" uid="uid://dajc1bhk53jwc" path="res://assets/models/metal/Bathroom_WashingMachine.fbx" id="1_7yqc7"]
+
+[node name="Bathroom_WashingMachine" instance=ExtResource("1_7yqc7")]

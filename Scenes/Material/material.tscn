@@ -1,10 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfri23ks35txw"]
+[gd_scene load_steps=24 format=3 uid="uid://cfri23ks35txw"]
 
 [ext_resource type="Script" uid="uid://c130yjreb0f21" path="res://scenes/material/material.gd" id="1_6lttb"]
-[ext_resource type="PackedScene" uid="uid://dsdo2hsay7515" path="res://scenes/material/plastic.tscn" id="2_cmx4f"]
-[ext_resource type="PackedScene" uid="uid://l3w1wicibd3y" path="res://scenes/material/metal.tscn" id="3_17ekf"]
-[ext_resource type="PackedScene" uid="uid://dg7lyawio6nbk" path="res://scenes/material/wood.tscn" id="4_w0mjd"]
+[ext_resource type="PackedScene" uid="uid://csrcjkuj5fycm" path="res://scenes/material/metal/bear_trap_open.tscn" id="2_m7ivh"]
+[ext_resource type="PackedScene" uid="uid://bcvep0i67mfjc" path="res://scenes/material/metal/can_broken.tscn" id="3_x4570"]
+[ext_resource type="PackedScene" uid="uid://khfuoyv3u5bf" path="res://scenes/material/metal/can_closed.tscn" id="4_j6be5"]
+[ext_resource type="PackedScene" uid="uid://pnu1wwd6tpue" path="res://scenes/material/metal/can_red.tscn" id="5_kgw42"]
+[ext_resource type="PackedScene" uid="uid://bsx8javto3b64" path="res://scenes/material/metal/gas_tank.tscn" id="6_rwhvt"]
+[ext_resource type="PackedScene" uid="uid://dpby7lntgnq1t" path="res://scenes/material/metal/radio.tscn" id="7_4su81"]
+[ext_resource type="PackedScene" uid="uid://bguvhqbc8i2nu" path="res://scenes/material/metal/bathroom_washing_machine.tscn" id="8_pfl8i"]
+[ext_resource type="PackedScene" uid="uid://co3nxihho2beh" path="res://scenes/material/metal/kitchen_oven_large.tscn" id="9_drpi1"]
+[ext_resource type="PackedScene" uid="uid://cfo7elkee618s" path="res://scenes/material/plastic/crushed_bottle.tscn" id="10_40s6k"]
+[ext_resource type="PackedScene" uid="uid://dl62lkbec36xj" path="res://scenes/material/plastic/dwarf_bottle.tscn" id="11_8p6ok"]
+[ext_resource type="PackedScene" uid="uid://bco3hba72o1d8" path="res://scenes/material/plastic/flat_bottle.tscn" id="12_k1fmu"]
+[ext_resource type="PackedScene" uid="uid://dftvghcy6arhr" path="res://scenes/material/plastic/traffic_cone_1.tscn" id="13_wi6s8"]
+[ext_resource type="PackedScene" uid="uid://b6tq661dd6oa8" path="res://scenes/material/plastic/twisted_bottle.tscn" id="14_w8va7"]
+[ext_resource type="PackedScene" uid="uid://d1263aorw4sa0" path="res://scenes/material/plastic/water_bottle_3.tscn" id="15_3c3r2"]
+[ext_resource type="PackedScene" uid="uid://bbpgsnc5hhem0" path="res://scenes/material/plastic/bathroom_toilet.tscn" id="16_pki2i"]
+[ext_resource type="PackedScene" uid="uid://bugg7od88b0cp" path="res://scenes/material/plastic/guitar.tscn" id="17_n7nho"]
+[ext_resource type="PackedScene" uid="uid://c2ons2bihp07c" path="res://scenes/material/plastic/plastic_barrier.tscn" id="18_4sf6h"]
+[ext_resource type="PackedScene" uid="uid://dl8snk3kwxa34" path="res://scenes/material/wood/chest_special.tscn" id="19_gc5gv"]
+[ext_resource type="PackedScene" uid="uid://bcifwm7f5lfw4" path="res://scenes/material/wood/barrel.tscn" id="20_gaefk"]
+[ext_resource type="PackedScene" uid="uid://cdv10t03jeac4" path="res://scenes/material/wood/crate.tscn" id="21_ft8tq"]
+[ext_resource type="PackedScene" uid="uid://bptbqa1nbl5bn" path="res://scenes/material/wood/chest.tscn" id="22_jf3ch"]
 
-[node name="Material" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_m7ivh"]
+
+[node name="Material" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("1_6lttb")
-variants = Array[PackedScene]([ExtResource("3_17ekf"), ExtResource("2_cmx4f"), ExtResource("4_w0mjd")])
+small_metal_variants = Array[PackedScene]([ExtResource("2_m7ivh"), ExtResource("3_x4570"), ExtResource("4_j6be5"), ExtResource("5_kgw42"), ExtResource("6_rwhvt"), ExtResource("7_4su81")])
+big_metal_variants = Array[PackedScene]([ExtResource("8_pfl8i"), ExtResource("9_drpi1")])
+small_plastic_variants = Array[PackedScene]([ExtResource("10_40s6k"), ExtResource("11_8p6ok"), ExtResource("12_k1fmu"), ExtResource("13_wi6s8"), ExtResource("14_w8va7"), ExtResource("15_3c3r2")])
+big_plastic_variants = Array[PackedScene]([ExtResource("16_pki2i"), ExtResource("17_n7nho"), ExtResource("18_4sf6h")])
+small_wood_variants = Array[PackedScene]([ExtResource("19_gc5gv"), ExtResource("20_gaefk")])
+big_wood_variants = Array[PackedScene]([ExtResource("21_ft8tq"), ExtResource("22_jf3ch")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_m7ivh")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://csrcjkuj5fycm"]
+
+[ext_resource type="PackedScene" uid="uid://by02w4ww6o3hw" path="res://assets/models/metal/BearTrap_Open.fbx" id="1_yn8k0"]
+
+[node name="BearTrap_Open" instance=ExtResource("1_yn8k0")]

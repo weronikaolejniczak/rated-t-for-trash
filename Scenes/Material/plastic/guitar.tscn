@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bugg7od88b0cp"]
+
+[ext_resource type="PackedScene" uid="uid://coqss41ktvpn5" path="res://assets/models/plastic/Guitar.fbx" id="1_if8if"]
+
+[node name="Guitar" instance=ExtResource("1_if8if")]
