@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b53pfq04i66yx"]
+[gd_scene load_steps=18 format=3 uid="uid://b53pfq04i66yx"]
 
 [ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://scenes/player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Script" uid="uid://608u0y5rwy1g" path="res://scenes/game/game.gd" id="1_m6pt0"]
 [ext_resource type="PackedScene" uid="uid://bfpbl3k6wqqeq" path="res://scenes/camera/camera.tscn" id="2_7r8ec"]
 [ext_resource type="Material" uid="uid://dl71wespr01d8" path="res://assets/materials/ocean_background.tres" id="2_jxx51"]
+[ext_resource type="Script" uid="uid://lqwp2r5riys6" path="res://scenes/game/world_environment.gd" id="2_q06b2"]
 [ext_resource type="Material" uid="uid://c4k1pfqnpmstg" path="res://assets/materials/transparent.tres" id="2_wsift"]
 [ext_resource type="PackedScene" uid="uid://cuv7hwr6hsmuy" path="res://scenes/water/water_scene.tscn" id="3_04h35"]
 [ext_resource type="PackedScene" uid="uid://gv78faxp2l67" path="res://scenes/spawner/spawner.tscn" id="4_kr7le"]
@@ -26,8 +27,18 @@ background_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
 background_energy_multiplier = 3.0
 sky = SubResource("Sky_l6yvh")
 tonemap_mode = 2
+ssao_enabled = true
+ssao_intensity = 1.5
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
 glow_enabled = true
-glow_bloom = 1.0
+glow_levels/2 = 0.5
+glow_levels/4 = 1.0
+glow_levels/5 = 0.0
+glow_levels/6 = 1.5
+glow_normalized = true
+glow_bloom = 0.2
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0, 0.59731716, 0.5975528, 1)
@@ -44,6 +55,7 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_04h35")
+script = ExtResource("2_q06b2")
 
 [node name="WorldBoundaries" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
@@ -92,6 +104,7 @@ thrust = 300.0
 [node name="RobotSFX" type="FmodEventEmitter2D" parent="Player"]
 event_name = "event:/sfx/player"
 event_guid = "{6ee1efc3-1bc1-4399-80ce-df2bd392025c}"
+autoplay = true
 fmod_parameters/state/id = -7971225627550033380
 fmod_parameters/state = "idle"
 fmod_parameters/state/labels = PackedStringArray("idle", "emerge", "dive", "pain", "swimming")
@@ -107,8 +120,9 @@ target = NodePath("../Player")
 
 [node name="MaterialSpawner" parent="." instance=ExtResource("4_kr7le")]
 objects_to_spawn = Array[PackedScene]([ExtResource("7_fxxt8")])
-timer_value = 1.0
-spawn_y_offset = 10.0
+object_speed = 4.0
+spawn_x_offset = 10.0
+spawn_y_offset = 15.0
 spawn_z_offset = -0.5
 min_spawn_depth = -20.0
 is_continuously_rotating = true

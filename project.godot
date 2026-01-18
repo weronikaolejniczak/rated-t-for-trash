@@ -81,3 +81,4 @@ toggle_debug={
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/use_taa=true
