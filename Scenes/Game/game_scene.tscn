@@ -127,6 +127,7 @@ script = ExtResource("11_ecdjj")
 event_name = "event:/music/main_bgm"
 event_guid = "{499bbe83-512a-4aef-961c-fe165c09bcf1}"
 autoplay = true
+volume = 0.5
 fmod_parameters/animals_spawn/id = -7895641263147797248
 fmod_parameters/animals_spawn = 0.0
 fmod_parameters/animals_spawn/variant_type = 3
