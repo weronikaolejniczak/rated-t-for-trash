@@ -110,13 +110,19 @@ func _process_collection(type: MaterialTypes, amount: int):
 	
 	match type:
 		MaterialTypes.METAL:
-			if (inventory.metal < inventory_limit):
+			if (inventory.metal == inventory_limit):
+				return
+			else:
 				Player.adjust_resource("metal", amount)
 		MaterialTypes.PLASTIC:
-			if (inventory.plastic < inventory_limit):
+			if (inventory.plastic == inventory_limit):
+				return
+			else:
 				Player.adjust_resource("plastic", amount)
 		MaterialTypes.WOOD:
-			if (inventory.wood < inventory_limit):
+			if (inventory.wood == inventory_limit):
+				return
+			else:
 				Player.adjust_resource("wood", amount)
 	
 	set_process(false)
