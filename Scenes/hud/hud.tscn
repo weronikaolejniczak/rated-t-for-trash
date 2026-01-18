@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://08inwdgabqo"]
+[gd_scene load_steps=12 format=3 uid="uid://08inwdgabqo"]
 
 [ext_resource type="FontFile" uid="uid://x8lmdo6aui2q" path="res://assets/fonts/Kenney Future.ttf" id="1_aac20"]
 [ext_resource type="Texture2D" uid="uid://ciblxbpkhltrt" path="res://assets/textures/ui/Grey/Default/button_square_header_small_rectangle.png" id="1_f5cxw"]
+[ext_resource type="Script" uid="uid://bqbkjg25i18dr" path="res://scenes/hud/hud.gd" id="1_q6mn5"]
 [ext_resource type="FontFile" uid="uid://bq5dh7uyect15" path="res://assets/fonts/Kenney Future Narrow.ttf" id="2_7vp6q"]
 [ext_resource type="Texture2D" uid="uid://ffxvy7dwox7u" path="res://assets/icons/keyboard/keyboard_w_outline.png" id="4_jcn1r"]
 [ext_resource type="Texture2D" uid="uid://rxai0204h0im" path="res://assets/textures/ui/metalPanel_blue.png" id="4_uegxj"]
@@ -18,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q6mn5")
 
 [node name="BottomLeftHUD" type="MarginContainer" parent="."]
 layout_mode = 1

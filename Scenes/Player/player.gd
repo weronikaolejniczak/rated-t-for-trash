@@ -21,7 +21,7 @@ class_name Player
 
 var initial_rotation: Vector3 = Vector3.ZERO
 
-static var inventory_limit: int = 10
+static var inventory_limit: int = 999
 
 static var inventory = {
 	metal = 0,

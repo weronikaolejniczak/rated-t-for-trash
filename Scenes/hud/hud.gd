@@ -8,8 +8,7 @@ extends Control
 @onready var wood_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/Value
 
 func format_value(value: int) -> String:
-	var inventory_limit = Player.get_inventory_limit()
-	return str(value) + "/" + str(inventory_limit)
+	return str(value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
