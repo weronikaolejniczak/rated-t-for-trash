@@ -10,7 +10,7 @@ extends Control
 @onready var wood_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/Value
 
 func format_value(value: int) -> String:
-	return str(value)
+	return str(value) + "/" + str(player.inventory_limit)
 
 func _process(_delta: float) -> void:
 	var depth = player.get_depth()
