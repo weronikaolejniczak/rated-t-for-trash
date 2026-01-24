@@ -1,6 +1,7 @@
 extends RigidBody3D
 class_name Player
 
+
 @export_category("Movement")
 ## How much thrust force to apply when moving
 @export var thrust: float = 100.0
@@ -25,7 +26,6 @@ class_name Player
 ## What's the light strength upgrade amount
 @export var light_upgrade_amount: float = 0.5
 
-@onready var robot_sfx: FmodEventEmitter2D = $RobotSFX
 @onready var robot_mesh: Node3D = $Robot
 @onready var bubble_particles: GPUParticles3D = $Robot/BubbleParticles
 @onready var spot_light_3d: SpotLight3D = $Robot/Flashlight/SpotLight3D
@@ -146,10 +146,8 @@ func _physics_process(delta: float) -> void:
 	if move_input != Vector3.ZERO:
 		apply_central_force(move_input.normalized() * thrust * delta)
 		bubble_particles.emitting = true
-		robot_sfx.set_parameter("state", "swimming")
 	else:
 		bubble_particles.emitting = false
-		robot_sfx.set_parameter("state", "idle")
 	
 	robot_mesh.rotation.x = lerp(robot_mesh.rotation.x, target_tilt.x, delta * tilt_speed)
 	robot_mesh.rotation.y = lerp(robot_mesh.rotation.y, target_tilt.y, delta * tilt_speed)

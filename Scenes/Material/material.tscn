@@ -32,12 +32,3 @@ small_plastic_variants = Array[PackedScene]([ExtResource("10_40s6k"), ExtResourc
 big_plastic_variants = Array[PackedScene]([ExtResource("16_pki2i"), ExtResource("17_n7nho"), ExtResource("18_4sf6h")])
 small_wood_variants = Array[PackedScene]([ExtResource("19_gc5gv"), ExtResource("20_gaefk")])
 big_wood_variants = Array[PackedScene]([ExtResource("21_ft8tq")])
-
-[node name="RecyclingSFX" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/sfx/recycle/recycle"
-event_guid = "{fca56c8d-b722-4c66-9158-5912b90f15c9}"
-volume = 1.2
-fmod_parameters/recycle/id = 3396525677691848593
-fmod_parameters/recycle = "plastic"
-fmod_parameters/recycle/labels = PackedStringArray("plastic", "metal", "wood")
-fmod_parameters/recycle/variant_type = 4

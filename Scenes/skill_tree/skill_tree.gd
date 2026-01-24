@@ -6,7 +6,6 @@ extends Control
 @onready var speed_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow/MarginContainer2/SpeedButton
 @onready var space_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow/MarginContainer2/SpaceButton
 @onready var light_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer2/LightButton
-@onready var background_music: FmodEventEmitter2D = $"../MusicPlayer/BackgroundMusic"
 @onready var player: Player = $"../Player"
 
 var is_open: bool = false
@@ -62,11 +61,9 @@ func toggle_skill_tree() -> void:
 func open_menu() -> void:
 	show()
 	update_ui()
-	background_music.set_parameter("menu_open", 1.0)
 
 func close_menu() -> void:
 	hide()
-	background_music.set_parameter("menu_open", 0.0)
 
 func update_ui() -> void:
 	update_buttons()

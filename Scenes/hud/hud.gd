@@ -9,6 +9,7 @@ extends Control
 @onready var plastic_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer/Value
 @onready var wood_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/Value
 
+
 func format_value(value: int) -> String:
 	return str(value) + "/" + str(player.inventory_limit)
 
