@@ -31,7 +31,6 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
-"res://addons/": "yellow",
 "res://assets/": "green"
 }
 
@@ -80,4 +79,6 @@ exit={
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
 anti_aliasing/quality/use_taa=true
