@@ -29,7 +29,9 @@ class_name Player
 @onready var robot_mesh: Node3D = $Robot
 @onready var bubble_particles: GPUParticles3D = $Robot/BubbleParticles
 @onready var spot_light_3d: SpotLight3D = $Robot/Flashlight/SpotLight3D
+@onready var animation_player: AnimationPlayer = $Robot/AnimationPlayer
 
+var animations = ["Idle1", "Idle2", "Idle3"]
 var initial_rotation: Vector3 = Vector3.ZERO
 
 static var inventory_limit: int = 10
@@ -124,6 +126,10 @@ func _physics_process(delta: float) -> void:
 	var move_input = Vector3.ZERO
 	var target_tilt = initial_rotation
 	
+	if (!animation_player.is_playing()):
+		var random_animation = animations.pick_random()
+		animation_player.play(random_animation)
+	
 	if Input.is_action_pressed("move_up"):
 		move_input.y += 1
 		target_tilt.x = -tilt_angle
@@ -144,7 +150,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		bubble_particles.emitting = false
 		robot_sfx.set_parameter("state", "idle")
-		robot_sfx.play_one_shot()
 	
 	robot_mesh.rotation.x = lerp(robot_mesh.rotation.x, target_tilt.x, delta * tilt_speed)
 	robot_mesh.rotation.y = lerp(robot_mesh.rotation.y, target_tilt.y, delta * tilt_speed)
