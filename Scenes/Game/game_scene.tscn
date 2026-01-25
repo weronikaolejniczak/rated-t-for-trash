@@ -24,6 +24,9 @@ sky_material = SubResource("ProceduralSkyMaterial_ecdjj")
 [sub_resource type="Environment" id="Environment_q06b2"]
 background_mode = 2
 sky = SubResource("Sky_hq7ie")
+tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
 fog_height_density = 0.1
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.15
