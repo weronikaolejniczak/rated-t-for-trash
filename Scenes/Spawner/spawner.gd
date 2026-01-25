@@ -50,9 +50,11 @@ func get_wall(side: String) -> CSGBox3D:
 	return wall
 
 func get_spawn_x(wall: CSGBox3D, side: String) -> float:
+	var half_wall_width = wall.size.x / 2.0
 	var spawn_x = wall.global_position.x
-	if (side == 'left'): spawn_x -= spawn_x_offset
-	else: spawn_x += spawn_x_offset
+	var offset = half_wall_width + spawn_x_offset
+	if (side == 'left'): spawn_x -= offset
+	else: spawn_x += offset
 	return spawn_x
 
 func get_spawn_y() -> float:
