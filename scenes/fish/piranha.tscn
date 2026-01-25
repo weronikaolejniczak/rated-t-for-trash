@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://1v8vi3ohaiuf"]
+
+[ext_resource type="PackedScene" uid="uid://bsj8hbay83ipu" path="res://assets/models/fish/Piranha.fbx" id="1_ah4ov"]
+
+[node name="Piranha" instance=ExtResource("1_ah4ov")]

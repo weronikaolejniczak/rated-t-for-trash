@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://v1jtw3kj425g"]
+
+[ext_resource type="PackedScene" uid="uid://tb8dfd0wqurb" path="res://assets/models/fish/Hammerhead.fbx" id="1_mbgdd"]
+[ext_resource type="Script" uid="uid://cxe8337vvytld" path="res://scenes/fish/animation.gd" id="2_314iw"]
+
+[node name="Hammerhead" instance=ExtResource("1_mbgdd")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_314iw")
+animation_name = "Armature|ArmatureAction"
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(650, 0, 0, 0, -2.8412402e-05, 650, 0, -650, -2.8412402e-05, -1, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(0.09182369, 0.002067835, 0.022418762, 0.9955207)
+bones/1/rotation = Quaternion(-0.09183751, 0.0013194068, 0.014304554, 0.9956705)
+bones/3/rotation = Quaternion(-0.40897754, -0.0033787396, 0.0139622735, 0.91243136)
+bones/5/rotation = Quaternion(0.0002786452, 0.006410341, 0.9987484, 0.049603015)
+bones/6/rotation = Quaternion(-0.0065727225, -0.0008824734, -0.1421697, 0.9898201)
+bones/7/rotation = Quaternion(0.20613147, -0.04236514, -0.19720963, 0.957509)
+bones/9/rotation = Quaternion(-0.459562, 0.13014212, -0.23916005, 0.84538054)
+bones/11/rotation = Quaternion(-0.087710105, 0.08951958, -0.6913675, 0.71155053)
+bones/12/rotation = Quaternion(0.04553174, -0.0007885485, -0.12099243, 0.9916084)
+bones/14/rotation = Quaternion(-0.087710105, 0.08951958, -0.6913675, 0.71155053)
+bones/15/rotation = Quaternion(0.04553174, -0.0007885485, -0.12099243, 0.9916084)
+bones/17/rotation = Quaternion(-0.087710105, 0.08951958, -0.6913675, 0.71155053)
+bones/18/rotation = Quaternion(0.04553174, -0.0007885485, -0.12099243, 0.9916084)
+bones/20/rotation = Quaternion(-0.30840203, 0.041549027, 0.6725635, 0.6714315)
+bones/21/rotation = Quaternion(-0.17537168, -0.040793546, 0.20669696, 0.96169496)

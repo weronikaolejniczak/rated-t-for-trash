@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5y07g5woocq8"]
+
+[ext_resource type="PackedScene" uid="uid://cp3uw2148nvqs" path="res://assets/models/fish/Whale.fbx" id="1_oo5pk"]
+
+[node name="Whale" instance=ExtResource("1_oo5pk")]

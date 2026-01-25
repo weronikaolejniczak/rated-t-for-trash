@@ -1,0 +1,319 @@
+[gd_scene load_steps=14 format=3 uid="uid://08inwdgabqo"]
+
+[ext_resource type="FontFile" uid="uid://x8lmdo6aui2q" path="res://assets/fonts/Kenney Future.ttf" id="1_aac20"]
+[ext_resource type="Texture2D" uid="uid://ciblxbpkhltrt" path="res://assets/textures/ui/Grey/Default/button_square_header_small_rectangle.png" id="1_f5cxw"]
+[ext_resource type="Script" uid="uid://bqbkjg25i18dr" path="res://scenes/hud/hud.gd" id="1_q6mn5"]
+[ext_resource type="FontFile" uid="uid://bq5dh7uyect15" path="res://assets/fonts/Kenney Future Narrow.ttf" id="2_7vp6q"]
+[ext_resource type="Texture2D" uid="uid://ffxvy7dwox7u" path="res://assets/icons/keyboard/keyboard_w_outline.png" id="4_jcn1r"]
+[ext_resource type="Texture2D" uid="uid://rxai0204h0im" path="res://assets/textures/ui/metalPanel_blue.png" id="4_uegxj"]
+[ext_resource type="Texture2D" uid="uid://c8xmlddm8kb46" path="res://assets/textures/ui/metalPanel_yellow.png" id="5_nhd55"]
+[ext_resource type="Texture2D" uid="uid://ywdap8qrbtyt" path="res://assets/icons/keyboard/keyboard_s_outline.png" id="5_uegxj"]
+[ext_resource type="Texture2D" uid="uid://djildks78cukk" path="res://assets/textures/ui/metalPanel_red.png" id="6_q6mn5"]
+[ext_resource type="Texture2D" uid="uid://bvflqd18ar5tl" path="res://assets/icons/keyboard/keyboard_d_outline.png" id="6_y220t"]
+[ext_resource type="Texture2D" uid="uid://dxd2ni66emiqn" path="res://assets/icons/keyboard/keyboard_a_outline.png" id="7_4kltc"]
+[ext_resource type="Texture2D" uid="uid://bfaaqx5ib1fth" path="res://assets/icons/game_icons/White/1x/wrench.png" id="8_558d4"]
+[ext_resource type="Texture2D" uid="uid://dypwxtmku3ire" path="res://assets/icons/mouse/mouse_left_outline.png" id="12_8nkf1"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q6mn5")
+
+[node name="BottomLeftHUD" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -116.0
+offset_right = 544.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomLeftHUD"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="DepthMeter" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/DepthMeter"]
+layout_mode = 2
+texture = ExtResource("1_f5cxw")
+
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/DepthMeter"]
+layout_mode = 2
+
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer/LabelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("2_7vp6q")
+theme_override_font_sizes/normal_font_size = 12
+text = "Depth"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("1_aac20")
+theme_override_font_sizes/normal_font_size = 24
+text = "-1000"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory_Metal" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal"]
+layout_mode = 2
+texture = ExtResource("4_uegxj")
+stretch_mode = 5
+
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal"]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer/LabelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("2_7vp6q")
+theme_override_font_sizes/normal_font_size = 12
+text = "Metal"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("1_aac20")
+theme_override_font_sizes/normal_font_size = 18
+text = "10/10"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory_Plastic" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic"]
+layout_mode = 2
+texture = ExtResource("5_nhd55")
+stretch_mode = 5
+
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic"]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer/LabelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("2_7vp6q")
+theme_override_font_sizes/normal_font_size = 12
+text = "Plastic"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("1_aac20")
+theme_override_font_sizes/normal_font_size = 18
+text = "10/10"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory_Wood" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood"]
+layout_mode = 2
+texture = ExtResource("6_q6mn5")
+stretch_mode = 5
+
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood"]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/LabelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("2_7vp6q")
+theme_override_font_sizes/normal_font_size = 12
+text = "Wood"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("1_aac20")
+theme_override_font_sizes/normal_font_size = 18
+text = "10/10"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkillTreeButton" type="Button" parent="BottomLeftHUD/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("8_558d4")
+
+[node name="BottomRightHUD" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -327.0
+offset_top = -141.0
+offset_right = -9.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomRightHUD"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 75
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_7vp6q")
+theme_override_font_sizes/normal_font_size = 32
+text = "Move"
+fit_content = true
+vertical_alignment = 1
+
+[node name="KeysHint" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="AKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+texture = ExtResource("7_4kltc")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_jcn1r")
+stretch_mode = 5
+
+[node name="SKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_uegxj")
+stretch_mode = 5
+
+[node name="DKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("6_y220t")
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_7vp6q")
+theme_override_font_sizes/normal_font_size = 32
+text = "CLEAN"
+fit_content = true
+vertical_alignment = 1
+
+[node name="MouseHint" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MouseHint"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("12_8nkf1")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MouseHint"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_7vp6q")
+theme_override_font_sizes/normal_font_size = 16
+text = "CLICK"
+fit_content = true
+vertical_alignment = 1
+
+[connection signal="pressed" from="BottomLeftHUD/HBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
+[connection signal="toggled" from="BottomLeftHUD/HBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_toggled"]
