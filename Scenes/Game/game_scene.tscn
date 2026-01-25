@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b53pfq04i66yx"]
+[gd_scene load_steps=18 format=3 uid="uid://b53pfq04i66yx"]
 
 [ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://scenes/player/player.tscn" id="1_2p8i2"]
 [ext_resource type="PackedScene" uid="uid://bfpbl3k6wqqeq" path="res://scenes/camera/camera.tscn" id="2_7r8ec"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cfri23ks35txw" path="res://scenes/material/material.tscn" id="7_fxxt8"]
 [ext_resource type="PackedScene" uid="uid://08inwdgabqo" path="res://scenes/hud/hud.tscn" id="7_u63k7"]
 [ext_resource type="PackedScene" uid="uid://bh7lu47252k1j" path="res://scenes/fish/fish.tscn" id="8_fxxt8"]
+[ext_resource type="PackedScene" uid="uid://cpmkohivfbat8" path="res://assets/models/environment/Resource_Rock_1.fbx" id="12_lbkq5"]
 [ext_resource type="PackedScene" uid="uid://bv0ujhhf8xeap" path="res://scenes/skill_tree/skill_tree.tscn" id="13_lbkq5"]
+[ext_resource type="PackedScene" uid="uid://ccgd1qnvxsfxn" path="res://assets/models/environment/Tree_Blob_1.fbx" id="13_sq5bl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ecdjj"]
 sky_top_color = Color(0.431691, 0.6356181, 0.9558373, 1)
@@ -29,7 +31,7 @@ glow_enabled = true
 glow_normalized = true
 fog_height_density = 0.1
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.15
+volumetric_fog_density = 0.0
 volumetric_fog_albedo = Color(0.17716438, 0.60540235, 0.9999991, 1)
 adjustment_enabled = true
 adjustment_contrast = 1.1
@@ -49,6 +51,32 @@ transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-0
 light_energy = 3.0
 shadow_enabled = true
 
+[node name="LevelBoundaries" type="Node3D" parent="."]
+
+[node name="Boundary100" type="CSGBox3D" parent="LevelBoundaries"]
+transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -100, 15.5)
+material_override = ExtResource("2_wsift")
+use_collision = true
+collision_layer = 4
+collision_mask = 9
+size = Vector3(100, 100, 1)
+
+[node name="Boundary200" type="CSGBox3D" parent="LevelBoundaries"]
+transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -200, 15.5)
+material_override = ExtResource("2_wsift")
+use_collision = true
+collision_layer = 4
+collision_mask = 9
+size = Vector3(100, 100, 1)
+
+[node name="Boundary300" type="CSGBox3D" parent="LevelBoundaries"]
+transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -300, 15.5)
+material_override = ExtResource("2_wsift")
+use_collision = true
+collision_layer = 4
+collision_mask = 9
+size = Vector3(100, 100, 1)
+
 [node name="WorldBoundaries" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 
@@ -60,8 +88,9 @@ collision_layer = 2
 collision_mask = 9
 size = Vector3(200, 420, 1)
 
-[node name="Background2" type="CSGBox3D" parent="WorldBoundaries"]
+[node name="Foreground" type="CSGBox3D" parent="WorldBoundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -205, 30)
+visible = false
 material_override = ExtResource("2_jxx51")
 use_collision = true
 collision_layer = 2
@@ -120,6 +149,14 @@ collision_layer = 4
 collision_mask = 9
 size = Vector3(100, 200, 1)
 
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Resource_Rock_1" parent="Environment" instance=ExtResource("12_lbkq5")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -31.700443, -411.48795, 8.049034)
+
+[node name="Tree_Blob_1" parent="Environment" instance=ExtResource("13_sq5bl")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 33.47455, -412.55713, -1.7050247)
+
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
 max_speed = 300.0
 
@@ -149,3 +186,5 @@ player = NodePath("../Player")
 [node name="HUD" parent="." instance=ExtResource("7_u63k7")]
 
 [node name="SkillTreeUI" parent="." instance=ExtResource("13_lbkq5")]
+
+[editable path="Camera"]
