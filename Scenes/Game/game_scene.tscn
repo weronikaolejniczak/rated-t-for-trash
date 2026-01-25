@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://b53pfq04i66yx"]
+[gd_scene load_steps=16 format=3 uid="uid://b53pfq04i66yx"]
 
 [ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://scenes/player/player.tscn" id="1_2p8i2"]
-[ext_resource type="Script" uid="uid://608u0y5rwy1g" path="res://scenes/game/game.gd" id="1_m6pt0"]
 [ext_resource type="PackedScene" uid="uid://bfpbl3k6wqqeq" path="res://scenes/camera/camera.tscn" id="2_7r8ec"]
 [ext_resource type="Material" uid="uid://dl71wespr01d8" path="res://assets/materials/ocean_background.tres" id="2_jxx51"]
 [ext_resource type="Script" uid="uid://lqwp2r5riys6" path="res://scenes/game/world_environment.gd" id="2_q06b2"]
@@ -37,8 +36,6 @@ adjustment_saturation = 1.2
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node3D"]
-script = ExtResource("1_m6pt0")
-target_depth = 400.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q06b2")

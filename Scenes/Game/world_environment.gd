@@ -1,6 +1,7 @@
 extends WorldEnvironment
 
 
+const TARGET_DEPTH = 400.0
 const MIN_SUN_LIGHT_ENERGY: float = 0.01
 const MAX_SUN_LIGHT_ENERGY: float = 1.5
 const MIN_BG_ENERGY_MULTIPLIER: float = 0.01
@@ -15,7 +16,7 @@ const MAX_VOLUMETRIC_FOG_DENSITY: float = 0.1
 
 func _physics_process(_delta: float) -> void:
 	var depth = abs(player.get_depth())
-	var depth_ratio = depth / game.target_depth
+	var depth_ratio = depth / TARGET_DEPTH
 	
 	sun.light_energy = lerp(
 		MAX_SUN_LIGHT_ENERGY,
