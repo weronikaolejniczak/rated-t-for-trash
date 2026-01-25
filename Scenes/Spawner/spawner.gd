@@ -94,10 +94,10 @@ func spawn_object():
 	var spawn_direction = get_spawn_direction(side)
 	var spawn_velocity = spawn_direction * object_speed
 	
-	add_child.call_deferred(object)
-	
 	object.position = spawn_position
 	object.velocity = spawn_velocity
+	
+	add_child(object)
 	
 	if (is_continuously_rotating):
 		var spawn_angular_velocity = get_spawn_angular_velocity()
