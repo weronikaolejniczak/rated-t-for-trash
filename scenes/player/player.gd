@@ -30,6 +30,7 @@ class_name Player
 @onready var bubble_particles: GPUParticles3D = $Robot/BubbleParticles
 @onready var spot_light_3d: SpotLight3D = $Robot/Flashlight/SpotLight3D
 @onready var animation_player: AnimationPlayer = $Robot/AnimationPlayer
+@onready var robot_sfx_player_2d: AudioStreamPlayer2D = $RobotSFXPlayer2D
 
 var animations = ["Idle1", "Idle2", "Idle3"]
 var initial_rotation: Vector3 = Vector3.ZERO
@@ -148,8 +149,10 @@ func _physics_process(delta: float) -> void:
 	if move_input != Vector3.ZERO:
 		apply_central_force(move_input.normalized() * thrust * delta)
 		bubble_particles.emitting = true
+		robot_sfx_player_2d.play()
 	else:
 		bubble_particles.emitting = false
+		robot_sfx_player_2d.stop()
 	
 	robot_mesh.rotation.x = lerp(robot_mesh.rotation.x, target_tilt.x, delta * tilt_speed)
 	robot_mesh.rotation.y = lerp(robot_mesh.rotation.y, target_tilt.y, delta * tilt_speed)
