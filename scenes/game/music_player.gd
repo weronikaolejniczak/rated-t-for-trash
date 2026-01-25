@@ -5,6 +5,10 @@ extends Node3D
 @onready var player: Player = $"../Player"
 @onready var fish_spawner: Node3D = $"../FishSpawner"
 
+## Background music audio file path
+@onready var music_player_2d: AudioStreamPlayer2D = $Player/MusicPlayer2D
+@export var background_music_path: String = "res://Assets/bgm/bgm-loop.ogg"
+
 var first_depth_state: float = 0.0
 var second_depth_state: float = 0.0
 var third_depth_state: float = 0.0
@@ -12,6 +16,10 @@ var third_depth_state: float = 0.0
 const FIRST_DEPTH_IN_METERS: float = 30.0
 const THIRD_DEPTH_IN_PERCENT: float = 0.75
 
+
+func _ready() -> void:
+	# Load music
+	music_player_2d.play()
 
 func _process(_delta: float) -> void:
 	if (player.is_inside_tree()):
