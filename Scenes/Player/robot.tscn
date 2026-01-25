@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://45bbslmdco5a"]
 
-[ext_resource type="PackedScene" uid="uid://d3e0vemadrnaj" path="res://assets/models/robot/robot.glb" id="1_8dbh5"]
+[ext_resource type="PackedScene" uid="uid://cgymm0ibe33pv" path="res://assets/models/robot/robot.glb" id="1_8dbh5"]
 
-[node name="robot" instance=ExtResource("1_8dbh5")]
+[node name="Robot" instance=ExtResource("1_8dbh5")]
