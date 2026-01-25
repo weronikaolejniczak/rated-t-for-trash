@@ -121,7 +121,6 @@ collision_mask = 9
 size = Vector3(100, 200, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
-thrust = 500.0
 max_speed = 300.0
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
