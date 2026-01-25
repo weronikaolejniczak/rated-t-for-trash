@@ -86,7 +86,8 @@ func spawn_object():
 	var wall: CSGBox3D = get_wall(side)
 	var spawn_x: float = get_spawn_x(wall, side)
 	var spawn_y: float = get_spawn_y()
-	var spawn_z: float = player.global_position.z + spawn_z_offset
+	var z_jitter = randf_range(-2.0, 2.0)
+	var spawn_z: float = player.global_position.z + spawn_z_offset + z_jitter
 	
 	var object = objects_to_spawn.pick_random().instantiate()
 	var spawn_position = Vector3(spawn_x, spawn_y, spawn_z)
