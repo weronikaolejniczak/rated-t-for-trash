@@ -26,8 +26,8 @@ extends Node3D
 @export var rotation_angle: float = 1.0
 
 @onready var player: Player = $"../Player"
-@onready var right_wall: CSGBox3D = $"../WorldBoundaries/Right wall"
-@onready var left_wall: CSGBox3D = $"../WorldBoundaries/Left wall"
+@onready var left_wall: CSGBox3D = $"../WorldBoundaries/TransparentLeftWall"
+@onready var right_wall: CSGBox3D = $"../WorldBoundaries/TransparentRightWall"
 @onready var timer: Timer = $Timer
 
 var sides: Array[String] = ["left", "right"]

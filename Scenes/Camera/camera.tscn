@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cj4hm5hg71e31" path="res://scenes/camera/camera.gd" id="1_wmbm5"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xejhd"]
-auto_exposure_enabled = true
+dof_blur_far_distance = 5.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 1.0
 
 [node name="Camera" type="Node3D"]
 script = ExtResource("1_wmbm5")

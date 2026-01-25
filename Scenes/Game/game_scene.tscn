@@ -13,73 +13,88 @@
 [ext_resource type="PackedScene" uid="uid://bh7lu47252k1j" path="res://scenes/fish/fish.tscn" id="8_fxxt8"]
 [ext_resource type="PackedScene" uid="uid://bv0ujhhf8xeap" path="res://scenes/skill_tree/skill_tree.tscn" id="13_lbkq5"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2p8i2"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ecdjj"]
+sky_top_color = Color(0.431691, 0.6356181, 0.9558373, 1)
+sky_horizon_color = Color(0.77217746, 0.8470098, 0.9679858, 1)
+ground_bottom_color = Color(0.072970875, 0.16837338, 0.33205807, 1)
+ground_horizon_color = Color(0.77217746, 0.8470098, 0.9679858, 1)
 
-[sub_resource type="Sky" id="Sky_l6yvh"]
-sky_material = SubResource("ProceduralSkyMaterial_2p8i2")
+[sub_resource type="Sky" id="Sky_hq7ie"]
+sky_material = SubResource("ProceduralSkyMaterial_ecdjj")
 
-[sub_resource type="Environment" id="Environment_04h35"]
+[sub_resource type="Environment" id="Environment_q06b2"]
 background_mode = 2
-background_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
-background_energy_multiplier = 3.0
-sky = SubResource("Sky_l6yvh")
-tonemap_mode = 3
-ssao_enabled = true
-ssao_intensity = 1.5
-ssil_enabled = true
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-glow_enabled = true
-glow_levels/2 = 0.5
-glow_levels/4 = 1.0
-glow_levels/5 = 0.0
-glow_levels/6 = 1.5
-glow_normalized = true
-glow_bloom = 0.2
+sky = SubResource("Sky_hq7ie")
+fog_height_density = 0.1
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
-volumetric_fog_albedo = Color(0, 0.59731716, 0.5975528, 1)
+volumetric_fog_density = 0.15
+volumetric_fog_albedo = Color(0.17716438, 0.60540235, 0.9999991, 1)
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hq7ie"]
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_m6pt0")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+target_depth = 400.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_04h35")
+environment = SubResource("Environment_q06b2")
 script = ExtResource("2_q06b2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-08, 1, -0.50000006, 0.8660254, 3.7855173e-08, 0, 0, 0)
+light_energy = 3.0
+shadow_enabled = true
 
 [node name="WorldBoundaries" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 
 [node name="Background" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -250, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -205, -20)
 material_override = ExtResource("2_jxx51")
 use_collision = true
 collision_layer = 2
 collision_mask = 9
-size = Vector3(200, 500, 1)
+size = Vector3(200, 420, 1)
 
-[node name="Right wall" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 30, -250, 5.5)
+[node name="Background2" type="CSGBox3D" parent="WorldBoundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -205, 30)
+material_override = ExtResource("2_jxx51")
+use_collision = true
+collision_layer = 2
+collision_mask = 9
+size = Vector3(200, 420, 1)
+
+[node name="TransparentRightWall" type="CSGBox3D" parent="WorldBoundaries"]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 30, -204.75, 5.5)
 material_override = ExtResource("2_wsift")
 use_collision = true
 collision_layer = 2
-size = Vector3(100, 500, 1)
+size = Vector3(100, 420, 1)
 
-[node name="Left wall" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, -30, -250, 5.5)
+[node name="SolidRightWall" type="CSGBox3D" parent="WorldBoundaries"]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 99, -204.75, 5.5)
+material_override = ExtResource("2_jxx51")
+use_collision = true
+collision_layer = 2
+size = Vector3(100, 420, 1)
+
+[node name="TransparentLeftWall" type="CSGBox3D" parent="WorldBoundaries"]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, -30, -204.75, 5.5)
 material_override = ExtResource("2_wsift")
 use_collision = true
 collision_layer = 2
-size = Vector3(100, 500, 1)
+size = Vector3(100, 420, 1)
+
+[node name="SolidLeftWall" type="CSGBox3D" parent="WorldBoundaries"]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, -99, -204.75, 5.5)
+material_override = ExtResource("2_jxx51")
+use_collision = true
+collision_layer = 2
+size = Vector3(100, 420, 1)
 
 [node name="Ceiling" type="CSGBox3D" parent="WorldBoundaries"]
 transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, 0.25, 5.5)
@@ -89,8 +104,16 @@ collision_layer = 4
 collision_mask = 9
 size = Vector3(100, 100, 1)
 
+[node name="InvisibleFloor" type="CSGBox3D" parent="WorldBoundaries"]
+transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -402, 5.5)
+material_override = ExtResource("2_wsift")
+use_collision = true
+collision_layer = 4
+collision_mask = 9
+size = Vector3(100, 100, 1)
+
 [node name="Floor" type="CSGBox3D" parent="WorldBoundaries"]
-transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -500.25, 5.5)
+transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, -414.75, 5.5)
 material_override = SubResource("StandardMaterial3D_hq7ie")
 use_collision = true
 collision_layer = 4
@@ -98,6 +121,7 @@ collision_mask = 9
 size = Vector3(100, 200, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
+thrust = 500.0
 max_speed = 300.0
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
