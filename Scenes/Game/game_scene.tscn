@@ -160,6 +160,11 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 33.47455, -412.55713, -1.7050
 [node name="Player" parent="." instance=ExtResource("1_2p8i2")]
 max_speed = 300.0
 
+[node name="RobotSFXPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+
+[node name="MusicPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+autoplay = true
+
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_7r8ec")]
 target = NodePath("../Player")
 

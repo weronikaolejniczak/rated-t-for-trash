@@ -21,6 +21,9 @@ enum MaterialSizes { SMALL, BIG }
 @export var incrementer: int = 1
 
 @onready var player: Player = $"../../Player"
+@onready var wood_player_3d: AudioStreamPlayer3D = $WoodPlayer3D
+@onready var plastic_player_3d: AudioStreamPlayer3D = $PlasticPlayer3D
+@onready var metal_player_3d: AudioStreamPlayer3D = $MetalPlayer3D
 
 var velocity: Vector3 = Vector3.ZERO
 var angular_velocity: Vector3 = Vector3.ZERO
@@ -29,7 +32,6 @@ var random_size: MaterialSizes
 var click_counter: int = 0
 
 const RAY_LENGTH = 1000.0
-
 
 # INTERNAL METHODS AND SIGNALS
 
@@ -73,6 +75,14 @@ func _process(delta: float) -> void:
 func _input(event):
 	if not (event is InputEventMouseButton and event.pressed): return
 	if not (_is_clicked(event.position)): return
+	
+	match random_material:
+		MaterialTypes.METAL:
+			metal_player_3d.play()
+		MaterialTypes.PLASTIC:
+			plastic_player_3d.play()
+		MaterialTypes.WOOD:
+			wood_player_3d.play()
 	
 	var amount = small_material_gain if random_size == MaterialSizes.SMALL else big_material_gain
 	

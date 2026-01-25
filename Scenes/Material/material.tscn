@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfri23ks35txw"]
+[gd_scene load_steps=38 format=3 uid="uid://cfri23ks35txw"]
 
 [ext_resource type="Script" uid="uid://c130yjreb0f21" path="res://scenes/material/material.gd" id="1_6lttb"]
 [ext_resource type="PackedScene" uid="uid://csrcjkuj5fycm" path="res://scenes/material/metal/bear_trap_open.tscn" id="2_m7ivh"]
@@ -21,6 +21,41 @@
 [ext_resource type="PackedScene" uid="uid://dl8snk3kwxa34" path="res://scenes/material/wood/chest_special.tscn" id="19_gc5gv"]
 [ext_resource type="PackedScene" uid="uid://bcifwm7f5lfw4" path="res://scenes/material/wood/barrel.tscn" id="20_gaefk"]
 [ext_resource type="PackedScene" uid="uid://cdv10t03jeac4" path="res://scenes/material/wood/crate.tscn" id="21_ft8tq"]
+[ext_resource type="AudioStream" uid="uid://cnpftq8ykrosl" path="res://assets/sfx/wood/recycle_wood_1.ogg" id="22_rwhvt"]
+[ext_resource type="AudioStream" uid="uid://dgsnjcu7ukgn5" path="res://assets/sfx/wood/recycle_wood_2.ogg" id="23_4su81"]
+[ext_resource type="AudioStream" uid="uid://dxc0nurq87c4v" path="res://assets/sfx/wood/recycle_wood_3.ogg" id="24_pfl8i"]
+[ext_resource type="AudioStream" uid="uid://cjyv7diihu2ip" path="res://assets/sfx/wood/recycle_wood_4.ogg" id="25_drpi1"]
+[ext_resource type="AudioStream" uid="uid://c64g7acl21wcw" path="res://assets/sfx/wood/recycle_wood_5.ogg" id="26_40s6k"]
+[ext_resource type="AudioStream" uid="uid://cludy3uaoynp7" path="res://assets/sfx/plastic/recycle_plastic_1.ogg" id="27_40s6k"]
+[ext_resource type="AudioStream" uid="uid://dnotoutijdq0i" path="res://assets/sfx/plastic/recycle_plastic_2.ogg" id="28_8p6ok"]
+[ext_resource type="AudioStream" uid="uid://v8388a3e8bn0" path="res://assets/sfx/plastic/recycle_plastic_3.ogg" id="29_k1fmu"]
+[ext_resource type="AudioStream" uid="uid://dm4jgyuxmlsx3" path="res://assets/sfx/plastic/recycle_plastic_4.ogg" id="30_wi6s8"]
+[ext_resource type="AudioStream" uid="uid://mtp2ofj3x5b3" path="res://assets/sfx/metal/recycle_metal_1.ogg" id="31_w8va7"]
+[ext_resource type="AudioStream" uid="uid://dlkrjestfruds" path="res://assets/sfx/metal/recycle_metal_2.ogg" id="32_3c3r2"]
+[ext_resource type="AudioStream" uid="uid://bi0t2o3sx5hqy" path="res://assets/sfx/metal/recycle_metal_3.ogg" id="33_pki2i"]
+[ext_resource type="AudioStream" uid="uid://c71reo8mq38dy" path="res://assets/sfx/metal/recycle_metal_4.ogg" id="34_n7nho"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8p6ok"]
+streams_count = 5
+stream_0/stream = ExtResource("22_rwhvt")
+stream_1/stream = ExtResource("23_4su81")
+stream_2/stream = ExtResource("24_pfl8i")
+stream_3/stream = ExtResource("25_drpi1")
+stream_4/stream = ExtResource("26_40s6k")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w8va7"]
+streams_count = 4
+stream_0/stream = ExtResource("27_40s6k")
+stream_1/stream = ExtResource("28_8p6ok")
+stream_2/stream = ExtResource("29_k1fmu")
+stream_3/stream = ExtResource("30_wi6s8")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4sf6h"]
+streams_count = 4
+stream_0/stream = ExtResource("31_w8va7")
+stream_1/stream = ExtResource("32_3c3r2")
+stream_2/stream = ExtResource("33_pki2i")
+stream_3/stream = ExtResource("34_n7nho")
 
 [node name="Material" type="StaticBody3D"]
 collision_layer = 8
@@ -32,3 +67,12 @@ small_plastic_variants = Array[PackedScene]([ExtResource("10_40s6k"), ExtResourc
 big_plastic_variants = Array[PackedScene]([ExtResource("16_pki2i"), ExtResource("17_n7nho"), ExtResource("18_4sf6h")])
 small_wood_variants = Array[PackedScene]([ExtResource("19_gc5gv"), ExtResource("20_gaefk")])
 big_wood_variants = Array[PackedScene]([ExtResource("21_ft8tq")])
+
+[node name="WoodPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_8p6ok")
+
+[node name="PlasticPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_w8va7")
+
+[node name="MetalPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_4sf6h")
