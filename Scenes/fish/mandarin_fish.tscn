@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs7jkugkhlhov"]
-
-[ext_resource type="PackedScene" uid="uid://d2gml2w6ppsab" path="res://assets/models/fish/MandarinFish.fbx" id="1_e7kkd"]
-
-[node name="MandarinFish" instance=ExtResource("1_e7kkd")]

@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b18ueyx5pmg8m"]
-
-[ext_resource type="PackedScene" uid="uid://bw1rbjg36vo3y" path="res://assets/models/fish/Puffer.fbx" id="1_fp8vv"]
-
-[node name="Puffer" instance=ExtResource("1_fp8vv")]
