@@ -31,9 +31,13 @@ class_name Player
 @onready var spot_light_3d: SpotLight3D = $Robot/Flashlight/SpotLight3D
 @onready var animation_player: AnimationPlayer = $Robot/AnimationPlayer
 @onready var robot_sfx_player_2d: AudioStreamPlayer2D = $RobotSFXPlayer2D
+@onready var underwater_sfx_player_2d: AudioStreamPlayer2D = $UnderwaterSFXPlayer2D
 
 var animations = ["Idle1", "Idle2", "Idle3"]
 var initial_rotation: Vector3 = Vector3.ZERO
+
+var robot_tween: Tween
+var underwater_tween: Tween
 
 static var inventory_limit: int = 10
 
@@ -149,11 +153,31 @@ func _physics_process(delta: float) -> void:
 	if move_input != Vector3.ZERO:
 		apply_central_force(move_input.normalized() * thrust * delta)
 		bubble_particles.emitting = true
-		robot_sfx_player_2d.play()
+	
+		if not robot_sfx_player_2d.playing:
+			if robot_tween: robot_tween.kill()
+			robot_sfx_player_2d.play()
+			robot_tween = create_tween()
+			robot_tween.tween_property(robot_sfx_player_2d, "volume_db", 0, 0.05)
+		if not underwater_sfx_player_2d.playing:
+			if underwater_tween: underwater_tween.kill()
+			underwater_sfx_player_2d.play()
+			underwater_tween = create_tween()
+			underwater_tween.tween_property(underwater_sfx_player_2d, "volume_db", 0, 0.1)
 	else:
 		bubble_particles.emitting = false
-		robot_sfx_player_2d.stop()
-	
+		if robot_sfx_player_2d.playing:
+			if robot_tween == null or not robot_tween.is_running():
+				robot_tween = create_tween()
+				robot_tween.tween_property(robot_sfx_player_2d, "volume_db", 0, 0.05).set_trans(Tween.TRANS_SINE)
+				robot_tween.finished.connect(robot_sfx_player_2d.stop)
+		
+		if underwater_sfx_player_2d.playing:
+			if underwater_tween == null or not underwater_tween.is_running():
+				underwater_tween = create_tween()
+				underwater_tween.tween_property(underwater_sfx_player_2d, "volume_db", 0, 0.3).set_trans(Tween.TRANS_SINE)
+				underwater_tween.finished.connect(underwater_sfx_player_2d.stop)
+		
 	robot_mesh.rotation.x = lerp(robot_mesh.rotation.x, target_tilt.x, delta * tilt_speed)
 	robot_mesh.rotation.y = lerp(robot_mesh.rotation.y, target_tilt.y, delta * tilt_speed)
 	robot_mesh.rotation.z = lerp(robot_mesh.rotation.z, target_tilt.z, delta * tilt_speed)
