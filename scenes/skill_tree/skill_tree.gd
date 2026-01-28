@@ -7,6 +7,7 @@ extends Control
 @onready var space_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow/MarginContainer2/SpaceButton
 @onready var light_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer2/LightButton
 @onready var player: Player = $"../Player"
+@onready var button_click_player_2d: AudioStreamPlayer2D = $ButtonClickPlayer2D
 
 var is_open: bool = false
 
@@ -36,14 +37,17 @@ func _on_exit_button_pressed() -> void:
 	toggle_skill_tree()
 
 func _on_speed_button_pressed() -> void:
+	button_click_player_2d.play()
 	if player.upgrade_speed():
 		update_ui()
 
 func _on_space_button_pressed() -> void:
+	button_click_player_2d.play()
 	if player.upgrade_space():
 		update_ui()
 
 func _on_light_button_pressed() -> void:
+	button_click_player_2d.play()
 	if player.upgrade_light():
 		update_ui()
 
@@ -59,10 +63,12 @@ func toggle_skill_tree() -> void:
 		close_menu()
 
 func open_menu() -> void:
+	button_click_player_2d.play()
 	show()
 	update_ui()
 
 func close_menu() -> void:
+	button_click_player_2d.play()
 	hide()
 
 func update_ui() -> void:

@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv0ujhhf8xeap"]
+[gd_scene format=3 uid="uid://bv0ujhhf8xeap"]
 
 [ext_resource type="Script" uid="uid://c5p7h825nusfh" path="res://scenes/skill_tree/skill_tree.gd" id="1_7utke"]
-[ext_resource type="Texture2D" uid="uid://dp7ly1jq4vaku" path="res://assets/icons/game_icons/White/1x/cross.png" id="2_qyvaf"]
-[ext_resource type="FontFile" uid="uid://x8lmdo6aui2q" path="res://assets/fonts/Kenney Future.ttf" id="2_ynme6"]
-[ext_resource type="FontFile" uid="uid://bq5dh7uyect15" path="res://assets/fonts/Kenney Future Narrow.ttf" id="4_cppxt"]
+[ext_resource type="Texture2D" uid="uid://dj66o7u311ru2" path="res://assets/icons/game_icons/White/1x/cross.png" id="2_qyvaf"]
+[ext_resource type="FontFile" uid="uid://bgv0qxjp0mwuf" path="res://assets/fonts/Kenney Future.ttf" id="2_ynme6"]
+[ext_resource type="FontFile" uid="uid://bmgpgtlmicd1p" path="res://assets/fonts/Kenney Future Narrow.ttf" id="4_cppxt"]
 
-[node name="SkillTreeUI" type="Control"]
+[node name="SkillTreeUI" type="Control" unique_id=495221796]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7utke")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1133810678]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,11 +26,11 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1003376888]
 layout_mode = 2
 color = Color(0.47058824, 0.47058824, 0.47058824, 0.6745098)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect" unique_id=1290953301]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,35 +38,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer" unique_id=694753618]
 layout_mode = 2
 
-[node name="TitleContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="TitleContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer" unique_id=1011354260]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 32
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer/TitleContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer/TitleContainer" unique_id=750571589]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_ynme6")
 theme_override_font_sizes/normal_font_size = 64
 text = "Upgrades"
 fit_content = true
 
-[node name="ExitButtonContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer"]
+[node name="ExitButtonContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer" unique_id=1186983363]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 0
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 0
 
-[node name="ExitButton" type="Button" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer/ExitButtonContainer"]
+[node name="ExitButton" type="Button" parent="MarginContainer/ColorRect/VBoxContainer/HBoxContainer/ExitButtonContainer" unique_id=351865209]
 layout_mode = 2
 icon = ExtResource("2_qyvaf")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer" unique_id=355924065]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 32
@@ -74,75 +73,81 @@ theme_override_constants/margin_top = 128
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer" unique_id=1735470323]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 32
 
-[node name="SpeedRow" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="SpeedRow" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer" unique_id=950992245]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow" unique_id=1599067815]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow/MarginContainer" unique_id=1327256570]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_cppxt")
 theme_override_font_sizes/normal_font_size = 48
 text = "Thrust (Cost: 10 metal)"
 fit_content = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow" unique_id=1210697638]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="SpeedButton" type="Button" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow/MarginContainer2"]
+[node name="SpeedButton" type="Button" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow/MarginContainer2" unique_id=1549776017]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ynme6")
 theme_override_font_sizes/font_size = 48
 text = "Upgrade"
 
-[node name="SpaceRow" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="SpaceRow" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer" unique_id=51252330]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow" unique_id=799433904]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow/MarginContainer" unique_id=743916382]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_cppxt")
 theme_override_font_sizes/normal_font_size = 48
 text = "cargo space (Cost: 10 plastic)"
 fit_content = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow" unique_id=1878441113]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="SpaceButton" type="Button" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow/MarginContainer2"]
+[node name="SpaceButton" type="Button" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow/MarginContainer2" unique_id=182758861]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ynme6")
 theme_override_font_sizes/font_size = 48
 text = "Upgrade"
 
-[node name="LightRow" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="LightRow" type="HBoxContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1838960624]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow" unique_id=200720717]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer" unique_id=2011623834]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_cppxt")
 theme_override_font_sizes/normal_font_size = 48
 text = "Light fuel (Cost: 10 wood)"
 fit_content = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow" unique_id=934055038]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="LightButton" type="Button" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer2"]
+[node name="LightButton" type="Button" parent="MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer2" unique_id=1764775730]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ynme6")
 theme_override_font_sizes/font_size = 48
