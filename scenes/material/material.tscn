@@ -111,9 +111,14 @@ big_wood_variants = Array[PackedScene]([ExtResource("21_ft8tq")])
 
 [node name="WoodPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1186963512]
 stream = SubResource("AudioStreamRandomizer_8p6ok")
+volume_db = 8.0
+pitch_scale = 2.0
 
 [node name="PlasticPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1747360592]
 stream = SubResource("AudioStreamRandomizer_w8va7")
+volume_db = -8.0
+max_db = 0.0
+pitch_scale = 1.2
 
 [node name="MetalPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1949241798]
 stream = SubResource("AudioStreamRandomizer_4sf6h")
