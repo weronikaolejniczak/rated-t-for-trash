@@ -79,6 +79,7 @@ func _input(event):
 	
 	click_particles.emitting = true
 	click_particles.global_position = global_position
+	click_particles.restart()
 	
 	match random_material:
 		MaterialTypes.METAL:
