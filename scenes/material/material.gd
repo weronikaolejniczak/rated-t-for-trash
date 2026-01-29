@@ -24,6 +24,7 @@ enum MaterialSizes { SMALL, BIG }
 @onready var wood_player_3d: AudioStreamPlayer3D = $WoodPlayer3D
 @onready var plastic_player_3d: AudioStreamPlayer3D = $PlasticPlayer3D
 @onready var metal_player_3d: AudioStreamPlayer3D = $MetalPlayer3D
+@onready var click_particles: GPUParticles3D = $ClickParticles
 
 var velocity: Vector3 = Vector3.ZERO
 var angular_velocity: Vector3 = Vector3.ZERO
@@ -76,13 +77,19 @@ func _input(event):
 	if not (event is InputEventMouseButton and event.pressed): return
 	if not (_is_clicked(event.position)): return
 	
+	click_particles.emitting = true
+	click_particles.global_position = global_position
+	
 	match random_material:
 		MaterialTypes.METAL:
-			metal_player_3d.play()
+			if metal_player_3d:
+				metal_player_3d.play()
 		MaterialTypes.PLASTIC:
-			plastic_player_3d.play()
+			if plastic_player_3d:
+				plastic_player_3d.play()
 		MaterialTypes.WOOD:
-			wood_player_3d.play()
+			if wood_player_3d:
+				wood_player_3d.play()
 	
 	var amount = small_material_gain if random_size == MaterialSizes.SMALL else big_material_gain
 	
