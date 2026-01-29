@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://08inwdgabqo"]
+[gd_scene format=3 uid="uid://08inwdgabqo"]
 
 [ext_resource type="FontFile" uid="uid://bgv0qxjp0mwuf" path="res://assets/fonts/Kenney Future.ttf" id="1_aac20"]
 [ext_resource type="Texture2D" uid="uid://ciblxbpkhltrt" path="res://assets/textures/ui/Grey/Default/button_square_header_small_rectangle.png" id="1_f5cxw"]
@@ -8,13 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://rxai0204h0im" path="res://assets/textures/ui/metalPanel_blue.png" id="4_uegxj"]
 [ext_resource type="Texture2D" uid="uid://c8xmlddm8kb46" path="res://assets/textures/ui/metalPanel_yellow.png" id="5_nhd55"]
 [ext_resource type="Texture2D" uid="uid://bnrp63n6p4msu" path="res://assets/icons/keyboard/keyboard_s_outline.png" id="5_uegxj"]
+[ext_resource type="Texture2D" uid="uid://s6plcldlquja" path="res://assets/icons/game_icons/Black/1x/plus.png" id="6_iioc1"]
 [ext_resource type="Texture2D" uid="uid://djildks78cukk" path="res://assets/textures/ui/metalPanel_red.png" id="6_q6mn5"]
 [ext_resource type="Texture2D" uid="uid://digrmci872w22" path="res://assets/icons/keyboard/keyboard_d_outline.png" id="6_y220t"]
 [ext_resource type="Texture2D" uid="uid://cbjihli3x61pe" path="res://assets/icons/keyboard/keyboard_a_outline.png" id="7_4kltc"]
 [ext_resource type="Texture2D" uid="uid://bsrnh6e8eyop0" path="res://assets/icons/game_icons/White/1x/wrench.png" id="8_558d4"]
 [ext_resource type="Texture2D" uid="uid://bmmq2ih4f5p4c" path="res://assets/icons/mouse/mouse_left_outline.png" id="12_8nkf1"]
+[ext_resource type="AudioStream" uid="uid://cvbpiuh2wh662" path="res://assets/sfx/ui/UIMisc_Feedback 36 up_CB Sounddesign_ACTIVATION2.wav" id="14_4m1a1"]
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="Control" unique_id=536711986]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q6mn5")
 
-[node name="BottomLeftHUD" type="MarginContainer" parent="."]
+[node name="BottomLeftHUD" type="MarginContainer" parent="." unique_id=396804114]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -34,23 +36,24 @@ grow_vertical = 0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BottomLeftHUD"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomLeftHUD" unique_id=1395032427]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="DepthMeter" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer"]
+[node name="DepthMeter" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer" unique_id=1356963621]
 layout_mode = 2
 
-[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/DepthMeter"]
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/DepthMeter" unique_id=2099537642]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_f5cxw")
 
-[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/DepthMeter"]
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/DepthMeter" unique_id=1335976704]
 layout_mode = 2
 
-[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer"]
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer" unique_id=1782072546]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -58,7 +61,7 @@ size_flags_stretch_ratio = 0.0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 8
 
-[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer/LabelContainer"]
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer/LabelContainer" unique_id=852046057]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -70,7 +73,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer"]
+[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer" unique_id=2095096175]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -81,19 +84,20 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Inventory_Metal" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer"]
+[node name="Inventory_Metal" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer" unique_id=601277330]
 layout_mode = 2
 
-[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal"]
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal" unique_id=516928433]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("4_uegxj")
 stretch_mode = 5
 
-[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal"]
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal" unique_id=1775235702]
 layout_mode = 2
 alignment = 1
 
-[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer"]
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer" unique_id=1692675507]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -101,7 +105,7 @@ size_flags_stretch_ratio = 0.0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 8
 
-[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer/LabelContainer"]
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer/LabelContainer" unique_id=1639483384]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -113,7 +117,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer"]
+[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer" unique_id=1892764398]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -124,19 +128,27 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Inventory_Plastic" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer"]
+[node name="MetalLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal" unique_id=218891963]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("6_iioc1")
+
+[node name="Inventory_Plastic" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer" unique_id=585004403]
 layout_mode = 2
 
-[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic"]
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic" unique_id=727709426]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("5_nhd55")
 stretch_mode = 5
 
-[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic"]
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic" unique_id=1788560591]
 layout_mode = 2
 alignment = 1
 
-[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer"]
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer" unique_id=1229010508]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -144,7 +156,7 @@ size_flags_stretch_ratio = 0.0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 8
 
-[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer/LabelContainer"]
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer/LabelContainer" unique_id=1964136638]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -156,7 +168,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer"]
+[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer" unique_id=510413764]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -167,19 +179,27 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Inventory_Wood" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer"]
+[node name="PlasticLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic" unique_id=523094028]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("6_iioc1")
+
+[node name="Inventory_Wood" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer" unique_id=586660560]
 layout_mode = 2
 
-[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood"]
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood" unique_id=2126712311]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("6_q6mn5")
 stretch_mode = 5
 
-[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood"]
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood" unique_id=1382194318]
 layout_mode = 2
 alignment = 1
 
-[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer"]
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer" unique_id=701425361]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -187,7 +207,7 @@ size_flags_stretch_ratio = 0.0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 8
 
-[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/LabelContainer"]
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/LabelContainer" unique_id=2094340954]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -199,7 +219,7 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer"]
+[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer" unique_id=54035598]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -210,11 +230,18 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SkillTreeButton" type="Button" parent="BottomLeftHUD/HBoxContainer"]
+[node name="WoodLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood" unique_id=1604606837]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("6_iioc1")
+
+[node name="SkillTreeButton" type="Button" parent="BottomLeftHUD/HBoxContainer" unique_id=1940586161]
 layout_mode = 2
 icon = ExtResource("8_558d4")
 
-[node name="BottomRightHUD" type="MarginContainer" parent="."]
+[node name="BottomRightHUD" type="MarginContainer" parent="." unique_id=355551372]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -228,18 +255,18 @@ offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomRightHUD"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomRightHUD" unique_id=1749482662]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer" unique_id=1676926851]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer" unique_id=1407872150]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_top = 75
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer/MarginContainer" unique_id=1830822923]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("2_7vp6q")
@@ -248,45 +275,45 @@ text = "Move"
 fit_content = true
 vertical_alignment = 1
 
-[node name="KeysHint" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer"]
+[node name="KeysHint" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer" unique_id=1446434264]
 layout_mode = 2
 
-[node name="AKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint"]
+[node name="AKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint" unique_id=1494784232]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 texture = ExtResource("7_4kltc")
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint" unique_id=516562394]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="WKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint/VBoxContainer"]
+[node name="WKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint/VBoxContainer" unique_id=1070192368]
 layout_mode = 2
 texture = ExtResource("4_jcn1r")
 stretch_mode = 5
 
-[node name="SKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint/VBoxContainer"]
+[node name="SKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint/VBoxContainer" unique_id=1516673589]
 layout_mode = 2
 texture = ExtResource("5_uegxj")
 stretch_mode = 5
 
-[node name="DKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint"]
+[node name="DKey" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer/KeysHint" unique_id=1247288683]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture = ExtResource("6_y220t")
 stretch_mode = 5
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer" unique_id=1392782680]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer2" unique_id=1135011325]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=1782474288]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("2_7vp6q")
@@ -295,18 +322,18 @@ text = "CLEAN"
 fit_content = true
 vertical_alignment = 1
 
-[node name="MouseHint" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer2"]
+[node name="MouseHint" type="HBoxContainer" parent="BottomRightHUD/VBoxContainer/HBoxContainer2" unique_id=1555718329]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MouseHint"]
+[node name="TextureRect" type="TextureRect" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MouseHint" unique_id=1018330356]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture = ExtResource("12_8nkf1")
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MouseHint"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BottomRightHUD/VBoxContainer/HBoxContainer2/MouseHint" unique_id=296820827]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("2_7vp6q")
@@ -314,6 +341,11 @@ theme_override_font_sizes/normal_font_size = 16
 text = "CLICK"
 fit_content = true
 vertical_alignment = 1
+
+[node name="NotificationPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1653153149]
+stream = ExtResource("14_4m1a1")
+volume_db = -6.0
+pitch_scale = 0.6
 
 [connection signal="pressed" from="BottomLeftHUD/HBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
 [connection signal="toggled" from="BottomLeftHUD/HBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_toggled"]

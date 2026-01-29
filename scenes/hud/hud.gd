@@ -1,8 +1,8 @@
 extends Control
 
 
-@export var red_color: Color = Color.RED
-@export var black_color: Color = Color.BLACK
+@export var limit_color: Color = Color.GREEN
+@export var default_color: Color = Color.BLACK
 
 @onready var player: Player = $"../Player"
 @onready var skill_tree_ui: Control = $"../SkillTreeUI"
@@ -12,33 +12,47 @@ extends Control
 @onready var plastic_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer/Value
 @onready var wood_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/Value
 
+@onready var metal_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Metal/MetalLimitIcon
+@onready var plastic_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Plastic/PlasticLimitIcon
+@onready var wood_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Wood/WoodLimitIcon
 
-func format_value(value: int) -> String:
-	return str(value) + "/" + str(player.inventory_limit)
+@onready var notification_player_2d: AudioStreamPlayer2D = $NotificationPlayer2D
+
+var materials_at_limit: Dictionary = {
+	"metal": false,
+	"plastic": false,
+	"wood": false
+}
 
 func _process(_delta: float) -> void:
 	var depth = player.get_depth()
-	var inventory = Player.get_inventory()
-	
 	depth_value.text = str(depth)
-	metal_value.text = format_value(inventory.metal)
-	plastic_value.text = format_value(inventory.plastic)
-	wood_value.text = format_value(inventory.wood)
 	
-	if (inventory.metal == player.inventory_limit):
-		metal_value.set("theme_override_colors/default_color", red_color)
-	else:
-		metal_value.set("theme_override_colors/default_color", black_color)
+	var inventory = Player.get_inventory()
+	var limit = player.inventory_limit
 	
-	if (inventory.plastic == player.inventory_limit):
-		plastic_value.set("theme_override_colors/default_color", red_color)
+	_update_material_display("metal", inventory.metal, limit, metal_value, metal_limit_icon)
+	_update_material_display("plastic", inventory.plastic, limit, plastic_value, plastic_limit_icon)
+	_update_material_display("wood", inventory.wood, limit, wood_value, wood_limit_icon)
+
+
+func _update_material_display(material_name: String, current_value: int, limit: int, label_node: RichTextLabel, icon_node: TextureRect) -> void:
+	label_node.text = "%d/%d" % [current_value, limit]
+
+	var is_at_limit = (current_value == limit)
+
+	icon_node.visible = is_at_limit
+
+	if is_at_limit:
+		label_node.set("theme_override_colors/default_color", limit_color)
 	else:
-		plastic_value.set("theme_override_colors/default_color", black_color)
-	
-	if (inventory.wood == player.inventory_limit):
-		wood_value.set("theme_override_colors/default_color", red_color)
-	else:
-		wood_value.set("theme_override_colors/default_color", black_color)
+		label_node.set("theme_override_colors/default_color", default_color)
+
+	if is_at_limit and not materials_at_limit[material_name]:
+		notification_player_2d.play()
+
+	materials_at_limit[material_name] = is_at_limit
+
 
 func _on_skill_tree_button_pressed() -> void:
 	skill_tree_ui.toggle_skill_tree()
