@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://rxai0204h0im" path="res://assets/textures/ui/metalPanel_blue.png" id="4_uegxj"]
 [ext_resource type="Texture2D" uid="uid://c8xmlddm8kb46" path="res://assets/textures/ui/metalPanel_yellow.png" id="5_nhd55"]
 [ext_resource type="Texture2D" uid="uid://bnrp63n6p4msu" path="res://assets/icons/keyboard/keyboard_s_outline.png" id="5_uegxj"]
-[ext_resource type="Texture2D" uid="uid://s6plcldlquja" path="res://assets/icons/game_icons/Black/1x/plus.png" id="6_iioc1"]
+[ext_resource type="StyleBox" uid="uid://d2gy6ftb1ut3v" path="res://assets/themes/containers/style_box_flat_green.tres" id="6_567j1"]
+[ext_resource type="Texture2D" uid="uid://0amor87spr37" path="res://assets/icons/game_icons/White/1x/plus.png" id="6_iioc1"]
 [ext_resource type="Texture2D" uid="uid://djildks78cukk" path="res://assets/textures/ui/metalPanel_red.png" id="6_q6mn5"]
 [ext_resource type="Texture2D" uid="uid://digrmci872w22" path="res://assets/icons/keyboard/keyboard_d_outline.png" id="6_y220t"]
 [ext_resource type="Texture2D" uid="uid://cbjihli3x61pe" path="res://assets/icons/keyboard/keyboard_a_outline.png" id="7_4kltc"]
@@ -128,7 +129,14 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MetalLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal" unique_id=218891963]
+[node name="MetalLimitContainer" type="PanelContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal" unique_id=2080953675]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("6_567j1")
+
+[node name="MetalLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/MetalLimitContainer" unique_id=218891963]
+visible = false
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
@@ -179,7 +187,14 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlasticLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic" unique_id=523094028]
+[node name="PlasticLimitContainer" type="PanelContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic" unique_id=793450765]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("6_567j1")
+
+[node name="PlasticLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/PlasticLimitContainer" unique_id=523094028]
+visible = false
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
@@ -230,7 +245,14 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WoodLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood" unique_id=1604606837]
+[node name="WoodLimitContainer" type="PanelContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood" unique_id=385191274]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("6_567j1")
+
+[node name="WoodLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/WoodLimitContainer" unique_id=1604606837]
+visible = false
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8

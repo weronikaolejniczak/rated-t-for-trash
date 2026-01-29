@@ -12,9 +12,9 @@ extends Control
 @onready var plastic_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer/Value
 @onready var wood_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/Value
 
-@onready var metal_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Metal/MetalLimitIcon
-@onready var plastic_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Plastic/PlasticLimitIcon
-@onready var wood_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Wood/WoodLimitIcon
+@onready var metal_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Metal/MetalLimitContainer/MetalLimitIcon
+@onready var plastic_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Plastic/PlasticLimitContainer/PlasticLimitIcon
+@onready var wood_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Wood/WoodLimitContainer/WoodLimitIcon
 
 @onready var notification_player_2d: AudioStreamPlayer2D = $NotificationPlayer2D
 
