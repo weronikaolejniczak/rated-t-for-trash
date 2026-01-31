@@ -118,25 +118,25 @@ func _is_clicked(screen_pos: Vector2) -> bool:
 	return result and result.collider == self
 
 func _process_collection(type: MaterialTypes, amount: int):
-	var inventory = Player.get_inventory()
-	var inventory_limit = Player.get_inventory_limit()
+	var inventory = player.get_inventory()
+	var inventory_limit = player.get_inventory_limit()
 	
 	match type:
 		MaterialTypes.METAL:
 			if (inventory.metal == inventory_limit):
 				return
 			else:
-				Player.adjust_resource("metal", amount)
+				player.adjust_resource("metal", amount)
 		MaterialTypes.PLASTIC:
 			if (inventory.plastic == inventory_limit):
 				return
 			else:
-				Player.adjust_resource("plastic", amount)
+				player.adjust_resource("plastic", amount)
 		MaterialTypes.WOOD:
 			if (inventory.wood == inventory_limit):
 				return
 			else:
-				Player.adjust_resource("wood", amount)
+				player.adjust_resource("wood", amount)
 	
 	set_process(false)
 	set_physics_process(false)

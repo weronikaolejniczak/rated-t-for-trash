@@ -1,7 +1,7 @@
 extends MarginContainer
 
 
-@export var player: Player
+@export var player: RigidBody3D
 
 @onready var mat: ShaderMaterial = $Texture.material
 

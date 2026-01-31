@@ -2,7 +2,7 @@ extends Node3D
 
 
 @onready var game: Node3D = $".."
-@onready var player: Player = $"../Player"
+@onready var player: RigidBody3D = $"../Player"
 @onready var fish_spawner: Node3D = $"../FishSpawner"
 
 ## Background music audio file path

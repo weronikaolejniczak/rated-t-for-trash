@@ -111,7 +111,6 @@ func upgrade_space() -> bool:
 
 func get_light_level() -> float:
 	var level = (spot_light_3d.spot_range - 4.0) / light_upgrade_amount
-	print(level)
 	return level
 
 func get_light_cost() -> int:
