@@ -10,7 +10,7 @@ const MIN_VOLUMETRIC_FOG_DENSITY: float = 0.0
 const MAX_VOLUMETRIC_FOG_DENSITY: float = 0.1
 
 @onready var game: Node3D = $".."
-@onready var player: Player = $"../Player"
+@onready var player: RigidBody3D = $"../Player"
 @onready var sun: DirectionalLight3D = $"../DirectionalLight3D"
 
 

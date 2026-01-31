@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c44hry2vkmgmb" path="res://Assets/Textures/UI/Grey/Default/button_square_header_small_rectangle.png" id="1_f5cxw"]
 [ext_resource type="Script" uid="uid://bqbkjg25i18dr" path="res://Scenes/HUD/hud.gd" id="1_q6mn5"]
 [ext_resource type="FontFile" uid="uid://dqp004ff48btq" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="2_7vp6q"]
+[ext_resource type="Texture2D" uid="uid://cel8hcccex1xd" path="res://Assets/Icons/GameIcons/White/1x/audioOn.png" id="2_oqfm8"]
 [ext_resource type="Texture2D" uid="uid://duucbchw5aygl" path="res://Assets/Icons/Keyboard/keyboard_w_outline.png" id="4_jcn1r"]
 [ext_resource type="Texture2D" uid="uid://dl6i156fjmdw5" path="res://Assets/Textures/UI/metalPanel_blue.png" id="4_uegxj"]
 [ext_resource type="Texture2D" uid="uid://b1td8621cyebk" path="res://Assets/Textures/UI/metalPanel_yellow.png" id="5_nhd55"]
@@ -25,6 +26,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q6mn5")
+
+[node name="TopRightHUD" type="MarginContainer" parent="." unique_id=1722121764]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="VolumeButton" type="Button" parent="TopRightHUD" unique_id=1115489933]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("2_oqfm8")
 
 [node name="BottomLeftHUD" type="MarginContainer" parent="." unique_id=396804114]
 layout_mode = 1
@@ -74,7 +91,8 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer" unique_id=2095096175]
+[node name="DepthValue" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer" unique_id=2095096175]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -118,7 +136,8 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer" unique_id=1892764398]
+[node name="MetalValue" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer" unique_id=1892764398]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -136,6 +155,7 @@ size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("6_567j1")
 
 [node name="MetalLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Metal/MetalLimitContainer" unique_id=218891963]
+unique_name_in_owner = true
 visible = false
 texture_filter = 1
 layout_mode = 2
@@ -176,7 +196,8 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer" unique_id=510413764]
+[node name="PlasticValue" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer" unique_id=510413764]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -194,6 +215,7 @@ size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("6_567j1")
 
 [node name="PlasticLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Plastic/PlasticLimitContainer" unique_id=523094028]
+unique_name_in_owner = true
 visible = false
 texture_filter = 1
 layout_mode = 2
@@ -234,7 +256,8 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Value" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer" unique_id=54035598]
+[node name="WoodValue" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer" unique_id=54035598]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
@@ -252,6 +275,7 @@ size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("6_567j1")
 
 [node name="WoodLimitIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Wood/WoodLimitContainer" unique_id=1604606837]
+unique_name_in_owner = true
 visible = false
 texture_filter = 1
 layout_mode = 2

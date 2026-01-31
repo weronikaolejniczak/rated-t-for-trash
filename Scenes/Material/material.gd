@@ -20,7 +20,7 @@ enum MaterialSizes { SMALL, BIG }
 ## By how much does the hit increment when clicking
 @export var incrementer: int = 1
 
-@onready var player: Player = $"../../Player"
+@onready var player: RigidBody3D = $"../../Player"
 @onready var wood_player_3d: AudioStreamPlayer3D = $WoodPlayer3D
 @onready var plastic_player_3d: AudioStreamPlayer3D = $PlasticPlayer3D
 @onready var metal_player_3d: AudioStreamPlayer3D = $MetalPlayer3D

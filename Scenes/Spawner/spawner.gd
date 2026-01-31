@@ -25,7 +25,7 @@ extends Node3D
 ## The object's rotation angle in radians
 @export var rotation_angle: float = 1.0
 
-@onready var player: Player = $"../Player"
+@onready var player: RigidBody3D = $"../Player"
 @onready var left_wall: CSGBox3D = $"../WorldBoundaries/TransparentLeftWall"
 @onready var right_wall: CSGBox3D = $"../WorldBoundaries/TransparentRightWall"
 @onready var timer: Timer = $Timer

@@ -4,17 +4,17 @@ extends Control
 @export var limit_color: Color = Color.GREEN
 @export var default_color: Color = Color.BLACK
 
-@onready var player: Player = $"../Player"
+@onready var player: RigidBody3D = $"../Player"
 @onready var skill_tree_ui: Control = $"../SkillTreeUI"
 
-@onready var depth_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/DepthMeter/TextContainer/Value
-@onready var metal_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Metal/TextContainer/Value
-@onready var plastic_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Plastic/TextContainer/Value
-@onready var wood_value: RichTextLabel = $BottomLeftHUD/HBoxContainer/Inventory_Wood/TextContainer/Value
+@onready var depth_value: RichTextLabel = %DepthValue
+@onready var metal_value: RichTextLabel = %MetalValue
+@onready var plastic_value: RichTextLabel = %PlasticValue
+@onready var wood_value: RichTextLabel = %WoodValue
 
-@onready var metal_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Metal/MetalLimitContainer/MetalLimitIcon
-@onready var plastic_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Plastic/PlasticLimitContainer/PlasticLimitIcon
-@onready var wood_limit_icon: TextureRect = $BottomLeftHUD/HBoxContainer/Inventory_Wood/WoodLimitContainer/WoodLimitIcon
+@onready var metal_limit_icon: TextureRect = %MetalLimitIcon
+@onready var plastic_limit_icon: TextureRect = %PlasticLimitIcon
+@onready var wood_limit_icon: TextureRect = %WoodLimitIcon
 
 @onready var notification_player_2d: AudioStreamPlayer2D = $NotificationPlayer2D
 

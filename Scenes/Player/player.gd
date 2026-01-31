@@ -1,6 +1,4 @@
 extends RigidBody3D
-class_name Player
-
 
 @export_category("Movement")
 ## How much thrust force to apply when moving

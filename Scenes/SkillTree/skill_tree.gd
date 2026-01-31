@@ -6,7 +6,7 @@ extends Control
 @onready var speed_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow/MarginContainer2/SpeedButton
 @onready var space_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow/MarginContainer2/SpaceButton
 @onready var light_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer2/LightButton
-@onready var player: Player = $"../Player"
+@onready var player: RigidBody3D = $"../Player"
 @onready var button_click_player_2d: AudioStreamPlayer2D = $ButtonClickPlayer2D
 
 var is_open: bool = false
