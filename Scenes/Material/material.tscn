@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://cfri23ks35txw"]
+
+[ext_resource type="Script" uid="uid://c130yjreb0f21" path="res://Scenes/Material/material.gd" id="1_6lttb"]
+[ext_resource type="PackedScene" uid="uid://csrcjkuj5fycm" path="res://Scenes/Material/Metal/bear_trap_open.tscn" id="2_m7ivh"]
+[ext_resource type="PackedScene" uid="uid://bcvep0i67mfjc" path="res://Scenes/Material/Metal/can_broken.tscn" id="3_x4570"]
+[ext_resource type="PackedScene" uid="uid://khfuoyv3u5bf" path="res://Scenes/Material/Metal/can_closed.tscn" id="4_j6be5"]
+[ext_resource type="PackedScene" uid="uid://pnu1wwd6tpue" path="res://Scenes/Material/Metal/can_red.tscn" id="5_kgw42"]
+[ext_resource type="PackedScene" uid="uid://bsx8javto3b64" path="res://Scenes/Material/Metal/gas_tank.tscn" id="6_rwhvt"]
+[ext_resource type="PackedScene" uid="uid://dpby7lntgnq1t" path="res://Scenes/Material/Metal/radio.tscn" id="7_4su81"]
+[ext_resource type="PackedScene" uid="uid://bguvhqbc8i2nu" path="res://Scenes/Material/Metal/bathroom_washing_machine.tscn" id="8_pfl8i"]
+[ext_resource type="PackedScene" uid="uid://co3nxihho2beh" path="res://Scenes/Material/Metal/kitchen_oven_large.tscn" id="9_drpi1"]
+[ext_resource type="PackedScene" uid="uid://cfo7elkee618s" path="res://Scenes/Material/Plastic/crushed_bottle.tscn" id="10_40s6k"]
+[ext_resource type="PackedScene" uid="uid://dl62lkbec36xj" path="res://Scenes/Material/Plastic/dwarf_bottle.tscn" id="11_8p6ok"]
+[ext_resource type="PackedScene" uid="uid://bco3hba72o1d8" path="res://Scenes/Material/Plastic/flat_bottle.tscn" id="12_k1fmu"]
+[ext_resource type="PackedScene" uid="uid://dftvghcy6arhr" path="res://Scenes/Material/Plastic/traffic_cone_1.tscn" id="13_wi6s8"]
+[ext_resource type="PackedScene" uid="uid://b6tq661dd6oa8" path="res://Scenes/Material/Plastic/twisted_bottle.tscn" id="14_w8va7"]
+[ext_resource type="PackedScene" uid="uid://d1263aorw4sa0" path="res://Scenes/Material/Plastic/water_bottle_3.tscn" id="15_3c3r2"]
+[ext_resource type="PackedScene" uid="uid://bbpgsnc5hhem0" path="res://Scenes/Material/Plastic/bathroom_toilet.tscn" id="16_pki2i"]
+[ext_resource type="PackedScene" uid="uid://bugg7od88b0cp" path="res://Scenes/Material/Plastic/guitar.tscn" id="17_n7nho"]
+[ext_resource type="PackedScene" uid="uid://c2ons2bihp07c" path="res://Scenes/Material/Plastic/plastic_barrier.tscn" id="18_4sf6h"]
+[ext_resource type="PackedScene" uid="uid://dl8snk3kwxa34" path="res://Scenes/Material/Wood/chest_special.tscn" id="19_gc5gv"]
+[ext_resource type="PackedScene" uid="uid://bcifwm7f5lfw4" path="res://Scenes/Material/Wood/barrel.tscn" id="20_gaefk"]
+[ext_resource type="PackedScene" uid="uid://cdv10t03jeac4" path="res://Scenes/Material/Wood/crate.tscn" id="21_ft8tq"]
+[ext_resource type="AudioStream" uid="uid://ce28w2yhpdkwc" path="res://Assets/SFX/Wood/recycle_wood_1.ogg" id="22_rwhvt"]
+[ext_resource type="AudioStream" uid="uid://d3bkl0wocxwhj" path="res://Assets/SFX/Wood/recycle_wood_2.ogg" id="23_4su81"]
+[ext_resource type="AudioStream" uid="uid://cmabffmhpsolj" path="res://Assets/SFX/Wood/recycle_wood_3.ogg" id="24_pfl8i"]
+[ext_resource type="AudioStream" uid="uid://ccp146urb5yy3" path="res://Assets/SFX/Wood/recycle_wood_4.ogg" id="25_drpi1"]
+[ext_resource type="AudioStream" uid="uid://b6wp8ccjdh2i7" path="res://Assets/SFX/Wood/recycle_wood_5.ogg" id="26_40s6k"]
+[ext_resource type="AudioStream" uid="uid://bao67e0njdpef" path="res://Assets/SFX/Plastic/recycle_plastic_1.ogg" id="27_40s6k"]
+[ext_resource type="AudioStream" uid="uid://ofx6iuben0r2" path="res://Assets/SFX/Plastic/recycle_plastic_2.ogg" id="28_8p6ok"]
+[ext_resource type="AudioStream" uid="uid://c35ocpixfvmv" path="res://Assets/SFX/Plastic/recycle_plastic_3.ogg" id="29_k1fmu"]
+[ext_resource type="AudioStream" uid="uid://hyrdj0laxtrq" path="res://Assets/SFX/Plastic/recycle_plastic_4.ogg" id="30_wi6s8"]
+[ext_resource type="AudioStream" uid="uid://cpv601j4g46us" path="res://Assets/SFX/Metal/recycle_metal_1.ogg" id="31_w8va7"]
+[ext_resource type="AudioStream" uid="uid://dn5d6hhvc3tf7" path="res://Assets/SFX/Metal/recycle_metal_2.ogg" id="32_3c3r2"]
+[ext_resource type="AudioStream" uid="uid://b2uttcjas1ml4" path="res://Assets/SFX/Metal/recycle_metal_3.ogg" id="33_pki2i"]
+[ext_resource type="AudioStream" uid="uid://iu3nijrv5dej" path="res://Assets/SFX/Metal/recycle_metal_4.ogg" id="34_n7nho"]
+[ext_resource type="Texture2D" uid="uid://c0g5lm5uq4cm6" path="res://Assets/Textures/Particles/KenneyTransparent/circle_05.png" id="35_kd1t0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8p6ok"]
+streams_count = 5
+stream_0/stream = ExtResource("22_rwhvt")
+stream_1/stream = ExtResource("23_4su81")
+stream_2/stream = ExtResource("24_pfl8i")
+stream_3/stream = ExtResource("25_drpi1")
+stream_4/stream = ExtResource("26_40s6k")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w8va7"]
+streams_count = 4
+stream_0/stream = ExtResource("27_40s6k")
+stream_1/stream = ExtResource("28_8p6ok")
+stream_2/stream = ExtResource("29_k1fmu")
+stream_3/stream = ExtResource("30_wi6s8")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4sf6h"]
+streams_count = 4
+stream_0/stream = ExtResource("31_w8va7")
+stream_1/stream = ExtResource("32_3c3r2")
+stream_2/stream = ExtResource("33_pki2i")
+stream_3/stream = ExtResource("34_n7nho")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pki2i"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("35_kd1t0")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_n7nho"]
+_limits = [0.0, 0.2, 0.0, 1.0]
+_data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(1, 0.04662922), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mtuoh"]
+curve = SubResource("Curve_n7nho")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4sf6h"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_mtuoh")
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+turbulence_noise_scale = 4.0
+turbulence_noise_speed_random = 0.25
+
+[sub_resource type="QuadMesh" id="QuadMesh_gc5gv"]
+
+[node name="Material" type="StaticBody3D" unique_id=759864703]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_6lttb")
+small_metal_variants = Array[PackedScene]([ExtResource("2_m7ivh"), ExtResource("3_x4570"), ExtResource("4_j6be5"), ExtResource("5_kgw42"), ExtResource("6_rwhvt"), ExtResource("7_4su81")])
+big_metal_variants = Array[PackedScene]([ExtResource("8_pfl8i"), ExtResource("9_drpi1")])
+small_plastic_variants = Array[PackedScene]([ExtResource("10_40s6k"), ExtResource("11_8p6ok"), ExtResource("12_k1fmu"), ExtResource("13_wi6s8"), ExtResource("14_w8va7"), ExtResource("15_3c3r2")])
+big_plastic_variants = Array[PackedScene]([ExtResource("16_pki2i"), ExtResource("17_n7nho"), ExtResource("18_4sf6h")])
+small_wood_variants = Array[PackedScene]([ExtResource("19_gc5gv"), ExtResource("20_gaefk")])
+big_wood_variants = Array[PackedScene]([ExtResource("21_ft8tq")])
+
+[node name="WoodPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1186963512]
+stream = SubResource("AudioStreamRandomizer_8p6ok")
+volume_db = 8.0
+pitch_scale = 2.0
+
+[node name="PlasticPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1747360592]
+stream = SubResource("AudioStreamRandomizer_w8va7")
+volume_db = -8.0
+max_db = 0.0
+pitch_scale = 1.2
+
+[node name="MetalPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1949241798]
+stream = SubResource("AudioStreamRandomizer_4sf6h")
+
+[node name="MaterialBubblesParticles" type="GPUParticles3D" parent="." unique_id=1007265463]
+transform = Transform3D(0.45000005, 0, 0, 0, 0.40000007, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_pki2i")
+amount = 30
+lifetime = 2.0
+randomness = 1.0
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_4sf6h")
+draw_pass_1 = SubResource("QuadMesh_gc5gv")
+
+[node name="ClickParticles" type="GPUParticles3D" parent="." unique_id=634238793]
+transform = Transform3D(0.45000005, 0, 0, 0, 0.40000007, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_pki2i")
+emitting = false
+amount = 60
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_4sf6h")
+draw_pass_1 = SubResource("QuadMesh_gc5gv")

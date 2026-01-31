@@ -20,3 +20,6 @@ mono_crash.*.json
 
 # VSCode settings
 .vscode/
+
+# Exports
+Dist

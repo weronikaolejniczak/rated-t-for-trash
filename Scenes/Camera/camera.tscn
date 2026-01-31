@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bfpbl3k6wqqeq"]
+
+[ext_resource type="Script" uid="uid://cj4hm5hg71e31" path="res://Scenes/Camera/camera.gd" id="1_wmbm5"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_xejhd"]
+dof_blur_far_distance = 5.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 1.0
+
+[node name="Camera" type="Node3D"]
+script = ExtResource("1_wmbm5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+attributes = SubResource("CameraAttributesPractical_xejhd")
+fov = 80.0
+size = 12.065
+near = 0.005

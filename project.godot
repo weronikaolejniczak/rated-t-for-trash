@@ -22,7 +22,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Rated T for Trash"
 run/main_scene="uid://b53pfq04i66yx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://cj0xb37trddxx"
 
 [display]
 
@@ -35,6 +35,10 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
+"res://Assets/": "green",
+"res://Dist/": "red",
+"res://Scenes/": "blue",
+"res://Shaders/": "purple",
 "res://assets/": "green"
 }
 
