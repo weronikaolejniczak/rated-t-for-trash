@@ -37,39 +37,6 @@ var initial_rotation: Vector3 = Vector3.ZERO
 var robot_tween: Tween
 var underwater_tween: Tween
 
-static var inventory_limit: int = 10
-
-static var inventory = {
-	metal = 0,
-	plastic = 0,
-	wood = 0
-}
-
-# RESOURCE LOGIC
-
-static func adjust_resource(type: String, amount: int) -> void:
-	if (not inventory.has(type)): return
-	
-	inventory[type] = clamp(inventory[type] + amount, 0, inventory_limit)
-
-static func try_removing_resource(type: String, amount: int) -> bool:
-	if (inventory.has(type) and inventory[type] >= amount):
-		inventory[type] -= amount
-		return true
-	
-	return false
-
-# INVENTORY LOGIC
-
-static func get_inventory() -> Dictionary:
-	return inventory
-
-static func get_inventory_limit() -> int:
-	return inventory_limit
-
-static func set_inventory_limit(amount: int) -> void:
-	inventory_limit = amount
-
 func get_depth() -> int:
 	var depth = floor(self.global_position.y)
 	return depth
@@ -86,7 +53,7 @@ func get_speed_cost() -> int:
 	return initial_upgrade_cost + (int(get_speed_level()) * 10)
 
 func upgrade_speed() -> float:
-	if try_removing_resource("metal", get_speed_cost()):
+	if InventoryManager.try_removing_resource("metal", get_speed_cost()):
 		thrust += thrust_upgrade_amount
 		return true
 	
@@ -95,14 +62,14 @@ func upgrade_speed() -> float:
 # SPACE
 
 func get_space_level() -> float:
-	return (inventory_limit - 10.0) / space_upgrade_amount
+	return (InventoryManager.inventory_limit - 10.0) / space_upgrade_amount
 
 func get_space_cost() -> int:
 	return initial_upgrade_cost + (int(get_space_level()) * 10)
 
 func upgrade_space() -> bool:
-	if try_removing_resource("plastic", get_space_cost()):
-		inventory_limit += space_upgrade_amount
+	if InventoryManager.try_removing_resource("plastic", get_space_cost()):
+		InventoryManager.inventory_limit += space_upgrade_amount
 		return true
 	
 	return false
@@ -117,7 +84,7 @@ func get_light_cost() -> int:
 	return initial_upgrade_cost + (int(get_light_level()) * 10)
 
 func upgrade_light() -> bool:
-	if try_removing_resource("wood", get_light_cost()):
+	if InventoryManager.try_removing_resource("wood", get_light_cost()):
 		spot_light_3d.spot_range += light_upgrade_amount
 		spot_light_3d.light_energy += 2.0
 		return true

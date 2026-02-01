@@ -1,9 +1,5 @@
 extends StaticBody3D
 
-
-enum MaterialTypes { METAL, PLASTIC, WOOD }
-enum MaterialSizes { SMALL, BIG }
-
 @export_category("Material scenes")
 @export var small_metal_variants: Array[PackedScene]
 @export var big_metal_variants: Array[PackedScene]
@@ -26,6 +22,9 @@ enum MaterialSizes { SMALL, BIG }
 @onready var metal_player_3d: AudioStreamPlayer3D = $MetalPlayer3D
 @onready var click_particles: GPUParticles3D = $ClickParticles
 
+enum MaterialTypes { METAL, PLASTIC, WOOD }
+enum MaterialSizes { SMALL, BIG }
+
 var velocity: Vector3 = Vector3.ZERO
 var angular_velocity: Vector3 = Vector3.ZERO
 var random_material: MaterialTypes
@@ -34,7 +33,6 @@ var click_counter: int = 0
 
 const RAY_LENGTH = 1000.0
 
-# INTERNAL METHODS AND SIGNALS
 
 func _ready() -> void:
 	var materials = {
@@ -75,7 +73,7 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if not (event is InputEventMouseButton and event.pressed): return
-	if not (_is_clicked(event.position)): return
+	if not (is_clicked(event.position)): return
 	
 	click_particles.emitting = true
 	click_particles.global_position = global_position
@@ -98,12 +96,9 @@ func _input(event):
 		click_counter += incrementer
 		return
 	
-	_process_collection(random_material, amount)
+	process_collection(random_material, amount)
 
-
-# UTILITY FUNCTIONS
-
-func _is_clicked(screen_pos: Vector2) -> bool:
+func is_clicked(screen_pos: Vector2) -> bool:
 	var camera = get_viewport().get_camera_3d()
 	if (not camera): return false
 	
@@ -117,26 +112,26 @@ func _is_clicked(screen_pos: Vector2) -> bool:
 	
 	return result and result.collider == self
 
-func _process_collection(type: MaterialTypes, amount: int):
-	var inventory = player.get_inventory()
-	var inventory_limit = player.get_inventory_limit()
+func process_collection(type: MaterialTypes, amount: int):
+	var inventory = InventoryManager.get_inventory()
+	var inventory_limit = InventoryManager.get_inventory_limit()
 	
 	match type:
 		MaterialTypes.METAL:
 			if (inventory.metal == inventory_limit):
 				return
 			else:
-				player.adjust_resource("metal", amount)
+				InventoryManager.adjust_resource("metal", amount)
 		MaterialTypes.PLASTIC:
 			if (inventory.plastic == inventory_limit):
 				return
 			else:
-				player.adjust_resource("plastic", amount)
+				InventoryManager.adjust_resource("plastic", amount)
 		MaterialTypes.WOOD:
 			if (inventory.wood == inventory_limit):
 				return
 			else:
-				player.adjust_resource("wood", amount)
+				InventoryManager.adjust_resource("wood", amount)
 	
 	set_process(false)
 	set_physics_process(false)

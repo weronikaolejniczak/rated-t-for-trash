@@ -36,8 +36,8 @@ func _process(_delta: float) -> void:
 	var depth = player.get_depth()
 	depth_value.text = str(depth)
 	
-	var inventory = player.get_inventory()
-	var limit = player.inventory_limit
+	var inventory = InventoryManager.get_inventory()
+	var limit = InventoryManager.inventory_limit
 	
 	_update_material_display("metal", inventory.metal, limit, metal_value, metal_limit_icon)
 	_update_material_display("plastic", inventory.plastic, limit, plastic_value, plastic_limit_icon)
