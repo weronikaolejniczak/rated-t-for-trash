@@ -31,6 +31,7 @@ var materials_at_limit: Dictionary = {
 	"wood": false
 }
 
+
 func _process(_delta: float) -> void:
 	var depth = player.get_depth()
 	depth_value.text = str(depth)
@@ -41,7 +42,6 @@ func _process(_delta: float) -> void:
 	_update_material_display("metal", inventory.metal, limit, metal_value, metal_limit_icon)
 	_update_material_display("plastic", inventory.plastic, limit, plastic_value, plastic_limit_icon)
 	_update_material_display("wood", inventory.wood, limit, wood_value, wood_limit_icon)
-
 
 func _update_material_display(material_name: String, current_value: int, limit: int, label_node: RichTextLabel, icon_node: TextureRect) -> void:
 	label_node.text = "%d/%d" % [current_value, limit]
