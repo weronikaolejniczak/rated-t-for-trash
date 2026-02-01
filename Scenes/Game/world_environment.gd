@@ -7,7 +7,7 @@ const MAX_SUN_LIGHT_ENERGY: float = 1.5
 const MIN_BG_ENERGY_MULTIPLIER: float = 0.01
 const MAX_BG_ENERGY_MULTIPLIER: float = 1.5
 const MIN_VOLUMETRIC_FOG_DENSITY: float = 0.0
-const MAX_VOLUMETRIC_FOG_DENSITY: float = 0.1
+const MAX_VOLUMETRIC_FOG_DENSITY: float = 0.05
 
 @onready var game: Node3D = $".."
 @onready var player: RigidBody3D = $"../Player"

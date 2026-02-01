@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bi47kxe10605f" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="PackedScene" uid="uid://bfpbl3k6wqqeq" path="res://Scenes/Camera/camera.tscn" id="2_7r8ec"]
+[ext_resource type="PackedScene" uid="uid://dsn1nsysr24ud" path="res://Scenes/UpgradeManager/upgrade_manager.tscn" id="2_cid5o"]
 [ext_resource type="Material" uid="uid://dl71wespr01d8" path="res://Assets/Materials/ocean_background.tres" id="2_jxx51"]
 [ext_resource type="Script" uid="uid://lqwp2r5riys6" path="res://Scenes/Game/world_environment.gd" id="2_q06b2"]
 [ext_resource type="Material" uid="uid://c4k1pfqnpmstg" path="res://Assets/Materials/transparent.tres" id="2_wsift"]
@@ -46,6 +47,9 @@ albedo_color = Color(0, 0, 0, 1)
 [node name="Game" type="Node3D" unique_id=1992613279]
 
 [node name="InventoryManager" parent="." unique_id=179761833 instance=ExtResource("16_3hq7a")]
+
+[node name="UpgradeManager" parent="." unique_id=1066493997 node_paths=PackedStringArray("player") instance=ExtResource("2_cid5o")]
+player = NodePath("../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1481914294]
 environment = SubResource("Environment_q06b2")
