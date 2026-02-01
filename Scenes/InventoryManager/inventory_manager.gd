@@ -22,6 +22,13 @@ static func try_removing_resource(type: String, amount: int) -> bool:
 	
 	return false
 
+static func try_removing_gears(amount: int) -> bool:
+	if inventory.gears >= amount:
+		inventory.gears -= amount
+		return true
+	
+	return false
+
 static func get_inventory() -> Dictionary:
 	return inventory
 

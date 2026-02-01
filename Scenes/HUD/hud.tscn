@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://djq8x85csdhd3" path="res://Assets/Icons/Keyboard/keyboard_d_outline.png" id="6_y220t"]
 [ext_resource type="Texture2D" uid="uid://dxqlfi03h0kwj" path="res://Assets/Icons/Keyboard/keyboard_a_outline.png" id="7_4kltc"]
 [ext_resource type="Texture2D" uid="uid://cf7i4kycf7hf3" path="res://Assets/Icons/GameIcons/White/1x/wrench.png" id="8_558d4"]
+[ext_resource type="Texture2D" uid="uid://s3w3sskf4evr" path="res://Assets/Textures/UI/metalPanel.png" id="11_bw5kp"]
 [ext_resource type="Texture2D" uid="uid://djyr0nbatdn23" path="res://Assets/Icons/Mouse/mouse_left_outline.png" id="12_8nkf1"]
 [ext_resource type="AudioStream" uid="uid://qfurwlef5kgk" path="res://Assets/SFX/UI/UIMisc_Feedback 36 up_CB Sounddesign_ACTIVATION2.wav" id="14_4m1a1"]
 
@@ -102,6 +103,21 @@ text = "-1000"
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GearUpgradeContainer" type="PanelContainer" parent="BottomLeftHUD/HBoxContainer/DepthMeter" unique_id=463593907]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("6_567j1")
+
+[node name="GearUpgradeIcon" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/DepthMeter/GearUpgradeContainer" unique_id=670635887]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("6_iioc1")
 
 [node name="Inventory_Metal" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer" unique_id=601277330]
 layout_mode = 2
@@ -282,6 +298,51 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture = ExtResource("6_iioc1")
+
+[node name="Inventory_Gears" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer" unique_id=1490075589]
+layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="BottomLeftHUD/HBoxContainer/Inventory_Gears" unique_id=1384118649]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("11_bw5kp")
+stretch_mode = 5
+
+[node name="TextContainer" type="VBoxContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Gears" unique_id=1613458465]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelContainer" type="MarginContainer" parent="BottomLeftHUD/HBoxContainer/Inventory_Gears/TextContainer" unique_id=1030809449]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Gears/TextContainer/LabelContainer" unique_id=535692094]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("2_7vp6q")
+theme_override_font_sizes/normal_font_size = 12
+text = "Gears"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GearsValue" type="RichTextLabel" parent="BottomLeftHUD/HBoxContainer/Inventory_Gears/TextContainer" unique_id=886842725]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+theme_override_fonts/normal_font = ExtResource("1_aac20")
+theme_override_font_sizes/normal_font_size = 18
+text = "1"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SkillTreeButton" type="Button" parent="BottomLeftHUD/HBoxContainer" unique_id=1940586161]
 layout_mode = 2

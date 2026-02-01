@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bm0s6x11c7rgl"]
+
+[ext_resource type="Material" uid="uid://c4k1pfqnpmstg" path="res://Assets/Materials/transparent.tres" id="1_eg3dk"]
+
+[node name="Boundary2" type="CSGBox3D" unique_id=1997799670]
+transform = Transform3D(-2.18557e-08, -1, 0, -2.18557e-08, 1.91069e-15, -0.5, 0.5, -4.37114e-08, -2.18557e-08, 0, 0, 0)
+material_override = ExtResource("1_eg3dk")
+use_collision = true
+collision_layer = 4
+collision_mask = 9
+size = Vector3(100, 100, 1)

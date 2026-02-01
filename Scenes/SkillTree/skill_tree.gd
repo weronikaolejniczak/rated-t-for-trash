@@ -5,11 +5,13 @@ extends Control
 
 @onready var speed_label: RichTextLabel = %SpeedLabel
 @onready var space_label: RichTextLabel = %SpaceLabel
-@onready var light_label: RichTextLabel = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer/LightLabel
+@onready var light_label: RichTextLabel = %LightLabel
+@onready var depth_level_label: RichTextLabel = %DepthLevelLabel
 
-@onready var speed_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpeedRow/MarginContainer2/SpeedButton
-@onready var space_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/SpaceRow/MarginContainer2/SpaceButton
-@onready var light_button: Button = $MarginContainer/ColorRect/VBoxContainer/MarginContainer/VBoxContainer/LightRow/MarginContainer2/LightButton
+@onready var speed_button: Button = %SpeedButton
+@onready var space_button: Button = %SpaceButton
+@onready var light_button: Button = %LightButton
+@onready var depth_level_button: Button = %DepthLevelButton
 
 @onready var button_click_player_2d: AudioStreamPlayer2D = $ButtonClickPlayer2D
 
@@ -47,6 +49,11 @@ func _on_light_button_pressed() -> void:
 	if upgrade_manager.upgrade_light():
 		update_ui()
 
+func _on_depth_level_button_pressed() -> void:
+	button_click_player_2d.play()
+	if upgrade_manager.unlock_depth_level():
+		update_ui()
+
 func toggle_skill_tree() -> void:
 	is_open = !is_open
 	
@@ -69,9 +76,10 @@ func update_ui() -> void:
 	update_texts()
 
 func update_buttons() -> void:
-	speed_button.disabled = upgrade_manager.get_speed_level() > 4
-	space_button.disabled = upgrade_manager.get_space_level() > 4
-	light_button.disabled = upgrade_manager.get_light_level() > 4
+	speed_button.disabled = upgrade_manager.get_speed_level() == upgrade_manager.max_thrust_level
+	space_button.disabled = upgrade_manager.get_space_level() == upgrade_manager.max_space_level
+	light_button.disabled = upgrade_manager.get_light_level() == upgrade_manager.max_light_level
+	depth_level_button.disabled = upgrade_manager.get_depth_level() == upgrade_manager.max_depth_level
 	pass
 
 func update_texts() -> void:
@@ -81,3 +89,6 @@ func update_texts() -> void:
 	space_label.text = "Cargo space (Cost: " + str(space_cost) + " plastic)"
 	var light_cost = upgrade_manager.get_light_cost()
 	light_label.text = "Depth light (Cost: " + str(light_cost) + " wood)"
+	var depth_level_cost = upgrade_manager.get_depth_cost()
+	var gear_label = " gears)" if depth_level_cost > 1 else " gear)"
+	depth_level_label.text = "Depth level (Cost: " + str(depth_level_cost) + gear_label
