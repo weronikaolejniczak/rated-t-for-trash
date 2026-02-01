@@ -393,5 +393,6 @@ stream = ExtResource("14_4m1a1")
 volume_db = -6.0
 pitch_scale = 0.6
 
+[connection signal="pressed" from="TopRightHUD/VolumeButton" to="." method="_on_volume_button_pressed"]
 [connection signal="pressed" from="BottomLeftHUD/HBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_pressed"]
 [connection signal="toggled" from="BottomLeftHUD/HBoxContainer/SkillTreeButton" to="." method="_on_skill_tree_button_toggled"]

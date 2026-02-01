@@ -6,6 +6,8 @@ extends Control
 
 @onready var player: RigidBody3D = $"../Player"
 @onready var skill_tree_ui: Control = $"../SkillTreeUI"
+@onready var music_player_2d: AudioStreamPlayer2D = $"../Player/MusicPlayer2D"
+@onready var volume_button: Button = %VolumeButton
 
 @onready var depth_value: RichTextLabel = %DepthValue
 @onready var metal_value: RichTextLabel = %MetalValue
@@ -17,6 +19,11 @@ extends Control
 @onready var wood_limit_icon: TextureRect = %WoodLimitIcon
 
 @onready var notification_player_2d: AudioStreamPlayer2D = $NotificationPlayer2D
+
+const AUDIO_ON = preload("uid://cel8hcccex1xd")
+const AUDIO_OFF = preload("uid://4l3nagq4y2qt")
+
+var is_music_playing: bool = true
 
 var materials_at_limit: Dictionary = {
 	"metal": false,
@@ -53,6 +60,15 @@ func _update_material_display(material_name: String, current_value: int, limit: 
 
 	materials_at_limit[material_name] = is_at_limit
 
-
 func _on_skill_tree_button_pressed() -> void:
 	skill_tree_ui.toggle_skill_tree()
+
+func _on_volume_button_pressed() -> void:
+	if is_music_playing:
+		music_player_2d.volume_linear = 0
+		is_music_playing = false
+		volume_button.icon = AUDIO_OFF
+	else:
+		music_player_2d.volume_linear = 1
+		is_music_playing = true
+		volume_button.icon = AUDIO_ON
