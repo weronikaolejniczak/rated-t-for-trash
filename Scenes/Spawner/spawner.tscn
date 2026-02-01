@@ -4,7 +4,6 @@
 
 [node name="Spawner" type="Node3D" unique_id=799861375]
 script = ExtResource("1_q65ip")
-spawn_y_offset = 20.0
 
 [node name="Timer" type="Timer" parent="." unique_id=758014670]
 autostart = true

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://csis2yc2msa4n"]
+
+[ext_resource type="PackedScene" uid="uid://bnsvit0ivd5e2" path="res://Assets/Models/Fish/FishV3.fbx" id="1_ei17t"]
+
+[node name="FishV3" unique_id=1188545565 instance=ExtResource("1_ei17t")]
+transform = Transform3D(-5.6824803e-08, 0, -1.3, 0, 1.3, 0, 1.3, 0, -5.6824803e-08, 0, 0, 0)

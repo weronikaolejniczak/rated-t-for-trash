@@ -17,7 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://c4kshbailagvb" path="res://Assets/SFX/Ambience/sea-underwater.ogg" id="8_sq5bl"]
 [ext_resource type="PackedScene" uid="uid://bv0ujhhf8xeap" path="res://Scenes/SkillTree/skill_tree.tscn" id="13_lbkq5"]
 [ext_resource type="PackedScene" uid="uid://u11hajpq56jy" path="res://Scenes/InventoryManager/inventory_manager.tscn" id="16_3hq7a"]
+[ext_resource type="PackedScene" uid="uid://jxocm56tosya" path="res://Scenes/Fish/fish2.tscn" id="16_18sgl"]
 [ext_resource type="AudioStream" uid="uid://ci8e68ig32e1j" path="res://Assets/SFX/UI/UIClick_UI Click 33_CB Sounddesign_ACTIVATION2.wav" id="17_20rup"]
+[ext_resource type="PackedScene" uid="uid://bgub04cs355ch" path="res://Scenes/Fish/fish3.tscn" id="17_bgmid"]
+[ext_resource type="PackedScene" uid="uid://djxkaxf1jxsax" path="res://Scenes/Fish/fish4.tscn" id="18_n2mrn"]
 [ext_resource type="PackedScene" uid="uid://8h5vrdvjkwmj" path="res://Scenes/Collectibles/gear.tscn" id="19_p3bnw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ecdjj"]
@@ -174,6 +177,27 @@ stream = ExtResource("8_sq5bl")
 [node name="Gear" parent="Collectibles" unique_id=1331944823 instance=ExtResource("19_p3bnw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8766737, -48.785156, 0.0667994)
 
+[node name="Gear7" parent="Collectibles" unique_id=547398319 instance=ExtResource("19_p3bnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.201912, -69.88019, 0.0667994)
+
+[node name="Gear8" parent="Collectibles" unique_id=851900973 instance=ExtResource("19_p3bnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.598114, -84.34447, 0.0667994)
+
+[node name="Gear9" parent="Collectibles" unique_id=238408426 instance=ExtResource("19_p3bnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.598114, -125.38985, 0.0667994)
+
+[node name="Gear10" parent="Collectibles" unique_id=522483103 instance=ExtResource("19_p3bnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.598114, -176.39786, 0.0667994)
+
+[node name="Gear11" parent="Collectibles" unique_id=2080860381 instance=ExtResource("19_p3bnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.789917, -191.85439, 0.0667994)
+
+[node name="Gear12" parent="Collectibles" unique_id=50497954 instance=ExtResource("19_p3bnw")]
+transform = Transform3D(0.92596227, 0.36630872, -0.091716364, -0.36711827, 0.9301355, 0.008494417, 0.08842023, 0.025805239, 0.99574894, 19.789917, -219.37367, 0.0667994)
+
+[node name="Gear13" parent="Collectibles" unique_id=224115968 instance=ExtResource("19_p3bnw")]
+transform = Transform3D(0.92596227, 0.36630872, -0.091716364, -0.36711827, 0.9301355, 0.008494417, 0.08842023, 0.025805239, 0.99574894, -18.54007, -265.448, 0.0667994)
+
 [node name="Gear2" parent="Collectibles" unique_id=2102257936 instance=ExtResource("19_p3bnw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.313, -149.653, 0.067)
 
@@ -195,19 +219,43 @@ target = NodePath("../Player")
 [node name="MaterialSpawner" parent="." unique_id=412575790 instance=ExtResource("4_kr7le")]
 objects_to_spawn = Array[PackedScene]([ExtResource("7_fxxt8")])
 object_speed = 4.0
-spawn_x_offset = 10.0
-spawn_y_offset = 15.0
+timer_value = 0.1
 spawn_z_offset = -0.5
-min_spawn_depth = -20.0
+min_spawn_y = -5.0
+max_spawn_y = -397.5
 is_continuously_rotating = true
 
 [node name="FishSpawner" parent="." unique_id=1293204238 instance=ExtResource("4_kr7le")]
 objects_to_spawn = Array[PackedScene]([ExtResource("8_fxxt8")])
 object_speed = 8.0
 timer_value = 2.0
-spawn_y_offset = 10.0
 spawn_z_offset = -2.0
-min_spawn_depth = -50.0
+min_spawn_y = -2.5
+max_spawn_y = -97.5
+
+[node name="FishSpawner2" parent="." unique_id=799861375 instance=ExtResource("4_kr7le")]
+objects_to_spawn = Array[PackedScene]([ExtResource("16_18sgl")])
+object_speed = 8.0
+timer_value = 2.0
+spawn_z_offset = -2.0
+min_spawn_y = -102.5
+max_spawn_y = -197.5
+
+[node name="FishSpawner3" parent="." unique_id=81753771 instance=ExtResource("4_kr7le")]
+objects_to_spawn = Array[PackedScene]([ExtResource("17_bgmid")])
+object_speed = 8.0
+timer_value = 2.0
+spawn_z_offset = -2.0
+min_spawn_y = -202.5
+max_spawn_y = -297.5
+
+[node name="FishSpawner4" parent="." unique_id=1059925946 instance=ExtResource("4_kr7le")]
+objects_to_spawn = Array[PackedScene]([ExtResource("18_n2mrn")])
+object_speed = 8.0
+timer_value = 2.0
+spawn_z_offset = -2.0
+min_spawn_y = -302.5
+max_spawn_y = -397.5
 
 [node name="WaterEffect" parent="." unique_id=118294669 node_paths=PackedStringArray("player") instance=ExtResource("3_04h35")]
 player = NodePath("../Player")

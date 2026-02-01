@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dqhuws71iabpf"]
+
+[ext_resource type="PackedScene" uid="uid://cd1tq68vkpxf8" path="res://Assets/Models/Fish/Eel.fbx" id="1_bg1dw"]
+[ext_resource type="Script" uid="uid://cxe8337vvytld" path="res://Scenes/Fish/animation.gd" id="2_wmjy3"]
+
+[node name="Eel" unique_id=1510764010 instance=ExtResource("1_bg1dw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("2_wmjy3")
+animation_name = "Armature|Swim"
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(982587549) index="0" unique_id=528830279]
+bones/0/rotation = Quaternion(-0.046512242, -1.1808372e-17, 7.756883e-17, 0.99891776)
+bones/1/rotation = Quaternion(0.099762976, 1.0765658e-17, -8.7339863e-17, 0.99501127)
+bones/2/rotation = Quaternion(-0.065386154, 3.945125e-25, 1.4518643e-17, 0.9978601)
+bones/3/rotation = Quaternion(-0.0011062549, 1.7064413e-17, 2.2846085e-17, 0.99999946)
+bones/5/rotation = Quaternion(-3.0471974e-06, -0.06863704, 0.99764174, 1.907735e-07)
+bones/5/scale = Vector3(1, 0.99998826, 0.9995374)
+bones/6/rotation = Quaternion(0.1439807, -3.6900257e-11, 8.798607e-07, 0.9895805)

@@ -100,6 +100,7 @@ exit={
 3d_physics/layer_5="Fish"
 3d_physics/layer_6="Despawner"
 3d_physics/layer_7="Collectibles"
+3d_physics/layer_8="Environment"
 
 [rendering]
 

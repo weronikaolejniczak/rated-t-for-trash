@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dg76vs8q028p2"]
+
+[ext_resource type="PackedScene" uid="uid://blyie8603eg5o" path="res://Assets/Models/Fish/FishV6.fbx" id="1_6x5o3"]
+[ext_resource type="Script" uid="uid://cxe8337vvytld" path="res://Scenes/Fish/animation.gd" id="2_trral"]
+
+[node name="FishV6" unique_id=654621524 instance=ExtResource("1_6x5o3")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("2_trral")
+animation_name = "Armature|Swim"
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(638883354) index="0" unique_id=1972420204]
+bones/0/rotation = Quaternion(0.6930367, 0, 0, 0.7209024)
+bones/3/rotation = Quaternion(0.0073906165, -1.5074543e-05, -0.0030181385, 0.9999682)
+bones/4/rotation = Quaternion(-0.066509105, 6.585383e-10, 1.2181396e-08, 0.99778587)
+bones/7/rotation = Quaternion(0.99492633, 0.09850707, 0.004127987, -0.02002333)
+bones/9/rotation = Quaternion(0.99650973, -0.08108368, 0.00053964637, -0.019837629)

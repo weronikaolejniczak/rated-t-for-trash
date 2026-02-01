@@ -12,12 +12,12 @@ extends Node3D
 @export_category("Position")
 ## The x offset in meters from the wall that the object spawned at
 @export_range(5.0, 10.0) var spawn_x_offset: float = 5.0
-## The y offset in meters from the player where the object may spawn
-@export_range(2.0, 15.0) var spawn_y_offset: float = 10.0
 ## The z offset in meters from the player where the object may spawn
-@export_range(-2.0, 2.0) var spawn_z_offset: float = -1.0
-## What is the minimum depth at which objects start spawning
-@export var min_spawn_depth: float = -10.0
+@export_range(2.0, 6.0) var spawn_z_offset: float = 4.0
+## The minimum y where the object may spawn
+@export var min_spawn_y: float
+## The maximum y where the object may spawn
+@export var max_spawn_y: float
 
 @export_category("Rotation")
 ## Whether the object is rotating continuously
@@ -39,8 +39,6 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	if (is_enabled): spawn_object()
 
-# UTILITY FUNCTIONS
-
 func get_wall(side: String) -> CSGBox3D:
 	var wall: CSGBox3D
 	if (side == 'left'): wall = spawn_left_wall
@@ -56,8 +54,7 @@ func get_spawn_x(wall: CSGBox3D, side: String) -> float:
 	return spawn_x
 
 func get_spawn_y() -> float:
-	var random_offset: float = randf_range(-spawn_y_offset, spawn_y_offset)
-	var spawn_y: float = min(player.get_depth() + random_offset, min_spawn_depth)
+	var spawn_y: float = randf_range(min_spawn_y, max_spawn_y)
 	return spawn_y
 
 func get_spawn_direction(side: String) -> Vector3:
@@ -85,7 +82,7 @@ func spawn_object():
 	var spawn_x: float = get_spawn_x(wall, side)
 	var spawn_y: float = get_spawn_y()
 	var z_jitter = randf_range(-2.0, 2.0)
-	var spawn_z: float = player.global_position.z + spawn_z_offset + z_jitter
+	var spawn_z: float = spawn_z_offset + z_jitter
 	
 	var object = objects_to_spawn.pick_random().instantiate()
 	var spawn_position = Vector3(spawn_x, spawn_y, spawn_z)

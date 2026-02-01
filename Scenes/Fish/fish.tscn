@@ -1,7 +1,23 @@
 [gd_scene format=3 uid="uid://bh7lu47252k1j"]
 
 [ext_resource type="Script" uid="uid://dmakk7wnqsg6u" path="res://Scenes/Fish/fish.gd" id="1_r17d5"]
-[ext_resource type="PackedScene" uid="uid://v1jtw3kj425g" path="res://Scenes/Fish/hammerhead.tscn" id="4_risfn"]
+[ext_resource type="PackedScene" uid="uid://cmjkn1qwu24lo" path="res://Scenes/Fish/Meshes/manta_ray.tscn" id="2_q28ix"]
+[ext_resource type="PackedScene" uid="uid://c2ayc5plpbl38" path="res://Scenes/Fish/Meshes/dolphin.tscn" id="3_832ja"]
+[ext_resource type="PackedScene" uid="uid://v1jtw3kj425g" path="res://Scenes/Fish/Meshes/hammerhead.tscn" id="4_risfn"]
+[ext_resource type="PackedScene" uid="uid://dbbhs8h02mde5" path="res://Scenes/Fish/Meshes/fish.tscn" id="4_xle30"]
+[ext_resource type="PackedScene" uid="uid://dkwi3grlsbomq" path="res://Scenes/Fish/Meshes/fish_v_1.tscn" id="5_4nuof"]
+[ext_resource type="PackedScene" uid="uid://bjgj7rjnpjcmq" path="res://Scenes/Fish/Meshes/anglerfish.tscn" id="5_30gcr"]
+[ext_resource type="PackedScene" uid="uid://dqhuws71iabpf" path="res://Scenes/Fish/Meshes/eel.tscn" id="5_kc0gn"]
+[ext_resource type="PackedScene" uid="uid://pnp1nwwkdif0" path="res://Scenes/Fish/Meshes/fish_v_2.tscn" id="6_mre3c"]
+[ext_resource type="PackedScene" uid="uid://ctt0vbd5vhvb2" path="res://Scenes/Fish/Meshes/squid.tscn" id="6_p1drs"]
+[ext_resource type="PackedScene" uid="uid://csis2yc2msa4n" path="res://Scenes/Fish/Meshes/fish_v_3.tscn" id="7_yp6q7"]
+[ext_resource type="PackedScene" uid="uid://cgisdmvge1imy" path="res://Scenes/Fish/Meshes/fish_v_4.tscn" id="8_ai4ry"]
+[ext_resource type="PackedScene" uid="uid://c5y07g5woocq8" path="res://Scenes/Fish/Meshes/whale.tscn" id="8_ppdow"]
+[ext_resource type="PackedScene" uid="uid://bfu607naq0nm4" path="res://Scenes/Fish/Meshes/fish_v_5.tscn" id="9_m82i6"]
+[ext_resource type="PackedScene" uid="uid://dg76vs8q028p2" path="res://Scenes/Fish/Meshes/fish_v_6.tscn" id="10_sim0p"]
+[ext_resource type="PackedScene" uid="uid://c6u8f8jidk2p" path="res://Scenes/Fish/Meshes/fish_v_7.tscn" id="11_2ael2"]
+[ext_resource type="PackedScene" uid="uid://bxftd7gx2e4q6" path="res://Scenes/Fish/Meshes/fish_v_8.tscn" id="12_hfje2"]
+[ext_resource type="PackedScene" uid="uid://cujgy8mmm20d7" path="res://Scenes/Fish/Meshes/fish_v_9.tscn" id="13_ajjg8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rrrj0"]
 
@@ -9,7 +25,10 @@
 collision_layer = 16
 collision_mask = 32
 script = ExtResource("1_r17d5")
-variants = Array[PackedScene]([ExtResource("4_risfn")])
+level_1_variants = Array[PackedScene]([ExtResource("2_q28ix"), ExtResource("3_832ja"), ExtResource("4_xle30"), ExtResource("5_4nuof"), ExtResource("6_mre3c"), ExtResource("7_yp6q7"), ExtResource("8_ai4ry"), ExtResource("9_m82i6"), ExtResource("10_sim0p"), ExtResource("11_2ael2"), ExtResource("12_hfje2"), ExtResource("13_ajjg8")])
+level_2_variants = Array[PackedScene]([ExtResource("4_risfn"), ExtResource("5_kc0gn"), ExtResource("3_832ja"), ExtResource("2_q28ix"), ExtResource("4_xle30"), ExtResource("5_4nuof"), ExtResource("6_mre3c"), ExtResource("7_yp6q7"), ExtResource("8_ai4ry"), ExtResource("9_m82i6")])
+level_3_variants = Array[PackedScene]([ExtResource("8_ppdow"), ExtResource("4_risfn"), ExtResource("3_832ja"), ExtResource("6_p1drs")])
+level_4_variants = Array[PackedScene]([ExtResource("6_p1drs"), ExtResource("5_30gcr"), ExtResource("4_risfn")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=528726429]
 shape = SubResource("SphereShape3D_rrrj0")

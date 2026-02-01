@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bjgj7rjnpjcmq"]
+
+[ext_resource type="PackedScene" uid="uid://cdlcps6t5wu4a" path="res://Assets/Models/Fish/Anglerfish.fbx" id="1_djgbc"]
+[ext_resource type="Script" uid="uid://cxe8337vvytld" path="res://Scenes/Fish/animation.gd" id="2_4lgxh"]
+
+[node name="Anglerfish" unique_id=590080194 instance=ExtResource("1_djgbc")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("2_4lgxh")
+animation_name = "Fish_Armature|Swimming_Fast"
+
+[node name="Skeleton3D" parent="Fish_Armature" parent_id_path=PackedInt32Array(1298042491) index="0" unique_id=79197263]
+bones/0/rotation = Quaternion(-3.1504296e-06, -3.1504296e-06, -0.038862314, 0.99924463)
+bones/1/rotation = Quaternion(-0.009255128, 0.07944494, -0.035623286, 0.99615955)
+bones/2/rotation = Quaternion(-3.1161665e-06, -3.1136028e-06, -0.024106774, 0.9997095)
+bones/3/rotation = Quaternion(-0.00798226, 0.00041002623, -0.042141847, 0.99907976)
+bones/4/rotation = Quaternion(0.007984063, -0.00029024002, 0.03632516, 0.99930817)
+bones/5/rotation = Quaternion(-1.31379485e-08, -1.6099552e-08, 0.1977724, 0.98024803)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1999257614]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.018158555, 0.669428, 2.5186405)
+omni_range = 0.10320245

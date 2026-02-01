@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c2ayc5plpbl38"]
+
+[ext_resource type="PackedScene" uid="uid://bccl3mis8jhur" path="res://Assets/Models/Fish/Dolphin.fbx" id="1_kpivh"]
+[ext_resource type="Script" uid="uid://cxe8337vvytld" path="res://Scenes/Fish/animation.gd" id="2_eo2ix"]
+
+[node name="Dolphin" unique_id=748491196 instance=ExtResource("1_kpivh")]
+script = ExtResource("2_eo2ix")
+animation_name = "Armature|Swim"
+
+[node name="Armature" parent="." index="0" unique_id=365463373]
+transform = Transform3D(90, 0, 0, 0, -3.934025e-06, 90, 0, -90, -3.934025e-06, -1, 0.533, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0" unique_id=1939001137]
+bones/1/rotation = Quaternion(-0.7273683, -5.879297e-18, 5.9825383e-18, 0.68624735)
+bones/2/rotation = Quaternion(-0.027929697, -0.00018033988, 0.0016428934, 0.9996085)
+bones/3/rotation = Quaternion(0.013204106, 0.00020451743, -0.001640059, 0.9999115)
+bones/4/rotation = Quaternion(-0.022667304, -7.197382e-11, 5.731064e-09, 0.9997431)
+bones/5/rotation = Quaternion(-0.009995889, 2.2468602e-10, -6.053548e-09, 0.99995005)
+bones/7/rotation = Quaternion(-0.3016832, -0.06161876, -0.35287708, 0.8835543)
+bones/9/rotation = Quaternion(0.017485486, 0.01778183, 0.1043749, 0.9942253)
+bones/11/rotation = Quaternion(-0.2717645, 0.07147336, 0.4189844, 0.8634163)
+bones/13/rotation = Quaternion(-0.06749618, -0.013683577, -0.18278433, 0.980738)
+bones/15/rotation = Quaternion(0.7190477, 1.259009e-06, 1.3020796e-06, 0.6949607)

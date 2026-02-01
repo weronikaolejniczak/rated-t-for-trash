@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bgub04cs355ch"]
+
+[ext_resource type="PackedScene" uid="uid://bh7lu47252k1j" path="res://Scenes/Fish/fish.tscn" id="1_d4cma"]
+
+[node name="Fish" unique_id=1468331538 instance=ExtResource("1_d4cma")]
+level = 3
