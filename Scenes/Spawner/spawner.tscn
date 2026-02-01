@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://w36sqkuqf7sj" path="res://Scenes/Spawner/spawner.gd" id="1_q65ip"]
 
-[node name="Spawner" type="Node3D"]
+[node name="Spawner" type="Node3D" unique_id=799861375]
 script = ExtResource("1_q65ip")
 spawn_y_offset = 20.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=758014670]
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

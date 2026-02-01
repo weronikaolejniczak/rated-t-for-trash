@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://u86fd4icaddh"]
+
+[ext_resource type="Script" uid="uid://crevlyes6kkga" path="res://Scenes/Spawner/despawning_wall.gd" id="1_fxmlh"]
+[ext_resource type="Material" uid="uid://dl71wespr01d8" path="res://Assets/Materials/ocean_background.tres" id="1_i6y0i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i6y0i"]
+size = Vector3(1, 420.1008, 50.137085)
+
+[node name="DespawningWall" type="Node3D" unique_id=427936740]
+script = ExtResource("1_fxmlh")
+
+[node name="SolidWall" type="CSGBox3D" parent="." unique_id=210180760]
+transform = Transform3D(-2.18557e-08, 0, -1, 0, 1, 0, 0.5, 0, -4.37114e-08, 0, -204.75, 5.5)
+material_override = ExtResource("1_i6y0i")
+use_collision = true
+collision_layer = 2
+size = Vector3(100, 420, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=497486882]
+collision_layer = 32
+collision_mask = 24
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=329248963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004142761, -204.74046, 5.6030593)
+shape = SubResource("BoxShape3D_i6y0i")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

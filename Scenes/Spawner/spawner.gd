@@ -26,14 +26,12 @@ extends Node3D
 @export var rotation_angle: float = 1.0
 
 @onready var player: RigidBody3D = $"../Player"
-@onready var left_wall: CSGBox3D = $"../WorldBoundaries/TransparentLeftWall"
-@onready var right_wall: CSGBox3D = $"../WorldBoundaries/TransparentRightWall"
+@onready var spawn_left_wall: CSGBox3D = $"../WorldBoundaries/TransparentLeftWall"
+@onready var spawn_right_wall: CSGBox3D = $"../WorldBoundaries/TransparentRightWall"
 @onready var timer: Timer = $Timer
 
 var sides: Array[String] = ["left", "right"]
 
-
-# INTERNAL METHODS AND SIGNALS
 
 func _ready() -> void:
 	if (timer): timer.wait_time = timer_value
@@ -45,8 +43,8 @@ func _on_timer_timeout() -> void:
 
 func get_wall(side: String) -> CSGBox3D:
 	var wall: CSGBox3D
-	if (side == 'left'): wall = left_wall
-	else: wall = right_wall
+	if (side == 'left'): wall = spawn_left_wall
+	else: wall = spawn_right_wall
 	return wall
 
 func get_spawn_x(wall: CSGBox3D, side: String) -> float:
@@ -95,7 +93,7 @@ func spawn_object():
 	var spawn_velocity = spawn_direction * object_speed
 	
 	object.position = spawn_position
-	object.velocity = spawn_velocity
+	object.linear_velocity = spawn_velocity
 	
 	add_child(object)
 	

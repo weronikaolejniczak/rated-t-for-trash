@@ -1,4 +1,5 @@
-extends StaticBody3D
+extends CharacterBody3D
+
 
 @export_category("Material scenes")
 @export var small_metal_variants: Array[PackedScene]
@@ -25,7 +26,7 @@ extends StaticBody3D
 enum MaterialTypes { METAL, PLASTIC, WOOD }
 enum MaterialSizes { SMALL, BIG }
 
-var velocity: Vector3 = Vector3.ZERO
+var linear_velocity: Vector3 = Vector3.ZERO
 var angular_velocity: Vector3 = Vector3.ZERO
 var random_material: MaterialTypes
 var random_size: MaterialSizes
@@ -64,12 +65,14 @@ func _ready() -> void:
 		if (child is CollisionShape3D):
 			child.reparent.call_deferred(self)
 
-func _process(delta: float) -> void:
-	global_translate(velocity * delta)
+func _physics_process(delta: float) -> void:
+	velocity = linear_velocity
 	
 	rotate_x(angular_velocity.x * delta)
 	rotate_y(angular_velocity.y * delta)
 	rotate_z(angular_velocity.z * delta)
+	
+	move_and_slide()
 
 func _input(event):
 	if not (event is InputEventMouseButton and event.pressed): return

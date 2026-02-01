@@ -43,6 +43,11 @@ folder_colors={
 "res://assets/": "green"
 }
 
+[global_group]
+
+fish=""
+material=""
+
 [input]
 
 open_skill_tree={
@@ -91,6 +96,8 @@ exit={
 3d_physics/layer_2="VerticalBoundary"
 3d_physics/layer_3="HorizontalBoundary"
 3d_physics/layer_4="Material"
+3d_physics/layer_5="Fish"
+3d_physics/layer_6="Despawner"
 
 [rendering]
 
