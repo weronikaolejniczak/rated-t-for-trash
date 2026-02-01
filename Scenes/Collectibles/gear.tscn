@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://8h5vrdvjkwmj"]
+
+[ext_resource type="Script" uid="uid://dpdr6ckg5wo6j" path="res://Scenes/Collectibles/gear.gd" id="1_3xaba"]
+[ext_resource type="PackedScene" uid="uid://bqavfandfctfk" path="res://Assets/Models/Collectibles/Collectible_Gear.fbx" id="1_nbsgu"]
+[ext_resource type="Texture2D" uid="uid://chual6myhlfd1" path="res://Assets/Textures/Particles/KenneyTransparent/circle_01.png" id="3_3w5xc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nbsgu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbsgu"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+albedo_color = Color(1, 0.85490197, 0.5803922, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3xaba"]
+radius = 0.7709425
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f27l2"]
+transparency = 1
+albedo_texture = ExtResource("3_3w5xc")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_xk6vd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6461039, 0.769663), -0.8074907, -0.8074907, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_g8v2m"]
+curve = SubResource("Curve_xk6vd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xf467"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_over_velocity_max = 0.01
+scale_over_velocity_curve = SubResource("CurveTexture_g8v2m")
+
+[sub_resource type="QuadMesh" id="QuadMesh_1jhnh"]
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Animation" id="Animation_3w5xc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sphere3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f27l2"]
+resource_name = "scale_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sphere3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 0.29730132),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xk6vd"]
+_data = {
+&"RESET": SubResource("Animation_3w5xc"),
+&"scale_down": SubResource("Animation_f27l2")
+}
+
+[node name="Gear" type="CharacterBody3D" unique_id=1331944823]
+collision_layer = 64
+script = ExtResource("1_3xaba")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1756199156]
+shape = SubResource("SphereShape3D_nbsgu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=762853233]
+omni_range = 0.76434934
+
+[node name="Sphere3D" type="CSGSphere3D" parent="." unique_id=1107770164]
+material_override = SubResource("StandardMaterial3D_nbsgu")
+radius = 0.73608947
+radial_segments = 48
+rings = 12
+
+[node name="Collectible_Gear" parent="Sphere3D" unique_id=1692271888 instance=ExtResource("1_nbsgu")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
+[node name="InteractArea3D" type="Area3D" parent="." unique_id=1390346760]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea3D" unique_id=620536394]
+shape = SubResource("SphereShape3D_3xaba")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2001117092]
+material_override = SubResource("StandardMaterial3D_f27l2")
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_xf467")
+draw_pass_1 = SubResource("QuadMesh_1jhnh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=279912727]
+libraries/ = SubResource("AnimationLibrary_xk6vd")
+
+[connection signal="body_entered" from="InteractArea3D" to="." method="_on_interact_area_3d_body_entered"]

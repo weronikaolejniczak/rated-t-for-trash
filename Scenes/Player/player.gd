@@ -27,41 +27,8 @@ var initial_rotation: Vector3 = Vector3.ZERO
 var robot_tween: Tween
 var underwater_tween: Tween
 
-
-func get_depth() -> int:
-	var depth = floor(self.global_position.y)
-	return depth
-
-func get_current_thrust() -> float:
-	return thrust
-
-func play_robot_sfx() -> void:
-	if robot_sfx_player_2d.playing: return
-	if robot_tween: robot_tween.kill()
-	robot_sfx_player_2d.play()
-	robot_tween = create_tween()
-	robot_tween.tween_property(robot_sfx_player_2d, "volume_db", 0, 0.05)
-
-func stop_robot_sfx() -> void:
-	if not robot_sfx_player_2d.playing: return
-	if robot_tween == null or not robot_tween.is_running():
-		robot_tween = create_tween()
-		robot_tween.tween_property(robot_sfx_player_2d, "volume_db", 0, 0.05).set_trans(Tween.TRANS_SINE)
-		robot_tween.finished.connect(robot_sfx_player_2d.stop)
-
-func play_underwater_sfx() -> void:
-	if underwater_sfx_player_2d.playing: return
-	if underwater_tween: underwater_tween.kill()
-	underwater_sfx_player_2d.play()
-	underwater_tween = create_tween()
-	underwater_tween.tween_property(underwater_sfx_player_2d, "volume_db", 0, 0.1)
-
-func stop_underwater_sfx() -> void:
-	if not underwater_sfx_player_2d.playing: return
-	if underwater_tween == null or not underwater_tween.is_running():
-		underwater_tween = create_tween()
-		underwater_tween.tween_property(underwater_sfx_player_2d, "volume_db", 0, 0.3).set_trans(Tween.TRANS_SINE)
-		underwater_tween.finished.connect(underwater_sfx_player_2d.stop)
+func _physics_process(delta: float) -> void:
+	move_player(delta)
 
 func move_player(delta: float) -> void:
 	var move_input = Vector3.ZERO
@@ -98,5 +65,37 @@ func move_player(delta: float) -> void:
 	robot_mesh.rotation.y = lerp(robot_mesh.rotation.y, target_tilt.y, delta * tilt_speed)
 	robot_mesh.rotation.z = lerp(robot_mesh.rotation.z, target_tilt.z, delta * tilt_speed)
 
-func _physics_process(delta: float) -> void:
-	move_player(delta)
+func get_depth() -> int:
+	var depth = floor(self.global_position.y)
+	return depth
+
+func get_current_thrust() -> float:
+	return thrust
+
+func play_robot_sfx() -> void:
+	if robot_sfx_player_2d.playing: return
+	if robot_tween: robot_tween.kill()
+	robot_sfx_player_2d.play()
+	robot_tween = create_tween()
+	robot_tween.tween_property(robot_sfx_player_2d, "volume_db", 0, 0.05)
+
+func stop_robot_sfx() -> void:
+	if not robot_sfx_player_2d.playing: return
+	if robot_tween == null or not robot_tween.is_running():
+		robot_tween = create_tween()
+		robot_tween.tween_property(robot_sfx_player_2d, "volume_db", 0, 0.05).set_trans(Tween.TRANS_SINE)
+		robot_tween.finished.connect(robot_sfx_player_2d.stop)
+
+func play_underwater_sfx() -> void:
+	if underwater_sfx_player_2d.playing: return
+	if underwater_tween: underwater_tween.kill()
+	underwater_sfx_player_2d.play()
+	underwater_tween = create_tween()
+	underwater_tween.tween_property(underwater_sfx_player_2d, "volume_db", 0, 0.1)
+
+func stop_underwater_sfx() -> void:
+	if not underwater_sfx_player_2d.playing: return
+	if underwater_tween == null or not underwater_tween.is_running():
+		underwater_tween = create_tween()
+		underwater_tween.tween_property(underwater_sfx_player_2d, "volume_db", 0, 0.3).set_trans(Tween.TRANS_SINE)
+		underwater_tween.finished.connect(underwater_sfx_player_2d.stop)

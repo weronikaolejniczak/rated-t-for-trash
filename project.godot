@@ -47,6 +47,7 @@ folder_colors={
 
 fish=""
 material=""
+player=""
 
 [input]
 
@@ -98,6 +99,7 @@ exit={
 3d_physics/layer_4="Material"
 3d_physics/layer_5="Fish"
 3d_physics/layer_6="Despawner"
+3d_physics/layer_7="Collectibles"
 
 [rendering]
 
